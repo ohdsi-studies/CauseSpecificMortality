@@ -17,4 +17,4 @@ FROM #final_cohort CO
 
 
 TRUNCATE TABLE #final_cohort;
-DROP TABLE #final_cohort;
+DROP TABLE #final_cohort;  
