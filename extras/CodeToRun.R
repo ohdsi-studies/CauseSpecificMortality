@@ -15,7 +15,7 @@ user <- 'ted9219'
 pw <- 'rddo678$'
 server <- '128.1.99.53'
 port <- '1433'
-
+ 
 connectionDetails <- DatabaseConnector::createConnectionDetails(dbms = dbms,
                                                                 server = server,
                                                                 user = user,
