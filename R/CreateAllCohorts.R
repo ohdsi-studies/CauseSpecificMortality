@@ -41,7 +41,7 @@
 createCohorts <- function(connectionDetails,
                           cdmDatabaseSchema,
                           cohortDatabaseSchema,
-                          cohortTable,
+                          cohortTable = "cohort",
                           oracleTempSchema,
                           outputFolder) {
   if (!file.exists(outputFolder))
