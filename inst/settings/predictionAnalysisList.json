@@ -61,7 +61,7 @@
       "includeAllOutcomes": true,
       "priorOutcomeLookback": 99999,
       "binary": true,
-      "removeSubjectsWithPriorOutcome": true,
+      "removeSubjectsWithPriorOutcome": false,
       "riskWindowEnd": 365,
       "firstExposureOnly": false
     }
@@ -79,60 +79,16 @@
   "description": null,
   "version": "v2.7.0",
   "outcomeIds": [
-    132,
     153,
-    154
+    154,
+    161,
+    132
   ],
   "skeletonVersion": "v0.0.1",
   "createdDate": null,
   "conceptSetCrossReference": [],
   "createdBy": null,
   "cohortDefinitions": [
-    {
-      "expression": {
-        "ExpressionLimit": {"Type": "First"},
-        "CollapseSettings": {
-          "CollapseType": "ERA",
-          "EraPad": 0
-        },
-        "CensorWindow": {
-          "StartDate": null,
-          "EndDate": null
-        },
-        "ConceptSets": [],
-        "EndStrategy": null,
-        "CensoringCriteria": [],
-        "Title": null,
-        "AdditionalCriteria": null,
-        "QualifiedLimit": {"Type": "First"},
-        "InclusionRules": [],
-        "PrimaryCriteria": {
-          "CriteriaList": [{"Death": {
-            "CorrelatedCriteria": null,
-            "CodesetId": null,
-            "DeathSourceConcept": null,
-            "DeathTypeExclude": false,
-            "DeathType": null,
-            "OccurrenceStartDate": null,
-            "Gender": null,
-            "Age": null
-          }}],
-          "PrimaryCriteriaLimit": {"Type": "First"},
-          "ObservationWindow": {
-            "PostDays": 0,
-            "PriorDays": 0
-          }
-        }
-      },
-      "createdDate": "2019-05-04T06:22:16.457+0000",
-      "createdBy": "ted9219",
-      "name": "[CSKIM] Any death",
-      "modifiedDate": "2019-05-12T06:24:05.197+0000",
-      "description": null,
-      "expressionType": "SIMPLE_EXPRESSION",
-      "modifiedBy": "ted9219",
-      "id": 132
-    },
     {
       "expression": {
         "ExpressionLimit": {"Type": "First"},
@@ -763,7 +719,7 @@
       "createdDate": "2019-05-21T00:17:15.360+0000",
       "createdBy": "ted9219",
       "name": "[CSKIM] CV death",
-      "modifiedDate": "2019-05-21T00:25:38.003+0000",
+      "modifiedDate": "2019-05-27T02:03:27.420+0000",
       "description": null,
       "expressionType": "SIMPLE_EXPRESSION",
       "modifiedBy": "ted9219",
@@ -845,6 +801,139 @@
           "StartDate": null,
           "EndDate": null
         },
+        "ConceptSets": [
+          {
+            "expression": {"items": [{
+              "isExcluded": false,
+              "concept": {
+                "INVALID_REASON_CAPTION": "Valid",
+                "CONCEPT_ID": 432250,
+                "STANDARD_CONCEPT": "S",
+                "CONCEPT_CODE": "40733004",
+                "VOCABULARY_ID": "SNOMED",
+                "CONCEPT_NAME": "Disorder due to infection",
+                "DOMAIN_ID": "Condition",
+                "STANDARD_CONCEPT_CAPTION": "Standard",
+                "CONCEPT_CLASS_ID": "Clinical Finding",
+                "INVALID_REASON": "V"
+              },
+              "includeMapped": true,
+              "includeDescendants": true
+            }]},
+            "name": "[CSKIM] Infectious disease",
+            "id": 0
+          },
+          {
+            "expression": {"items": [{
+              "isExcluded": false,
+              "concept": {
+                "INVALID_REASON_CAPTION": "Valid",
+                "CONCEPT_ID": 432250,
+                "STANDARD_CONCEPT": "S",
+                "CONCEPT_CODE": "40733004",
+                "VOCABULARY_ID": "SNOMED",
+                "CONCEPT_NAME": "Disorder due to infection",
+                "DOMAIN_ID": "Condition",
+                "STANDARD_CONCEPT_CAPTION": "Standard",
+                "CONCEPT_CLASS_ID": "Clinical Finding",
+                "INVALID_REASON": "V"
+              },
+              "includeMapped": true,
+              "includeDescendants": true
+            }]},
+            "name": "[CSKIM] Infectious disease",
+            "id": 1
+          }
+        ],
+        "EndStrategy": null,
+        "CensoringCriteria": [],
+        "Title": null,
+        "AdditionalCriteria": null,
+        "QualifiedLimit": {"Type": "First"},
+        "InclusionRules": [],
+        "PrimaryCriteria": {
+          "CriteriaList": [{"Death": {
+            "CorrelatedCriteria": null,
+            "CodesetId": 0,
+            "DeathSourceConcept": null,
+            "DeathTypeExclude": false,
+            "DeathType": null,
+            "OccurrenceStartDate": null,
+            "Gender": null,
+            "Age": null
+          }}],
+          "PrimaryCriteriaLimit": {"Type": "First"},
+          "ObservationWindow": {
+            "PostDays": 0,
+            "PriorDays": 0
+          }
+        }
+      },
+      "createdDate": "2019-05-23T12:21:39.360+0000",
+      "createdBy": "ted9219",
+      "name": "[CSKIM] Infection related death",
+      "modifiedDate": "2019-05-23T12:25:53.040+0000",
+      "description": null,
+      "expressionType": "SIMPLE_EXPRESSION",
+      "modifiedBy": "ted9219",
+      "id": 161
+    },
+    {
+      "expression": {
+        "ExpressionLimit": {"Type": "First"},
+        "CollapseSettings": {
+          "CollapseType": "ERA",
+          "EraPad": 0
+        },
+        "CensorWindow": {
+          "StartDate": null,
+          "EndDate": null
+        },
+        "ConceptSets": [],
+        "EndStrategy": null,
+        "CensoringCriteria": [],
+        "Title": null,
+        "AdditionalCriteria": null,
+        "QualifiedLimit": {"Type": "First"},
+        "InclusionRules": [],
+        "PrimaryCriteria": {
+          "CriteriaList": [{"Death": {
+            "CorrelatedCriteria": null,
+            "CodesetId": null,
+            "DeathSourceConcept": null,
+            "DeathTypeExclude": false,
+            "DeathType": null,
+            "OccurrenceStartDate": null,
+            "Gender": null,
+            "Age": null
+          }}],
+          "PrimaryCriteriaLimit": {"Type": "First"},
+          "ObservationWindow": {
+            "PostDays": 0,
+            "PriorDays": 0
+          }
+        }
+      },
+      "createdDate": "2019-05-04T06:22:16.457+0000",
+      "createdBy": "ted9219",
+      "name": "[CSKIM] Any death",
+      "modifiedDate": "2019-05-12T06:24:05.197+0000",
+      "description": null,
+      "expressionType": "SIMPLE_EXPRESSION",
+      "modifiedBy": "ted9219",
+      "id": 132
+    },
+    {
+      "expression": {
+        "ExpressionLimit": {"Type": "First"},
+        "CollapseSettings": {
+          "CollapseType": "ERA",
+          "EraPad": 0
+        },
+        "CensorWindow": {
+          "StartDate": null,
+          "EndDate": null
+        },
         "ConceptSets": [],
         "EndStrategy": null,
         "CensoringCriteria": [],
@@ -913,7 +1002,7 @@
       ]
     }}
   ],
-  "name": "Mortality prediction ",
+  "name": "Cause specific mortality prediction",
   "modifiedDate": null,
   "covariateSettings": [{
     "VisitCountMediumTerm": false,
@@ -941,7 +1030,7 @@
     "DrugEraStartShortTerm": false,
     "DistinctIngredientCountMediumTerm": false,
     "DistinctMeasurementCountShortTerm": false,
-    "MeasurementRangeGroupLongTerm": false,
+    "MeasurementRangeGroupLongTerm": true,
     "ConditionGroupEraOverlapping": false,
     "attr_fun": "getDbDefaultCovariateData",
     "MeasurementRangeGroupMediumTerm": false,
@@ -1035,6 +1124,6 @@
   }],
   "modifiedBy": null,
   "conceptSets": [],
-  "id": 3,
-  "packageName": "mortality"
+  "id": 4,
+  "packageName": "CauseSpecificMortality"
 }

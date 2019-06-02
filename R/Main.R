@@ -1,6 +1,6 @@
 # Copyright 2018 Observational Health Data Sciences and Informatics
 #
-# This file is part of mortality
+# This file is part of CauseSpecificMortality
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -17,7 +17,7 @@
 #' Execute the Study
 #'
 #' @details
-#' This function executes the mortality Study.
+#' This function executes the CauseSpecificMortality Study.
 #' 
 #' @param connectionDetails    An object of type \code{connectionDetails} as created using the
 #'                             \code{\link[DatabaseConnector]{createConnectionDetails}} function in the
@@ -37,6 +37,8 @@
 #' @param outputFolder         Name of local folder to place results; make sure to use forward slashes
 #'                             (/). Do not use a folder on a network drive since this greatly impacts
 #'                             performance.
+#' @param DB_END_DATE
+#' @param TAR
 #' @param createProtocol       Creates a protocol based on the analyses specification                             
 #' @param createCohorts        Create the cohortTable table with the target population and outcome cohorts?
 #' @param runAnalyses          Run the model development
@@ -54,7 +56,8 @@
 #'                                         \item{WARN}{Show warning messages}
 #'                                         \item{ERROR}{Show error messages}
 #'                                         \item{FATAL}{Be silent except for fatal errors}
-#'                                         }                              
+#'                                         }
+#' @param CauseClassification   
 #' @param cdmVersion           The version of the common data model                             
 #'
 #' @examples
@@ -90,6 +93,7 @@ execute <- function(connectionDetails,
                     cohortTable = "cohort",
                     oracleTempSchema = cohortDatabaseSchema,
                     outputFolder,
+                    DB_END_DATE = DB_END_DATE,
                     createProtocol = F,
                     createCohorts = F,
                     runAnalyses = F,
@@ -116,14 +120,15 @@ execute <- function(connectionDetails,
                   cohortDatabaseSchema = cohortDatabaseSchema,
                   cohortTable = cohortTable,
                   oracleTempSchema = oracleTempSchema,
-                  outputFolder = outputFolder)
+                  outputFolder = outputFolder,
+                  DB_END_DATE = DB_END_DATE)
   }
   
   if(runAnalyses){
     ParallelLogger::logInfo("Running predictions")
     predictionAnalysisListFile <- system.file("settings",
                                               "predictionAnalysisList.json",
-                                              package = "mortality")
+                                              package = "CauseSpecificMortality")
     predictionAnalysisList <- PatientLevelPrediction::loadPredictionAnalysisList(predictionAnalysisListFile)
     predictionAnalysisList$connectionDetails = connectionDetails
     predictionAnalysisList$cdmDatabaseSchema = cdmDatabaseSchema
@@ -155,7 +160,7 @@ execute <- function(connectionDetails,
   if(createValidationPackage){
     predictionAnalysisListFile <- system.file("settings",
                                               "predictionAnalysisList.json",
-                                              package = "mortality")
+                                              package = "CauseSpecificMortality")
     jsonSettings <-  tryCatch({Hydra::loadSpecifications(file=predictionAnalysisListFile)},
                               error=function(cond) {
                                 stop('Issue with json file...')

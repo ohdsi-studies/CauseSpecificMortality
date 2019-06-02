@@ -1,6 +1,6 @@
 # Copyright 2018 Observational Health Data Sciences and Informatics
 #
-# This file is part of mortality
+# This file is part of CauseSpecificMortality
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -20,11 +20,12 @@
                            cohortDatabaseSchema,
                            cohortTable,
                            oracleTempSchema,
-                           outputFolder) {
+                           outputFolder,
+                           DB_END_DATE = DB_END_DATE) {
   
   # Create study cohort table structure:
   sql <- SqlRender::loadRenderTranslateSql(sqlFilename = "CreateCohortTable.sql",
-                                           packageName = "mortality",
+                                           packageName = "CauseSpecificMortality",
                                            dbms = attr(connection, "dbms"),
                                            oracleTempSchema = oracleTempSchema,
                                            cohort_database_schema = cohortDatabaseSchema,
@@ -34,17 +35,17 @@
   
   
   # Instantiate cohorts:
-  pathToCsv <- system.file("settings", "CohortsToCreate.csv", package = "mortality")
+  pathToCsv <- system.file("settings", "CohortsToCreate.csv", package = "CauseSpecificMortality")
   cohortsToCreate <- utils::read.csv(pathToCsv)
   for (i in 1:nrow(cohortsToCreate)) {
     writeLines(paste("Creating cohort:", cohortsToCreate$name[i]))
     sql <- SqlRender::loadRenderTranslateSql(sqlFilename = paste0(cohortsToCreate$name[i], ".sql"),
-                                             packageName = "mortality",
+                                             packageName = "CauseSpecificMortality",
                                              dbms = attr(connection, "dbms"),
                                              oracleTempSchema = oracleTempSchema,
                                              cdm_database_schema = cdmDatabaseSchema,
                                              vocabulary_database_schema = vocabularyDatabaseSchema,
-                                             
+                                             DB_END_DATE = DB_END_DATE,
                                              target_database_schema = cohortDatabaseSchema,
                                              target_cohort_table = cohortTable,
                                              target_cohort_id = cohortsToCreate$cohortId[i])

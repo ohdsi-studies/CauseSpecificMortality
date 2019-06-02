@@ -7,9 +7,10 @@
 execute(connectionDetails, cdmDatabaseSchema,
   cdmDatabaseName = "friendly database name",
   cohortDatabaseSchema = cdmDatabaseSchema, cohortTable = "cohort",
-  oracleTempSchema = cohortDatabaseSchema, outputFolder, createProtocol = F,
-  createCohorts = F, runAnalyses = F, createResultsDoc = F,
-  createValidationPackage = F, packageResults = F, minCellCount = 5,
+  oracleTempSchema = cohortDatabaseSchema, outputFolder,
+  DB_END_DATE = DB_END_DATE, createProtocol = F, createCohorts = F,
+  runAnalyses = F, createResultsDoc = F, createValidationPackage = F,
+  analysesToValidate = NULL, packageResults = F, minCellCount = 5,
   verbosity = "INFO", cdmVersion = 5)
 }
 \arguments{
@@ -48,6 +49,8 @@ performance.}
 
 \item{createValidationPackage}{Create a package for sharing the models}
 
+\item{analysesToValidate}{A vector of analysis ids (e.g., c(1,3,10)) specifying which analysese to export into validation package. Default is NULL and all are exported.}
+
 \item{packageResults}{Should results be packaged for later sharing?}
 
 \item{minCellCount}{The minimum number of subjects contributing to a count before it can be included 
@@ -64,12 +67,14 @@ in packaged results.}
 }}
 
 \item{cdmVersion}{The version of the common data model}
+
+\item{CauseClassification}{}
 }
 \description{
 Execute the Study
 }
 \details{
-This function executes the mortality Study.
+This function executes the CauseSpecificMortality Study.
 }
 \examples{
 \dontrun{
