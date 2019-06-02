@@ -36,14 +36,15 @@
 #'                             priviliges for storing temporary tables.
 #' @param outputFolder         Name of local folder to place results; make sure to use forward slashes
 #'                             (/)
-#'
+#' @param DB_END_DATE  
 #' @export
 createCohorts <- function(connectionDetails,
                           cdmDatabaseSchema,
                           cohortDatabaseSchema,
-                          cohortTable,
+                          cohortTable = "cohort",
                           oracleTempSchema,
-                          outputFolder) {
+                          outputFolder,
+                          DB_END_DATE = DB_END_DATE) {
   if (!file.exists(outputFolder))
     dir.create(outputFolder)
   
@@ -54,12 +55,13 @@ createCohorts <- function(connectionDetails,
                  cohortDatabaseSchema = cohortDatabaseSchema,
                  cohortTable = cohortTable,
                  oracleTempSchema = oracleTempSchema,
-                 outputFolder = outputFolder)
+                 outputFolder = outputFolder,
+                 DB_END_DATE = DB_END_DATE)
   
   # Check number of subjects per cohort:
   ParallelLogger::logInfo("Counting cohorts")
   sql <- SqlRender::loadRenderTranslateSql("GetCounts.sql",
-                                           "mortality",
+                                           "CauseSpecificMortality",
                                            dbms = connectionDetails$dbms,
                                            oracleTempSchema = oracleTempSchema,
                                            cdm_database_schema = cdmDatabaseSchema,
@@ -74,7 +76,7 @@ createCohorts <- function(connectionDetails,
 }
 
 addCohortNames <- function(data, IdColumnName = "cohortDefinitionId", nameColumnName = "cohortName") {
-  pathToCsv <- system.file("settings", "CohortsToCreate.csv", package = "mortality")
+  pathToCsv <- system.file("settings", "CohortsToCreate.csv", package = "CauseSpecificMortality")
   cohortsToCreate <- utils::read.csv(pathToCsv)
   
   idToName <- data.frame(cohortId = c(cohortsToCreate$cohortId),

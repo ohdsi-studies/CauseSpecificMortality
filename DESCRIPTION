@@ -1,4 +1,4 @@
-Package: mortality
+Package: CauseSpecificMortality
 Type: Package
 Title: A Package Skeleton for Patient Level Prediction Studies
 Version: 0.0.2
@@ -36,6 +36,7 @@ Suggests:
     shinydashboard,
     Hydra
 License: Apache License 2.0
+Encoding: UTF-8
 VignetteBuilder: knitr
 LazyData: TRUE
-RoxygenNote: 6.0.1.9000
+RoxygenNote: 6.1.1
