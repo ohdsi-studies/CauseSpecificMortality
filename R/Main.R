@@ -37,8 +37,7 @@
 #' @param outputFolder         Name of local folder to place results; make sure to use forward slashes
 #'                             (/). Do not use a folder on a network drive since this greatly impacts
 #'                             performance.
-#' @param DB_END_DATE
-#' @param TAR
+#' @param DB_END_DATE          End date of your database
 #' @param createProtocol       Creates a protocol based on the analyses specification                             
 #' @param createCohorts        Create the cohortTable table with the target population and outcome cohorts?
 #' @param runAnalyses          Run the model development
@@ -57,9 +56,8 @@
 #'                                         \item{ERROR}{Show error messages}
 #'                                         \item{FATAL}{Be silent except for fatal errors}
 #'                                         }
-#' @param CauseClassification   
 #' @param cdmVersion           The version of the common data model                             
-#'
+#' @param CausePrediction      
 #' @examples
 #' \dontrun{
 #' connectionDetails <- createConnectionDetails(dbms = "postgresql",

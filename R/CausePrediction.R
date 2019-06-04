@@ -1,20 +1,19 @@
-#' Identify cause of death by comparing with plp result files.
-#' @name CauseClassification
+#' Predict cause of death by comparing with plp prediction values in result files.
+#' @name CausePrediction
 #' @import dplyr 
 #' @import randomForest
 #' @import ROCR
 #' @import caret
-#' 
-#' @param outputFolder 
-#' @param TAR
-#' @param model
-#' @param nTree
-#' @param seedNum
-#' 
+#' @importFrom dplyr %>%
+#' @param outputFolder your output folder
+#' @param TAR          Time At Risk window end
+#' @param model        machine learning model 1- lassologistic regression, 2-Gradient boosting machine
+#' @param nTree        Number of Tree of Random Forest model
+#' @param seedNum      Seed number
 #' @export
 NULL
 
-CauseClassification <- function (outputFolder, TAR, model = 1, nTree = 100, seedNum =NULL) {
+CausePrediction <- function (outputFolder, TAR, model = 1, nTree = 100, seedNum =NULL) {
   
   ###Announcement
   ParallelLogger::logInfo("classification start...")
@@ -95,27 +94,30 @@ CauseClassification <- function (outputFolder, TAR, model = 1, nTree = 100, seed
       CauseLabel <- ifelse(sum == 0, 99, CauseLabel)
       CauseLabel <- ifelse(out_df[,3] == 0, 0, CauseLabel)
       out_df$CauseLabel <- CauseLabel
+  
       
+  ###################################################################################          
+  
   ###Announcement
       ParallelLogger::logInfo("Doing Random Forest...")    
       
   ### 6. Random Forest
       
       # Set seed number
-      set.seed(seedNum)
+      set.seed(1234)
       
       # Train dataset preparation
       data_train <- out_df %>% filter(indexes != -1) %>% select(subjectId, CauseLabel, "[CSKIM] Any death", 
                                                                 "[CSKIM] CV death", "[CSKIM] Cancer death")   # "[CSKIM] Infection related death"
-      data_train <- rename(data_train, death = "[CSKIM] Any death", 
-                           cv = "[CSKIM] CV death", cancer = "[CSKIM] Cancer death") #, infection = "[CSKIM] Infection related death"  )
+      data_train <- rename(data_train, NoDeath = "[CSKIM] Any death", 
+                           CV = "[CSKIM] CV death", Cancer = "[CSKIM] Cancer death") #, infection = "[CSKIM] Infection related death"  )
       data_train <- na.omit(data_train)
       
       # Test dataset preparation
       data_test <- out_df %>% filter(indexes == -1) %>% select(subjectId, CauseLabel, "[CSKIM] Any death", 
                                                                "[CSKIM] CV death", "[CSKIM] Cancer death") #, "[CSKIM] Infection related death")
-      data_test <- rename(data_test, death = "[CSKIM] Any death", 
-                          cv = "[CSKIM] CV death", cancer = "[CSKIM] Cancer death" ) #, infection = "[CSKIM] Infection related death" ) 
+      data_test <- rename(data_test, NoDeath = "[CSKIM] Any death", 
+                          CV = "[CSKIM] CV death", Cancer = "[CSKIM] Cancer death" ) #, infection = "[CSKIM] Infection related death" ) 
       data_test <- na.omit(data_test)
      
       # classification settings    
@@ -126,26 +128,28 @@ CauseClassification <- function (outputFolder, TAR, model = 1, nTree = 100, seed
       
       
       # Training model
-      cause.model.rf <- randomForest(CauseLabel ~ death + cv + cancer, 
+      cause.model.rf <- randomForest(CauseLabel ~ NoDeath + CV + Cancer, 
                                      data = data_train, ntree = 500, mtry = floor(sqrt(3)), importance = T, proximity = F)
       
       # Test
       
       data_test$cause.prediction <- predict(cause.model.rf, data_test, type = "response")
+      data_test$cause.value <- predict(cause.model.rf, data_test, type = "prob")[,2]
       data_test_val <- predict(cause.model.rf, data_test,type = "prob")
-  
+      predictionRoc <- predict(cause.model.rf, data_test, type = "prob")
+ 
   ### 7. Result 
       
-      colnames(data_test_val)<-c("death","cv","cancer","other")
+      colnames(data_test_val)<-c("No Death","CV","Cancer","Other")
       
       dt<-data_test
       dt$CauseLabel <- as.character (dt$CauseLabel)
-      dt$CauseLabel <- ifelse(dt$CauseLabel=="0", "death" , dt$CauseLabel)
-      dt$CauseLabel <- ifelse(dt$CauseLabel=="1","cv",dt$CauseLabel)
-      dt$CauseLabel <- ifelse(dt$CauseLabel=="2","cancer",dt$CauseLabel)
-      dt$CauseLabel <- ifelse(dt$CauseLabel=="99","other",dt$CauseLabel)
+      dt$CauseLabel <- ifelse(dt$CauseLabel=="0", "No Death" , dt$CauseLabel)
+      dt$CauseLabel <- ifelse(dt$CauseLabel=="1","CV",dt$CauseLabel)
+      dt$CauseLabel <- ifelse(dt$CauseLabel=="2","Cancer",dt$CauseLabel)
+      dt$CauseLabel <- ifelse(dt$CauseLabel=="99","Other",dt$CauseLabel)
       #dt$CauseLabel <- ifelse(dt$CauseLabel==3,"infection",dt$CauseLabel)
-      
+
       AUC<- pROC::multiclass.roc(dt$CauseLabel, data_test_val)
       print(AUC)
       
@@ -159,43 +163,46 @@ CauseClassification <- function (outputFolder, TAR, model = 1, nTree = 100, seed
       # colours <- c("#F8766D", "#00BA38", "#619CFF", "#00816A")
       # classes <- levels(data_test$CauseLabel)
       # 
-      # for (i in 1 : 3) {
-      #   true_values <- ifelse(data_test[,7] == classes[i], 1, 0)
-      #   pred <- prediction(predictionRoc[,i],true_values)
-      #   perf <- performance(pred,"tpr","fpr")
+      # i <- as.numeric(length(analysispath))
       # 
-      #     if (i==1){
-      #     plot(perf, main = "ROC curve", col = colours[i])
-      #       }
+      # for (j in 1 : i + 1 ) {
+      # true_values <- ifelse(data_test[,6] == classes[j], 1, 0)
+      # pred <- prediction(predictionRoc[,j],true_values)
+      # perf <- performance(pred,"tpr","fpr")
+      #  
+      #    if (j==1){
+      #    plot(perf, type = "l", main = "ROC curve", col = colours[j])
+      #      }
       # 
-      #     else {
-      #    plot(perf, main = "ROC curve", col = colours[i], add = TRUE)
-      #   }
-      #   auc.perf <- performance(pred, measure = "auc")
-      #   print(auc.perf@y.values)
+      #    else {
+      #   plot(perf, type = "l", main = "ROC curve", col = colours[j], add = TRUE)
+      #  }
+      #  auc.perf <- performance(pred, measure = "auc")
+      #  print(auc.perf@y.values)
       # }
-      # legend("topright", legend = unique(data_train$CauseLabel), col = colours, pch = 15)
+      # legend("topright", legend = unique(dt$CauseLabel), col = colours, pch = 15)
 
    ### 8. save rds file in saveFolder
-      ParallelLogger::logInfo("saving the results...")
+      ParallelLogger::logInfo("saving the results in your outputFolder/CausePredictionResults")
       
-      saveFolder <- file.path(outputFolder, "results")
+      saveFolder <- file.path(outputFolder, "CausePredictionResults")
       if (!file.exists(saveFolder))
       dir.create(saveFolder)
       
       savepath0 <- file.path(saveFolder, "data_test.rds")
       saveRDS(data_test, file = savepath0)
 
-      savepath1 <- file.path(saveFolder, "ROC curve.pdf")
-      dev.print(pdf, savepath1)
+      # savepath1 <- file.path(saveFolder, "ROC curve.pdf")
+      # dev.print(pdf, savepath1)
 
       plot(cause.model.rf)
+      legend("topright", legend = colnames(cause.model.rf$err.rate), col = 1:5, cex = 0.5, fill = 1:5)
       savepath2 <- file.path(saveFolder, "randomForestPlot.pdf")
       dev.print(pdf, savepath2)
 
-      plot(margin(cause.model.rf, data_test_rf$CauseLabel))
-      savepath3 <- file.path(saveFolder, "plot3.pdf")
-      dev.print(pdf, savepath3)
+      # plot(margin(cause.model.rf, data_test$CauseLabel))
+      # savepath3 <- file.path(saveFolder, "plot3.pdf")
+      # dev.print(pdf, savepath3)
 
       varImpPlot(cause.model.rf)
       savepath4 <- file.path(saveFolder, "varImpPlot.pdf")
@@ -214,5 +221,6 @@ CauseClassification <- function (outputFolder, TAR, model = 1, nTree = 100, seed
       write.csv(table2, file = savepath)
       savepath <- file.path(saveFolder, "table3.csv")
       write.csv(table3, file = savepath)
+      
     
 }
