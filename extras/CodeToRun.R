@@ -47,4 +47,7 @@ execute(connectionDetails = connectionDetails,
         createValidationPackage = F,
         minCellCount= 5)
 
-CausePrediction(outputFolder, TAR = 30, model = 1, nTree = 500, seedNum = 1234)
+# TAR = (30,90,180,365), model = (1,2), nTree = tree number of random forest, seedNum
+CausePrediction(outputFolder, TAR = 30, model = 1, nTree = 500, seedNum = NULL)
+
+

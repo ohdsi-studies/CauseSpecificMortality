@@ -104,7 +104,7 @@ CausePrediction <- function (outputFolder, TAR, model = 1, nTree = 100, seedNum 
   ### 6. Random Forest
       
       # Set seed number
-      set.seed(1234)
+      set.seed(seedNum)
       
       # Train dataset preparation
       data_train <- out_df %>% filter(indexes != -1) %>% select(subjectId, CauseLabel, "[CSKIM] Any death", 
@@ -129,7 +129,7 @@ CausePrediction <- function (outputFolder, TAR, model = 1, nTree = 100, seedNum 
       
       # Training model
       cause.model.rf <- randomForest(CauseLabel ~ NoDeath + CV + Cancer, 
-                                     data = data_train, ntree = 500, mtry = floor(sqrt(3)), importance = T, proximity = F)
+                                     data = data_train, ntree = nTree, mtry = floor(sqrt(3)), importance = T, proximity = F)
       
       # Test
       
@@ -181,6 +181,92 @@ CausePrediction <- function (outputFolder, TAR, model = 1, nTree = 100, seedNum 
       #  print(auc.perf@y.values)
       # }
       # legend("topright", legend = unique(dt$CauseLabel), col = colours, pch = 15)
+      
+      # Performance measure
+      df_acc <- data_test
+      calculate.accuracy <- function(predictions, ref.labels) {
+        return(length(which(predictions == ref.labels)) / length(ref.labels))
+      }
+      calculate.w.accuracy <- function(predictions, ref.labels, weights) {
+        lvls <- levels(ref.labels)
+        if (length(weights) != length(lvls)) {
+          stop("Number of weights should agree with the number of classes.")
+        }
+        if (sum(weights) != 1) {
+          stop("Weights do not sum to 1")
+        }
+        accs <- lapply(lvls, function(x) {
+          idx <- which(ref.labels == x)
+          return(calculate.accuracy(predictions[idx], ref.labels[idx]))
+        })
+        acc <- mean(unlist(accs))
+        return(acc)
+      }
+      acc <- calculate.accuracy(df_acc$cause.prediction, df_acc$CauseLabel)
+      print(paste0("Accuracy is: ", round(acc, 2)))
+      
+      weights <- rep(1 / length(levels(df_acc$cause.prediction)), length(levels(df_acc$CauseLabel)))
+      w.acc <- calculate.w.accuracy(df_acc$cause.prediction, df_acc$CauseLabel, weights)
+      print(paste0("Weighted accuracy is: ", round(w.acc, 2)))
+      
+      
+      
+      cm <- vector("list", length(levels(df_acc$CauseLabel)))
+      for (i in seq_along(cm)) {
+        positive.class <- levels(df_acc$CauseLabel)[i]
+        # in the i-th iteration, use the i-th class as the positive class
+        cm[[i]] <- confusionMatrix(df_acc$cause.prediction, df_acc$CauseLabel, 
+                                   positive = positive.class)
+      }
+      
+      
+      metrics <- c("Precision", "Recall")
+      print(cm[[1]]$byClass[, metrics])
+      
+      
+      get.conf.stats <- function(cm) {
+        out <- vector("list", length(cm))
+        for (i in seq_along(cm)) {
+          x <- cm[[i]]
+          tp <- x$table[x$positive, x$positive] 
+          fp <- sum(x$table[x$positive, colnames(x$table) != x$positive])
+          fn <- sum(x$table[colnames(x$table) != x$positie, x$positive])
+          # TNs are not well-defined for one-vs-all approach
+          elem <- c(tp = tp, fp = fp, fn = fn)
+          out[[i]] <- elem
+        }
+        df <- do.call(rbind, out)
+        rownames(df) <- unlist(lapply(cm, function(x) x$positive))
+        return(as.data.frame(df))
+      }
+      
+      # Micro F1
+      get.micro.f1 <- function(cm) {
+        cm.summary <- get.conf.stats(cm)
+        tp <- sum(cm.summary$tp)
+        fn <- sum(cm.summary$fn)
+        fp <- sum(cm.summary$fp)
+        pr <- tp / (tp + fp)
+        re <- tp / (tp + fn)
+        f1 <- 2 * ((pr * re) / (pr + re))
+        return(f1)
+      }
+      micro.f1 <- get.micro.f1(cm)
+      print(paste0("Micro F1 is: ", round(micro.f1, 2)))
+      
+      # Macro F1
+      get.macro.f1 <- function(cm) {
+        c <- cm[[1]]$byClass # a single matrix is sufficient
+        re <- sum(c[, "Recall"]) / nrow(c)
+        pr <- sum(c[, "Precision"]) / nrow(c)
+        f1 <- 2 * ((re * pr) / (re + pr))
+        return(f1)
+      }
+      macro.f1 <- get.macro.f1(cm)
+      print(paste0("Macro F1 is: ", round(macro.f1, 2)))
+      
+      
+      
 
    ### 8. save rds file in saveFolder
       ParallelLogger::logInfo("saving the results in your outputFolder/CausePredictionResults")
