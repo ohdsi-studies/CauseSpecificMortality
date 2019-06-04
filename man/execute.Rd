@@ -7,9 +7,10 @@
 execute(connectionDetails, cdmDatabaseSchema,
   cdmDatabaseName = "friendly database name",
   cohortDatabaseSchema = cdmDatabaseSchema, cohortTable = "cohort",
-  oracleTempSchema = cohortDatabaseSchema, outputFolder, createProtocol = F,
-  createCohorts = F, runAnalyses = F, createResultsDoc = F,
-  createValidationPackage = F, packageResults = F, minCellCount = 5,
+  oracleTempSchema = cohortDatabaseSchema, outputFolder,
+  DB_END_DATE = DB_END_DATE, createProtocol = F, createCohorts = F,
+  runAnalyses = F, createResultsDoc = F, createValidationPackage = F,
+  analysesToValidate = NULL, packageResults = F, minCellCount = 5,
   verbosity = "INFO", cdmVersion = 5)
 }
 \arguments{
@@ -38,6 +39,8 @@ priviliges for storing temporary tables.}
 (/). Do not use a folder on a network drive since this greatly impacts
 performance.}
 
+\item{DB_END_DATE}{End date of your database}
+
 \item{createProtocol}{Creates a protocol based on the analyses specification}
 
 \item{createCohorts}{Create the cohortTable table with the target population and outcome cohorts?}
@@ -47,6 +50,8 @@ performance.}
 \item{createResultsDoc}{Create a document containing the results of each prediction}
 
 \item{createValidationPackage}{Create a package for sharing the models}
+
+\item{analysesToValidate}{A vector of analysis ids (e.g., c(1,3,10)) specifying which analysese to export into validation package. Default is NULL and all are exported.}
 
 \item{packageResults}{Should results be packaged for later sharing?}
 
@@ -64,12 +69,18 @@ in packaged results.}
 }}
 
 \item{cdmVersion}{The version of the common data model}
+
+<<<<<<< HEAD
+\item{CausePrediction}{}
+=======
+\item{CauseClassification}{}
+>>>>>>> master
 }
 \description{
 Execute the Study
 }
 \details{
-This function executes the mortality Study.
+This function executes the CauseSpecificMortality Study.
 }
 \examples{
 \dontrun{

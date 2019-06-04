@@ -4,6 +4,3 @@ extras
 ^\.Rprofile$
 documents
 readme.md
-.gitignore
-README.md
-.Rhistory

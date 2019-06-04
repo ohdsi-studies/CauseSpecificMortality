@@ -5,11 +5,11 @@
   "actions":[{
     "type": "fileNameFindAndReplace",
     "input": "packageName",
-    "find": "mortality"
+    "find": "CauseSpecificMortality"
   },{
     "type": "stringFindAndReplace",
     "input": "packageName",
-    "find": "mortality"
+    "find": "CauseSpecificMortality"
   },{
     "type": "jsonArrayToCsv",
     "input": "cohortDefinitions",

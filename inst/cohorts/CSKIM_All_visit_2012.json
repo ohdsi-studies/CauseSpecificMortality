@@ -20,7 +20,7 @@
       "OccurrenceEndDate": {
         "Op": "lte",
         "Extent": null,
-        "Value": "2012-12-31"
+        "Value": "2013-12-31"
       },
       "VisitLength": null,
       "CorrelatedCriteria": null,

@@ -16,12 +16,12 @@
 
 # Format and check code ---------------------------------------------------
 OhdsiRTools::formatRFolder()
-OhdsiRTools::checkUsagePackage("mortality")
+OhdsiRTools::checkUsagePackage("CauseSpecificMortality")
 OhdsiRTools::updateCopyrightYearFolder()
 
 # Create manual -----------------------------------------------------------
-shell("rm extras/mortality.pdf")
-shell("R CMD Rd2pdf ./ --output=extras/mortality.pdf")
+shell("rm extras/CauseSpecificMortality.pdf")
+shell("R CMD Rd2pdf ./ --output=extras/CauseSpecificMortality.pdf")
 
 # Create vignette ---------------------------------------------------------
 rmarkdown::render("vignettes/UsingSkeletonPackage.Rmd",
@@ -37,11 +37,11 @@ OhdsiRTools::insertCohortDefinitionSetInPackage(fileName = "CohortsToCreate.csv"
                                                 insertTableSql = TRUE,
                                                 insertCohortCreationR = TRUE,
                                                 generateStats = FALSE,
-                                                packageName = "mortality")
+                                                packageName = "CauseSpecificMortality")
 
 # Create analysis details -------------------------------------------------
 source("extras/CreatePredictionAnalysisDetails.R")
 createAnalysesDetails("inst/settings")
 
 # Store environment in which the study was executed -----------------------
-OhdsiRTools::insertEnvironmentSnapshotInPackage("mortality")
+OhdsiRTools::insertEnvironmentSnapshotInPackage("CauseSpecificMortality")

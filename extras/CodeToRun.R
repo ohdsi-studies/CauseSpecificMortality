@@ -1,20 +1,34 @@
-library(mortality)
-library(FeatureExtraction)
-library(PatientLevelPrediction)
+library(CauseSpecificMortality)
+<<<<<<< HEAD
+
+# The folder where the study intermediate and result files will be written:
+outputFolder <- "./CauseSpecificMortalityResults"
+
+# Specify where the temporary files (used by the ff package) will be created:
+options(fftempdir = "location with space to save big data")
+
+# Details for connecting to the server:
+dbms <- "you dbms"
+user <- 'your username'
+pw <- 'your password'
+server <- 'your server'
+port <- 'your port'
+=======
 # USER INPUTS
 #=======================
 # The folder where the study intermediate and result files will be written:
-outputFolder <- "c:/Users/User/Desktop/Progress/Mortality_Result"
+outputFolder <- Sys.getenv("outputFolder")
 
 # Specify where the temporary files (used by the ff package) will be created:
-options(fftempdir = "c:/Users/User/Desktop/Progress/Mortality_temp")
+options(fftempdir = Sys.getenv("temp"))
 
 # Details for connecting to the server:
-dbms <- Sys.getenv('dbms')
-user <- Sys.getenv('user')
-pw <- Sys.getenv('password')
-server <- Sys.getenv('server')
-port <- Sys.getenv('port')
+dbms <- Sys.getenv("dbms")
+user <- Sys.getenv("userID")
+pw <- Sys.getenv("userPW")
+server <- Sys.getenv("server16")
+port <- Sys.getenv("port")
+>>>>>>> master
 
 connectionDetails <- DatabaseConnector::createConnectionDetails(dbms = dbms,
                                                                 server = server,
@@ -23,26 +37,52 @@ connectionDetails <- DatabaseConnector::createConnectionDetails(dbms = dbms,
                                                                 port = port)
 
 # Add the database containing the OMOP CDM data
-cdmDatabaseSchema <- 'NHIS_NSC.dbo'
+<<<<<<< HEAD
+cdmDatabaseSchema <- 'cdm database schema'
 # Add a database with read/write access as this is where the cohorts will be generated
-cohortDatabaseSchema <- 'NHIS_NSC_Result.dbo'
+cohortDatabaseSchema <- 'work database schema'
+=======
+cdmDatabaseSchema <- Sys.getenv("cdmDatabaseSchema")
+# Add a database with read/write access as this is where the cohorts will be generated
+cohortDatabaseSchema <-  Sys.getenv("cohortDatabaseSchema")
+>>>>>>> master
 
 oracleTempSchema <- NULL
 
 # table name where the cohorts will be generated
-cohortTable <- 'CS_mortality'
+<<<<<<< HEAD
+cohortTable <- 'CauseSpecificMortalityCohort'
+
+# your Database end date
+DB_END_DATE <- 'your DB end date'
+=======
+cohortTable <- Sys.getenv("cohortTable")
+>>>>>>> master
 #=======================
+
+DB_END_DATE <- 'your DB end date'
 
 execute(connectionDetails = connectionDetails,
         cdmDatabaseSchema = cdmDatabaseSchema,
         cohortDatabaseSchema = cohortDatabaseSchema,
         cohortTable = cohortTable,
         outputFolder = outputFolder,
+        DB_END_DATE = DB_END_DATE,
         createProtocol = F,
-        createCohorts = F,
-        runAnalyses = F,
+        createCohorts = T,
+        runAnalyses = T,
         createResultsDoc = F,
-        packageResults = T,
+        packageResults = F,
         createValidationPackage = F,
-        minCellCount= 5,
-        cdmVersion = 5)
+        minCellCount= 5)
+
+<<<<<<< HEAD
+# TAR = (30,90,180,365), model = (1,2), nTree = tree number of random forest, seedNum
+CausePrediction(outputFolder, TAR = 30, model = 1, nTree = 500, seedNum = NULL)
+
+
+=======
+PatientLevelPrediction::viewMultiplePlp(outputFolder)
+
+CauseClassification(outputFolder, TAR = 30, model = 1, nTree = 500, seedNum = 1234)
+>>>>>>> master
