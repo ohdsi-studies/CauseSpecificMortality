@@ -70,7 +70,11 @@ in packaged results.}
 
 \item{cdmVersion}{The version of the common data model}
 
+<<<<<<< HEAD
 \item{CausePrediction}{}
+=======
+\item{CauseClassification}{}
+>>>>>>> master
 }
 \description{
 Execute the Study
