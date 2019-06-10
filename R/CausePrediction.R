@@ -7,34 +7,30 @@
 #' @importFrom dplyr %>%
 #' @param outputFolder your output folder
 #' @param TAR          Time At Risk window end
-#' @param model        machine learning model 1- lassologistic regression, 2-Gradient boosting machine
 #' @param nTree        Number of Tree of Random Forest model
 #' @param seedNum      Seed number
 #' @export
 NULL
 
-CausePrediction <- function (outputFolder, TAR, model = 1, nTree = 100, seedNum =NULL) {
+CausePrediction <- function (outputFolder, TAR, nTree = 100, seedNum =NULL) {
   
   ###Announcement
-  ParallelLogger::logInfo("classification start...")
+  ParallelLogger::logInfo("prediction start...")
 
   ### 1. Read RDS file in plpResult folder.
       outputFolder <- Sys.getenv("outputFolder")
-      
       outpath <- file.path(outputFolder, "settings.csv")
       settings <- utils::read.csv(outpath)
       
       TAR <- TAR
-      model <- model
       
       settings <- settings %>% filter(settings$riskWindowEnd == TAR) 
-      settings <- settings %>% filter(settings$modelSettingId == model)
       settings <- settings %>% filter(settings$outcomeId != 161)
       analysispath <- paste0(settings$plpResultFolder)
       
       i<- as.numeric(length(analysispath))
       out_list <- vector(mode = "list", length = length(analysispath))
-  
+
   
   ### 2. read RDS 
       for (j in 1:i) {
@@ -49,7 +45,7 @@ CausePrediction <- function (outputFolder, TAR, model = 1, nTree = 100, seedNum 
       out_df_value <- data.frame()
       for (j in 1:i) {
         df1 <- out_list[[j]] %>% select(subjectId, value)
-        colnames(df1)[2]<- paste0(settings$outcomeName[j])
+        colnames(df1)[2]<- paste(settings$outcomeName[j], settings$modelSettingsId[j], sep = "_")
         if (length(out_df_value) == 0) {
           out_df_value <- df1
         }
@@ -59,16 +55,18 @@ CausePrediction <- function (outputFolder, TAR, model = 1, nTree = 100, seedNum 
       }
       
       out_df_outcome <- data.frame()
-      for (j in 1:i) {
+      for (j in c(1,3,5)) {
         df2 <- out_list[[j]] %>% select(subjectId, outcomeCount)
-        colnames(df2)[2]<- paste0("In real", sep = " _ ", settings$outcomeName[j])
+        colnames(df2)[2]<- paste(paste("Label", settings$outcomeName[j], sep = "_"), settings$modelSettingsId[j], sep = "_")
         if (length(out_df_outcome) == 0) {
           out_df_outcome <- out_list[[j]] %>% select(indexes, subjectId, outcomeCount)
+          colnames(out_df_outcome)[3] <- paste(paste("Label", settings$outcomeName[j], sep = "_"), settings$modelSettingsId[j], sep = "_")
         }
         else{
           out_df_outcome <- left_join(out_df_outcome, df2, by = "subjectId")
         }
       }
+      out_df_outcome <- out_df_outcome[,] 
       
       out_df <- left_join(out_df_outcome, out_df_value, by = "subjectId")
   
@@ -77,19 +75,23 @@ CausePrediction <- function (outputFolder, TAR, model = 1, nTree = 100, seedNum 
       m <- i+3
   
       #Death Labeled in Database
-      out_df <- rename(out_df, DeathLabel = outcomeCount)
+     
+      out_df <- rename(out_df, deathLabel = paste(paste("Label", settings$outcomeName[1], sep = "_"), settings$modelSettingsId[1], sep = "_"))
+      out_df <- rename(out_df, cvLabel = paste(paste("Label", settings$outcomeName[3], sep = "_"), settings$modelSettingsId[3], sep = "_"))
+      out_df <- rename(out_df, cancerLabel = paste(paste("Label", settings$outcomeName[5], sep = "_"), settings$modelSettingsId[5], sep = "_"))
+      
       out_df <- na.omit(out_df)
       
   
   ### 5. Cause of Death
       p <- 4
-      q <- p+i-2
-      max2 <- apply(out_df[,p:q],1,which.max)
-      max2 <- as.numeric(max2)
-      max3 <- max2 + i
+      q <- 2+i/2
+      max1 <- apply(out_df[,p:q],1,which.max)
+      max1 <- as.numeric(max1)
+      max2 <- max1 + 3
   
       #Cause Labeled in Database
-      CauseLabel <- max2
+      CauseLabel <- max1
       sum <- apply(out_df[,p:q],1, sum)
       CauseLabel <- ifelse(sum == 0, 99, CauseLabel)
       CauseLabel <- ifelse(out_df[,3] == 0, 0, CauseLabel)
@@ -107,17 +109,17 @@ CausePrediction <- function (outputFolder, TAR, model = 1, nTree = 100, seedNum 
       set.seed(seedNum)
       
       # Train dataset preparation
-      data_train <- out_df %>% filter(indexes != -1) %>% select(subjectId, CauseLabel, "[CSKIM] Any death", 
-                                                                "[CSKIM] CV death", "[CSKIM] Cancer death")   # "[CSKIM] Infection related death"
-      data_train <- rename(data_train, NoDeath = "[CSKIM] Any death", 
-                           CV = "[CSKIM] CV death", Cancer = "[CSKIM] Cancer death") #, infection = "[CSKIM] Infection related death"  )
+      data_train <- out_df %>% filter(indexes != -1) %>% select(subjectId, CauseLabel, "[CSKIM] Any death_1", "[CSKIM] Any death_2", 
+                                                                "[CSKIM] CV death_1",  "[CSKIM] CV death_2", "[CSKIM] Cancer death_1", "[CSKIM] Cancer death_2")   # "[CSKIM] Infection related death"
+      data_train <- rename(data_train, Death_1 = "[CSKIM] Any death_1", Death_2 = "[CSKIM] Any death_2",  
+                           CV_1 = "[CSKIM] CV death_1", CV_2 = "[CSKIM] CV death_2", Cancer_1 = "[CSKIM] Cancer death_1", Cancer_2 = "[CSKIM] Cancer death_2") #, infection = "[CSKIM] Infection related death"  )
       data_train <- na.omit(data_train)
       
       # Test dataset preparation
-      data_test <- out_df %>% filter(indexes == -1) %>% select(subjectId, CauseLabel, "[CSKIM] Any death", 
-                                                               "[CSKIM] CV death", "[CSKIM] Cancer death") #, "[CSKIM] Infection related death")
-      data_test <- rename(data_test, NoDeath = "[CSKIM] Any death", 
-                          CV = "[CSKIM] CV death", Cancer = "[CSKIM] Cancer death" ) #, infection = "[CSKIM] Infection related death" ) 
+      data_test <- out_df %>% filter(indexes == -1) %>% select(subjectId, CauseLabel, "[CSKIM] Any death_1", "[CSKIM] Any death_2", 
+                                                                "[CSKIM] CV death_1",  "[CSKIM] CV death_2", "[CSKIM] Cancer death_1", "[CSKIM] Cancer death_2")   # "[CSKIM] Infection related death"
+      data_test <- rename(data_test, Death_1 = "[CSKIM] Any death_1", Death_2 = "[CSKIM] Any death_2",  
+                           CV_1 = "[CSKIM] CV death_1", CV_2 = "[CSKIM] CV death_2", Cancer_1 = "[CSKIM] Cancer death_1", Cancer_2 = "[CSKIM] Cancer death_2") #, infection = "[CSKIM] Infection related death"  )
       data_test <- na.omit(data_test)
      
       # classification settings    
@@ -128,8 +130,8 @@ CausePrediction <- function (outputFolder, TAR, model = 1, nTree = 100, seedNum 
       
       
       # Training model
-      cause.model.rf <- randomForest(CauseLabel ~ NoDeath + CV + Cancer, 
-                                     data = data_train, ntree = nTree, mtry = floor(sqrt(3)), importance = T, proximity = F)
+      cause.model.rf <- randomForest(CauseLabel ~ Death_1 + Death_2 + CV_1 + CV_2 + Cancer_1 + Cancer_2, 
+                                     data = data_train, ntree = nTree, mtry = floor(sqrt(6)), importance = T, proximity = F)
       
       # Test
       
@@ -140,11 +142,11 @@ CausePrediction <- function (outputFolder, TAR, model = 1, nTree = 100, seedNum 
  
   ### 7. Result 
       
-      colnames(data_test_val)<-c("No Death","CV","Cancer","Other")
+      colnames(data_test_val)<-c("NoDeath","CV","Cancer","Other")
       
       dt<-data_test
       dt$CauseLabel <- as.character (dt$CauseLabel)
-      dt$CauseLabel <- ifelse(dt$CauseLabel=="0", "No Death" , dt$CauseLabel)
+      dt$CauseLabel <- ifelse(dt$CauseLabel=="0", "NoDeath" , dt$CauseLabel)
       dt$CauseLabel <- ifelse(dt$CauseLabel=="1","CV",dt$CauseLabel)
       dt$CauseLabel <- ifelse(dt$CauseLabel=="2","Cancer",dt$CauseLabel)
       dt$CauseLabel <- ifelse(dt$CauseLabel=="99","Other",dt$CauseLabel)
