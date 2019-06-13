@@ -1,5 +1,5 @@
-library(CauseSpecificMortality)
 
+library(CauseSpecificMortality)
 # USER INPUTS
 #=======================
 # The folder where the study intermediate and result files will be written:
@@ -15,7 +15,6 @@ pw <- 'your password'
 server <- 'your server'
 port <- 'your port'
 
-
 connectionDetails <- DatabaseConnector::createConnectionDetails(dbms = dbms,
                                                                 server = server,
                                                                 user = user,
@@ -23,7 +22,6 @@ connectionDetails <- DatabaseConnector::createConnectionDetails(dbms = dbms,
                                                                 port = port)
 
 # Add the database containing the OMOP CDM data
-
 cdmDatabaseSchema <- 'cdm database schema'
 # Add a database with read/write access as this is where the cohorts will be generated
 cohortDatabaseSchema <- 'work database schema'
@@ -36,6 +34,7 @@ cohortTable <- 'CauseSpecificMortalityCohort'
 # your Database end date
 DB_END_DATE <- 'your DB end date'
 
+#=======================
 
 execute(connectionDetails = connectionDetails,
         cdmDatabaseSchema = cdmDatabaseSchema,
@@ -53,4 +52,4 @@ execute(connectionDetails = connectionDetails,
 
 
 # TAR = (30,90,180,365), nTree = tree number of random forest, seedNum
-CausePrediction(outputFolder, TAR = 30, nTree = 500, seedNum = NULL)
+CausePrediction(outputFolder, TAR = 30, nTree = 100, seedNum = NULL)
