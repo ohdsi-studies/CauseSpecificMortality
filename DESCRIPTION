@@ -1,10 +1,10 @@
 Package: CauseSpecificMortality
 Type: Package
-Title: A Package Skeleton for Patient Level Prediction Studies
-Version: 0.0.2
-Author: Jenna Reps [aut, cre]
-Maintainer: Jenna M Reps <reps@ohdsi.org>
-Description: A skeleton package, to be used as a starting point when implementing patient-level prediction studies.
+Title: Cause-specific mortality prediction model
+Version: 0.0.1
+Author: Chungsoo Kim [aut, cre]
+Maintainer: Chungsoo Kim <ted9219@ajou.ac.kr>
+Description: A package for predicting cause specific mortality
 Depends:
     DatabaseConnector
 Imports:
@@ -23,7 +23,11 @@ Imports:
 	  officer,
 	  gridExtra,
 	  rvg,
-	  jsonlite
+	  jsonlite,
+	  randomForest,
+	  ROCR,
+	  pROC,
+	  caret
 Suggests:
     knitr,
     rmarkdown,
@@ -35,7 +39,7 @@ Suggests:
     shinycssloaders,
     shinydashboard,
     Hydra
-License: Apache License 2.0
+License: 
 Encoding: UTF-8
 VignetteBuilder: knitr
 LazyData: TRUE

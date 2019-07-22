@@ -31,9 +31,6 @@ oracleTempSchema <- NULL
 # table name where the cohorts will be generated
 cohortTable <- 'CauseSpecificMortalityCohort'
 
-# your Database end date
-DB_END_DATE <- 'your DB end date'
-
 #=======================
 
 execute(connectionDetails = connectionDetails,
@@ -41,7 +38,6 @@ execute(connectionDetails = connectionDetails,
         cohortDatabaseSchema = cohortDatabaseSchema,
         cohortTable = cohortTable,
         outputFolder = outputFolder,
-        DB_END_DATE = DB_END_DATE,
         createProtocol = F,
         createCohorts = T,
         runAnalyses = T,
@@ -51,5 +47,6 @@ execute(connectionDetails = connectionDetails,
         minCellCount= 5)
 
 
-# TAR = (30,90,180,365), nTree = tree number of random forest, seedNum
-CausePrediction(outputFolder, TAR = 30, nTree = 100, seedNum = NULL)
+# Cause of death prediction
+# TAR = (30,90,180,365), nTree = tree numbers of random forest algorithm, seedNum = Seed number
+CausePrediction(outputFolder, TAR = 30, nTree = 200, seedNum = NULL)

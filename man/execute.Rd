@@ -8,8 +8,8 @@ execute(connectionDetails, cdmDatabaseSchema,
   cdmDatabaseName = "friendly database name",
   cohortDatabaseSchema = cdmDatabaseSchema, cohortTable = "cohort",
   oracleTempSchema = cohortDatabaseSchema, outputFolder,
-  DB_END_DATE = DB_END_DATE, createProtocol = F, createCohorts = F,
-  runAnalyses = F, createResultsDoc = F, createValidationPackage = F,
+  createProtocol = F, createCohorts = F, runAnalyses = F,
+  createResultsDoc = F, createValidationPackage = F,
   analysesToValidate = NULL, packageResults = F, minCellCount = 5,
   verbosity = "INFO", cdmVersion = 5)
 }
@@ -38,8 +38,6 @@ priviliges for storing temporary tables.}
 \item{outputFolder}{Name of local folder to place results; make sure to use forward slashes
 (/). Do not use a folder on a network drive since this greatly impacts
 performance.}
-
-\item{DB_END_DATE}{End date of your database}
 
 \item{createProtocol}{Creates a protocol based on the analyses specification}
 

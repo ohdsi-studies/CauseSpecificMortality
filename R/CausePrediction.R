@@ -13,7 +13,7 @@
 #' @export
 NULL
 
-CausePrediction <- function (outputFolder, TAR, nTree = 100, seedNum =NULL) {
+CausePrediction <- function (outputFolder, TAR = 30, nTree = 200, seedNum =NULL) {
   
   ###Announcement
   ParallelLogger::logInfo("prediction start...")
@@ -22,8 +22,6 @@ CausePrediction <- function (outputFolder, TAR, nTree = 100, seedNum =NULL) {
   outputFolder <- Sys.getenv("outputFolder")
   outpath <- file.path(outputFolder, "settings.csv")
   settings <- utils::read.csv(outpath)
-  
-  TAR <- 30
   
   settings <- settings %>% filter(settings$riskWindowEnd == TAR) 
   analysispath <- paste0(settings$plpResultFolder)
