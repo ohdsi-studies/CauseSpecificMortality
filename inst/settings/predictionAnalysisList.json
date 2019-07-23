@@ -94,15 +94,15 @@
   "description": null,
   "version": "v2.7.0",
   "outcomeIds": [
+    132,
     222,
     223,
-    132,
+    224,
+    225,
+    226,
     227,
     228,
-    225,
-    224,
-    229,
-    226
+    229
   ],
   "skeletonVersion": "v0.0.1",
   "createdDate": null,
@@ -120,26 +120,1518 @@
           "StartDate": null,
           "EndDate": null
         },
+        "ConceptSets": [],
+        "EndStrategy": null,
+        "CensoringCriteria": [],
+        "Title": null,
+        "AdditionalCriteria": null,
+        "QualifiedLimit": {"Type": "First"},
+        "InclusionRules": [],
+        "PrimaryCriteria": {
+          "CriteriaList": [{"Death": {
+            "CorrelatedCriteria": null,
+            "CodesetId": null,
+            "DeathSourceConcept": null,
+            "DeathTypeExclude": false,
+            "DeathType": null,
+            "OccurrenceStartDate": null,
+            "Gender": null,
+            "Age": null
+          }}],
+          "PrimaryCriteriaLimit": {"Type": "First"},
+          "ObservationWindow": {
+            "PostDays": 0,
+            "PriorDays": 0
+          }
+        }
+      },
+      "createdDate": "2019-05-04T06:22:16.457+0000",
+      "createdBy": "ted9219",
+      "name": "[CSKIM] Any death",
+      "modifiedDate": "2019-05-12T06:24:05.197+0000",
+      "description": null,
+      "expressionType": "SIMPLE_EXPRESSION",
+      "modifiedBy": "ted9219",
+      "id": 132
+    },
+    {
+      "expression": {
+        "ExpressionLimit": {"Type": "First"},
+        "CollapseSettings": {
+          "CollapseType": "ERA",
+          "EraPad": 0
+        },
+        "CensorWindow": {
+          "StartDate": null,
+          "EndDate": null
+        },
         "ConceptSets": [{
-          "expression": {"items": [{
-            "isExcluded": false,
-            "concept": {
-              "INVALID_REASON_CAPTION": "Valid",
-              "CONCEPT_ID": 443392,
-              "STANDARD_CONCEPT": "S",
-              "CONCEPT_CODE": "363346000",
-              "VOCABULARY_ID": "SNOMED",
-              "CONCEPT_NAME": "Malignant neoplastic disease",
-              "DOMAIN_ID": "Condition",
-              "STANDARD_CONCEPT_CAPTION": "Standard",
-              "CONCEPT_CLASS_ID": "Clinical Finding",
-              "INVALID_REASON": "V"
+          "expression": {"items": [
+            {
+              "isExcluded": false,
+              "concept": {
+                "INVALID_REASON_CAPTION": "Valid",
+                "CONCEPT_ID": 4003830,
+                "STANDARD_CONCEPT": "S",
+                "CONCEPT_CODE": "109962001",
+                "VOCABULARY_ID": "SNOMED",
+                "CONCEPT_NAME": "Diffuse non-Hodgkin's lymphoma",
+                "DOMAIN_ID": "Condition",
+                "STANDARD_CONCEPT_CAPTION": "Standard",
+                "CONCEPT_CLASS_ID": "Clinical Finding",
+                "INVALID_REASON": "V"
+              },
+              "includeMapped": false,
+              "includeDescendants": true
             },
-            "includeMapped": true,
-            "includeDescendants": true
-          }]},
+            {
+              "isExcluded": false,
+              "concept": {
+                "INVALID_REASON_CAPTION": "Valid",
+                "CONCEPT_ID": 4212994,
+                "STANDARD_CONCEPT": "S",
+                "CONCEPT_CODE": "414166008",
+                "VOCABULARY_ID": "SNOMED",
+                "CONCEPT_NAME": "Extranodal NK/T-cell lymphoma, nasal type",
+                "DOMAIN_ID": "Condition",
+                "STANDARD_CONCEPT_CAPTION": "Standard",
+                "CONCEPT_CLASS_ID": "Clinical Finding",
+                "INVALID_REASON": "V"
+              },
+              "includeMapped": false,
+              "includeDescendants": true
+            },
+            {
+              "isExcluded": false,
+              "concept": {
+                "INVALID_REASON_CAPTION": "Valid",
+                "CONCEPT_ID": 4147411,
+                "STANDARD_CONCEPT": "S",
+                "CONCEPT_CODE": "308121000",
+                "VOCABULARY_ID": "SNOMED",
+                "CONCEPT_NAME": "Follicular non-Hodgkin's lymphoma",
+                "DOMAIN_ID": "Condition",
+                "STANDARD_CONCEPT_CAPTION": "Standard",
+                "CONCEPT_CLASS_ID": "Clinical Finding",
+                "INVALID_REASON": "V"
+              },
+              "includeMapped": false,
+              "includeDescendants": true
+            },
+            {
+              "isExcluded": false,
+              "concept": {
+                "INVALID_REASON_CAPTION": "Valid",
+                "CONCEPT_ID": 4038835,
+                "STANDARD_CONCEPT": "S",
+                "CONCEPT_CODE": "118599009",
+                "VOCABULARY_ID": "SNOMED",
+                "CONCEPT_NAME": "Hodgkin's disease",
+                "DOMAIN_ID": "Condition",
+                "STANDARD_CONCEPT_CAPTION": "Standard",
+                "CONCEPT_CLASS_ID": "Clinical Finding",
+                "INVALID_REASON": "V"
+              },
+              "includeMapped": false,
+              "includeDescendants": true
+            },
+            {
+              "isExcluded": false,
+              "concept": {
+                "INVALID_REASON_CAPTION": "Valid",
+                "CONCEPT_ID": 434584,
+                "STANDARD_CONCEPT": "S",
+                "CONCEPT_CODE": "109385007",
+                "VOCABULARY_ID": "SNOMED",
+                "CONCEPT_NAME": "Kaposi's sarcoma",
+                "DOMAIN_ID": "Condition",
+                "STANDARD_CONCEPT_CAPTION": "Standard",
+                "CONCEPT_CLASS_ID": "Clinical Finding",
+                "INVALID_REASON": "V"
+              },
+              "includeMapped": false,
+              "includeDescendants": true
+            },
+            {
+              "isExcluded": false,
+              "concept": {
+                "INVALID_REASON_CAPTION": "Valid",
+                "CONCEPT_ID": 317510,
+                "STANDARD_CONCEPT": "S",
+                "CONCEPT_CODE": "93143009",
+                "VOCABULARY_ID": "SNOMED",
+                "CONCEPT_NAME": "Leukemia",
+                "DOMAIN_ID": "Condition",
+                "STANDARD_CONCEPT_CAPTION": "Standard",
+                "CONCEPT_CLASS_ID": "Clinical Finding",
+                "INVALID_REASON": "V"
+              },
+              "includeMapped": false,
+              "includeDescendants": true
+            },
+            {
+              "isExcluded": false,
+              "concept": {
+                "INVALID_REASON_CAPTION": "Valid",
+                "CONCEPT_ID": 132853,
+                "STANDARD_CONCEPT": "S",
+                "CONCEPT_CODE": "188725004",
+                "VOCABULARY_ID": "SNOMED",
+                "CONCEPT_NAME": "Lymphoid leukemia",
+                "DOMAIN_ID": "Condition",
+                "STANDARD_CONCEPT_CAPTION": "Standard",
+                "CONCEPT_CLASS_ID": "Clinical Finding",
+                "INVALID_REASON": "V"
+              },
+              "includeMapped": false,
+              "includeDescendants": true
+            },
+            {
+              "isExcluded": false,
+              "concept": {
+                "INVALID_REASON_CAPTION": "Valid",
+                "CONCEPT_ID": 4003834,
+                "STANDARD_CONCEPT": "S",
+                "CONCEPT_CODE": "109980005",
+                "VOCABULARY_ID": "SNOMED",
+                "CONCEPT_NAME": "Malignant immunoproliferative disease",
+                "DOMAIN_ID": "Condition",
+                "STANDARD_CONCEPT_CAPTION": "Standard",
+                "CONCEPT_CLASS_ID": "Clinical Finding",
+                "INVALID_REASON": "V"
+              },
+              "includeMapped": false,
+              "includeDescendants": true
+            },
+            {
+              "isExcluded": false,
+              "concept": {
+                "INVALID_REASON_CAPTION": "Valid",
+                "CONCEPT_ID": 141232,
+                "STANDARD_CONCEPT": "S",
+                "CONCEPT_CODE": "93655004",
+                "VOCABULARY_ID": "SNOMED",
+                "CONCEPT_NAME": "Malignant melanoma of skin",
+                "DOMAIN_ID": "Condition",
+                "STANDARD_CONCEPT_CAPTION": "Standard",
+                "CONCEPT_CLASS_ID": "Clinical Finding",
+                "INVALID_REASON": "V"
+              },
+              "includeMapped": false,
+              "includeDescendants": true
+            },
+            {
+              "isExcluded": false,
+              "concept": {
+                "INVALID_REASON_CAPTION": "Valid",
+                "CONCEPT_ID": 40481902,
+                "STANDARD_CONCEPT": "S",
+                "CONCEPT_CODE": "443488001",
+                "VOCABULARY_ID": "SNOMED",
+                "CONCEPT_NAME": "Malignant neoplasm of anorectum",
+                "DOMAIN_ID": "Condition",
+                "STANDARD_CONCEPT_CAPTION": "Standard",
+                "CONCEPT_CLASS_ID": "Clinical Finding",
+                "INVALID_REASON": "V"
+              },
+              "includeMapped": false,
+              "includeDescendants": true
+            },
+            {
+              "isExcluded": false,
+              "concept": {
+                "INVALID_REASON_CAPTION": "Valid",
+                "CONCEPT_ID": 436045,
+                "STANDARD_CONCEPT": "S",
+                "CONCEPT_CODE": "271323007",
+                "VOCABULARY_ID": "SNOMED",
+                "CONCEPT_NAME": "Malignant neoplasm of lip, oral cavity and pharynx",
+                "DOMAIN_ID": "Condition",
+                "STANDARD_CONCEPT_CAPTION": "Standard",
+                "CONCEPT_CLASS_ID": "Clinical Finding",
+                "INVALID_REASON": "V"
+              },
+              "includeMapped": false,
+              "includeDescendants": true
+            },
+            {
+              "isExcluded": false,
+              "concept": {
+                "INVALID_REASON_CAPTION": "Valid",
+                "CONCEPT_ID": 4095432,
+                "STANDARD_CONCEPT": "S",
+                "CONCEPT_CODE": "187767006",
+                "VOCABULARY_ID": "SNOMED",
+                "CONCEPT_NAME": "Malignant neoplasm of liver and intrahepatic bile ducts",
+                "DOMAIN_ID": "Condition",
+                "STANDARD_CONCEPT_CAPTION": "Standard",
+                "CONCEPT_CLASS_ID": "Clinical Finding",
+                "INVALID_REASON": "V"
+              },
+              "includeMapped": false,
+              "includeDescendants": true
+            },
+            {
+              "isExcluded": false,
+              "concept": {
+                "INVALID_REASON_CAPTION": "Valid",
+                "CONCEPT_ID": 4094409,
+                "STANDARD_CONCEPT": "S",
+                "CONCEPT_CODE": "188478004",
+                "VOCABULARY_ID": "SNOMED",
+                "CONCEPT_NAME": "Malignant neoplasms of independent (primary) multiple sites",
+                "DOMAIN_ID": "Condition",
+                "STANDARD_CONCEPT_CAPTION": "Standard",
+                "CONCEPT_CLASS_ID": "Clinical Finding",
+                "INVALID_REASON": "V"
+              },
+              "includeMapped": false,
+              "includeDescendants": true
+            },
+            {
+              "isExcluded": false,
+              "concept": {
+                "INVALID_REASON_CAPTION": "Valid",
+                "CONCEPT_ID": 443392,
+                "STANDARD_CONCEPT": "S",
+                "CONCEPT_CODE": "363346000",
+                "VOCABULARY_ID": "SNOMED",
+                "CONCEPT_NAME": "Malignant neoplastic disease",
+                "DOMAIN_ID": "Condition",
+                "STANDARD_CONCEPT_CAPTION": "Standard",
+                "CONCEPT_CLASS_ID": "Clinical Finding",
+                "INVALID_REASON": "V"
+              },
+              "includeMapped": false,
+              "includeDescendants": true
+            },
+            {
+              "isExcluded": false,
+              "concept": {
+                "INVALID_REASON_CAPTION": "Valid",
+                "CONCEPT_ID": 4116238,
+                "STANDARD_CONCEPT": "S",
+                "CONCEPT_CODE": "255077007",
+                "VOCABULARY_ID": "SNOMED",
+                "CONCEPT_NAME": "Malignant tumor of digestive organ",
+                "DOMAIN_ID": "Condition",
+                "STANDARD_CONCEPT_CAPTION": "Standard",
+                "CONCEPT_CLASS_ID": "Clinical Finding",
+                "INVALID_REASON": "V"
+              },
+              "includeMapped": false,
+              "includeDescendants": true
+            },
+            {
+              "isExcluded": false,
+              "concept": {
+                "INVALID_REASON_CAPTION": "Valid",
+                "CONCEPT_ID": 443389,
+                "STANDARD_CONCEPT": "S",
+                "CONCEPT_CODE": "363357005",
+                "VOCABULARY_ID": "SNOMED",
+                "CONCEPT_NAME": "Malignant tumor of ill-defined site",
+                "DOMAIN_ID": "Condition",
+                "STANDARD_CONCEPT_CAPTION": "Standard",
+                "CONCEPT_CLASS_ID": "Clinical Finding",
+                "INVALID_REASON": "V"
+              },
+              "includeMapped": false,
+              "includeDescendants": true
+            },
+            {
+              "isExcluded": false,
+              "concept": {
+                "INVALID_REASON_CAPTION": "Valid",
+                "CONCEPT_ID": 4147164,
+                "STANDARD_CONCEPT": "S",
+                "CONCEPT_CODE": "269475001",
+                "VOCABULARY_ID": "SNOMED",
+                "CONCEPT_NAME": "Malignant tumor of lymphoid hemopoietic and related tissue",
+                "DOMAIN_ID": "Condition",
+                "STANDARD_CONCEPT_CAPTION": "Standard",
+                "CONCEPT_CLASS_ID": "Clinical Finding",
+                "INVALID_REASON": "V"
+              },
+              "includeMapped": false,
+              "includeDescendants": true
+            },
+            {
+              "isExcluded": false,
+              "concept": {
+                "INVALID_REASON_CAPTION": "Valid",
+                "CONCEPT_ID": 4095312,
+                "STANDARD_CONCEPT": "S",
+                "CONCEPT_CODE": "187692001",
+                "VOCABULARY_ID": "SNOMED",
+                "CONCEPT_NAME": "Malignant tumor of nasopharynx",
+                "DOMAIN_ID": "Condition",
+                "STANDARD_CONCEPT_CAPTION": "Standard",
+                "CONCEPT_CLASS_ID": "Clinical Finding",
+                "INVALID_REASON": "V"
+              },
+              "includeMapped": false,
+              "includeDescendants": true
+            },
+            {
+              "isExcluded": false,
+              "concept": {
+                "INVALID_REASON_CAPTION": "Valid",
+                "CONCEPT_ID": 25189,
+                "STANDARD_CONCEPT": "S",
+                "CONCEPT_CODE": "363505006",
+                "VOCABULARY_ID": "SNOMED",
+                "CONCEPT_NAME": "Malignant tumor of oral cavity",
+                "DOMAIN_ID": "Condition",
+                "STANDARD_CONCEPT_CAPTION": "Standard",
+                "CONCEPT_CLASS_ID": "Clinical Finding",
+                "INVALID_REASON": "V"
+              },
+              "includeMapped": false,
+              "includeDescendants": true
+            },
+            {
+              "isExcluded": false,
+              "concept": {
+                "INVALID_REASON_CAPTION": "Valid",
+                "CONCEPT_ID": 443397,
+                "STANDARD_CONCEPT": "S",
+                "CONCEPT_CODE": "363509000",
+                "VOCABULARY_ID": "SNOMED",
+                "CONCEPT_NAME": "Malignant tumor of small intestine",
+                "DOMAIN_ID": "Condition",
+                "STANDARD_CONCEPT_CAPTION": "Standard",
+                "CONCEPT_CLASS_ID": "Clinical Finding",
+                "INVALID_REASON": "V"
+              },
+              "includeMapped": false,
+              "includeDescendants": true
+            },
+            {
+              "isExcluded": false,
+              "concept": {
+                "INVALID_REASON_CAPTION": "Valid",
+                "CONCEPT_ID": 4177112,
+                "STANDARD_CONCEPT": "S",
+                "CONCEPT_CODE": "363432004",
+                "VOCABULARY_ID": "SNOMED",
+                "CONCEPT_NAME": "Malignant tumor of trachea",
+                "DOMAIN_ID": "Condition",
+                "STANDARD_CONCEPT_CAPTION": "Standard",
+                "CONCEPT_CLASS_ID": "Clinical Finding",
+                "INVALID_REASON": "V"
+              },
+              "includeMapped": false,
+              "includeDescendants": true
+            },
+            {
+              "isExcluded": false,
+              "concept": {
+                "INVALID_REASON_CAPTION": "Valid",
+                "CONCEPT_ID": 4118990,
+                "STANDARD_CONCEPT": "S",
+                "CONCEPT_CODE": "302817000",
+                "VOCABULARY_ID": "SNOMED",
+                "CONCEPT_NAME": "Malignant tumor of unknown origin or ill-defined site",
+                "DOMAIN_ID": "Condition",
+                "STANDARD_CONCEPT_CAPTION": "Standard",
+                "CONCEPT_CLASS_ID": "Clinical Finding",
+                "INVALID_REASON": "V"
+              },
+              "includeMapped": false,
+              "includeDescendants": true
+            },
+            {
+              "isExcluded": false,
+              "concept": {
+                "INVALID_REASON_CAPTION": "Valid",
+                "CONCEPT_ID": 4033891,
+                "STANDARD_CONCEPT": "S",
+                "CONCEPT_CODE": "109378008",
+                "VOCABULARY_ID": "SNOMED",
+                "CONCEPT_NAME": "Mesothelioma",
+                "DOMAIN_ID": "Condition",
+                "STANDARD_CONCEPT_CAPTION": "Standard",
+                "CONCEPT_CLASS_ID": "Clinical Finding",
+                "INVALID_REASON": "V"
+              },
+              "includeMapped": false,
+              "includeDescendants": true
+            },
+            {
+              "isExcluded": false,
+              "concept": {
+                "INVALID_REASON_CAPTION": "Valid",
+                "CONCEPT_ID": 321526,
+                "STANDARD_CONCEPT": "S",
+                "CONCEPT_CODE": "188744006",
+                "VOCABULARY_ID": "SNOMED",
+                "CONCEPT_NAME": "Monocytic leukemia",
+                "DOMAIN_ID": "Condition",
+                "STANDARD_CONCEPT_CAPTION": "Standard",
+                "CONCEPT_CLASS_ID": "Clinical Finding",
+                "INVALID_REASON": "V"
+              },
+              "includeMapped": false,
+              "includeDescendants": true
+            },
+            {
+              "isExcluded": false,
+              "concept": {
+                "INVALID_REASON_CAPTION": "Valid",
+                "CONCEPT_ID": 437233,
+                "STANDARD_CONCEPT": "S",
+                "CONCEPT_CODE": "109989006",
+                "VOCABULARY_ID": "SNOMED",
+                "CONCEPT_NAME": "Multiple myeloma",
+                "DOMAIN_ID": "Condition",
+                "STANDARD_CONCEPT_CAPTION": "Standard",
+                "CONCEPT_CLASS_ID": "Clinical Finding",
+                "INVALID_REASON": "V"
+              },
+              "includeMapped": false,
+              "includeDescendants": true
+            },
+            {
+              "isExcluded": false,
+              "concept": {
+                "INVALID_REASON_CAPTION": "Valid",
+                "CONCEPT_ID": 140666,
+                "STANDARD_CONCEPT": "S",
+                "CONCEPT_CODE": "188732008",
+                "VOCABULARY_ID": "SNOMED",
+                "CONCEPT_NAME": "Myeloid leukemia",
+                "DOMAIN_ID": "Condition",
+                "STANDARD_CONCEPT_CAPTION": "Standard",
+                "CONCEPT_CLASS_ID": "Clinical Finding",
+                "INVALID_REASON": "V"
+              },
+              "includeMapped": false,
+              "includeDescendants": true
+            },
+            {
+              "isExcluded": false,
+              "concept": {
+                "INVALID_REASON_CAPTION": "Valid",
+                "CONCEPT_ID": 4038838,
+                "STANDARD_CONCEPT": "S",
+                "CONCEPT_CODE": "118601006",
+                "VOCABULARY_ID": "SNOMED",
+                "CONCEPT_NAME": "Non-Hodgkin's lymphoma",
+                "DOMAIN_ID": "Condition",
+                "STANDARD_CONCEPT_CAPTION": "Standard",
+                "CONCEPT_CLASS_ID": "Clinical Finding",
+                "INVALID_REASON": "V"
+              },
+              "includeMapped": false,
+              "includeDescendants": true
+            },
+            {
+              "isExcluded": false,
+              "concept": {
+                "INVALID_REASON_CAPTION": "Valid",
+                "CONCEPT_ID": 259748,
+                "STANDARD_CONCEPT": "S",
+                "CONCEPT_CODE": "93659005",
+                "VOCABULARY_ID": "SNOMED",
+                "CONCEPT_NAME": "Primary malignant neoplasm of accessory sinus",
+                "DOMAIN_ID": "Condition",
+                "STANDARD_CONCEPT_CAPTION": "Standard",
+                "CONCEPT_CLASS_ID": "Clinical Finding",
+                "INVALID_REASON": "V"
+              },
+              "includeMapped": false,
+              "includeDescendants": true
+            },
+            {
+              "isExcluded": false,
+              "concept": {
+                "INVALID_REASON_CAPTION": "Valid",
+                "CONCEPT_ID": 198104,
+                "STANDARD_CONCEPT": "S",
+                "CONCEPT_CODE": "93665005",
+                "VOCABULARY_ID": "SNOMED",
+                "CONCEPT_NAME": "Primary malignant neoplasm of adrenal gland",
+                "DOMAIN_ID": "Condition",
+                "STANDARD_CONCEPT_CAPTION": "Standard",
+                "CONCEPT_CLASS_ID": "Clinical Finding",
+                "INVALID_REASON": "V"
+              },
+              "includeMapped": false,
+              "includeDescendants": true
+            },
+            {
+              "isExcluded": false,
+              "concept": {
+                "INVALID_REASON_CAPTION": "Valid",
+                "CONCEPT_ID": 256633,
+                "STANDARD_CONCEPT": "S",
+                "CONCEPT_CODE": "93687001",
+                "VOCABULARY_ID": "SNOMED",
+                "CONCEPT_NAME": "Primary malignant neoplasm of base of tongue",
+                "DOMAIN_ID": "Condition",
+                "STANDARD_CONCEPT_CAPTION": "Standard",
+                "CONCEPT_CLASS_ID": "Clinical Finding",
+                "INVALID_REASON": "V"
+              },
+              "includeMapped": false,
+              "includeDescendants": true
+            },
+            {
+              "isExcluded": false,
+              "concept": {
+                "INVALID_REASON_CAPTION": "Valid",
+                "CONCEPT_ID": 194589,
+                "STANDARD_CONCEPT": "S",
+                "CONCEPT_CODE": "371970002",
+                "VOCABULARY_ID": "SNOMED",
+                "CONCEPT_NAME": "Primary malignant neoplasm of biliary tract",
+                "DOMAIN_ID": "Condition",
+                "STANDARD_CONCEPT_CAPTION": "Standard",
+                "CONCEPT_CLASS_ID": "Clinical Finding",
+                "INVALID_REASON": "V"
+              },
+              "includeMapped": false,
+              "includeDescendants": true
+            },
+            {
+              "isExcluded": false,
+              "concept": {
+                "INVALID_REASON_CAPTION": "Valid",
+                "CONCEPT_ID": 196360,
+                "STANDARD_CONCEPT": "S",
+                "CONCEPT_CODE": "93689003",
+                "VOCABULARY_ID": "SNOMED",
+                "CONCEPT_NAME": "Primary malignant neoplasm of bladder",
+                "DOMAIN_ID": "Condition",
+                "STANDARD_CONCEPT_CAPTION": "Standard",
+                "CONCEPT_CLASS_ID": "Clinical Finding",
+                "INVALID_REASON": "V"
+              },
+              "includeMapped": false,
+              "includeDescendants": true
+            },
+            {
+              "isExcluded": false,
+              "concept": {
+                "INVALID_REASON_CAPTION": "Valid",
+                "CONCEPT_ID": 4162860,
+                "STANDARD_CONCEPT": "S",
+                "CONCEPT_CODE": "371971003",
+                "VOCABULARY_ID": "SNOMED",
+                "CONCEPT_NAME": "Primary malignant neoplasm of body of uterus",
+                "DOMAIN_ID": "Condition",
+                "STANDARD_CONCEPT_CAPTION": "Standard",
+                "CONCEPT_CLASS_ID": "Clinical Finding",
+                "INVALID_REASON": "V"
+              },
+              "includeMapped": false,
+              "includeDescendants": true
+            },
+            {
+              "isExcluded": false,
+              "concept": {
+                "INVALID_REASON_CAPTION": "Valid",
+                "CONCEPT_ID": 76914,
+                "STANDARD_CONCEPT": "S",
+                "CONCEPT_CODE": "93725000",
+                "VOCABULARY_ID": "SNOMED",
+                "CONCEPT_NAME": "Primary malignant neoplasm of bone",
+                "DOMAIN_ID": "Condition",
+                "STANDARD_CONCEPT_CAPTION": "Standard",
+                "CONCEPT_CLASS_ID": "Clinical Finding",
+                "INVALID_REASON": "V"
+              },
+              "includeMapped": false,
+              "includeDescendants": true
+            },
+            {
+              "isExcluded": false,
+              "concept": {
+                "INVALID_REASON_CAPTION": "Valid",
+                "CONCEPT_ID": 380055,
+                "STANDARD_CONCEPT": "S",
+                "CONCEPT_CODE": "93727008",
+                "VOCABULARY_ID": "SNOMED",
+                "CONCEPT_NAME": "Primary malignant neoplasm of brain",
+                "DOMAIN_ID": "Condition",
+                "STANDARD_CONCEPT_CAPTION": "Standard",
+                "CONCEPT_CLASS_ID": "Clinical Finding",
+                "INVALID_REASON": "V"
+              },
+              "includeMapped": false,
+              "includeDescendants": true
+            },
+            {
+              "isExcluded": false,
+              "concept": {
+                "INVALID_REASON_CAPTION": "Valid",
+                "CONCEPT_ID": 4162253,
+                "STANDARD_CONCEPT": "S",
+                "CONCEPT_CODE": "372137005",
+                "VOCABULARY_ID": "SNOMED",
+                "CONCEPT_NAME": "Primary malignant neoplasm of breast",
+                "DOMAIN_ID": "Condition",
+                "STANDARD_CONCEPT_CAPTION": "Standard",
+                "CONCEPT_CLASS_ID": "Clinical Finding",
+                "INVALID_REASON": "V"
+              },
+              "includeMapped": false,
+              "includeDescendants": true
+            },
+            {
+              "isExcluded": false,
+              "concept": {
+                "INVALID_REASON_CAPTION": "Valid",
+                "CONCEPT_ID": 4247822,
+                "STANDARD_CONCEPT": "S",
+                "CONCEPT_CODE": "93744007",
+                "VOCABULARY_ID": "SNOMED",
+                "CONCEPT_NAME": "Primary malignant neoplasm of central nervous system",
+                "DOMAIN_ID": "Condition",
+                "STANDARD_CONCEPT_CAPTION": "Standard",
+                "CONCEPT_CLASS_ID": "Clinical Finding",
+                "INVALID_REASON": "V"
+              },
+              "includeMapped": false,
+              "includeDescendants": true
+            },
+            {
+              "isExcluded": false,
+              "concept": {
+                "INVALID_REASON_CAPTION": "Valid",
+                "CONCEPT_ID": 197500,
+                "STANDARD_CONCEPT": "S",
+                "CONCEPT_CODE": "93761005",
+                "VOCABULARY_ID": "SNOMED",
+                "CONCEPT_NAME": "Primary malignant neoplasm of colon",
+                "DOMAIN_ID": "Condition",
+                "STANDARD_CONCEPT_CAPTION": "Standard",
+                "CONCEPT_CLASS_ID": "Clinical Finding",
+                "INVALID_REASON": "V"
+              },
+              "includeMapped": false,
+              "includeDescendants": true
+            },
+            {
+              "isExcluded": false,
+              "concept": {
+                "INVALID_REASON_CAPTION": "Valid",
+                "CONCEPT_ID": 133420,
+                "STANDARD_CONCEPT": "S",
+                "CONCEPT_CODE": "371983001",
+                "VOCABULARY_ID": "SNOMED",
+                "CONCEPT_NAME": "Primary malignant neoplasm of endocrine gland",
+                "DOMAIN_ID": "Condition",
+                "STANDARD_CONCEPT_CAPTION": "Standard",
+                "CONCEPT_CLASS_ID": "Clinical Finding",
+                "INVALID_REASON": "V"
+              },
+              "includeMapped": false,
+              "includeDescendants": true
+            },
+            {
+              "isExcluded": false,
+              "concept": {
+                "INVALID_REASON_CAPTION": "Valid",
+                "CONCEPT_ID": 26638,
+                "STANDARD_CONCEPT": "S",
+                "CONCEPT_CODE": "371984007",
+                "VOCABULARY_ID": "SNOMED",
+                "CONCEPT_NAME": "Primary malignant neoplasm of esophagus",
+                "DOMAIN_ID": "Condition",
+                "STANDARD_CONCEPT_CAPTION": "Standard",
+                "CONCEPT_CLASS_ID": "Clinical Finding",
+                "INVALID_REASON": "V"
+              },
+              "includeMapped": false,
+              "includeDescendants": true
+            },
+            {
+              "isExcluded": false,
+              "concept": {
+                "INVALID_REASON_CAPTION": "Valid",
+                "CONCEPT_ID": 201238,
+                "STANDARD_CONCEPT": "S",
+                "CONCEPT_CODE": "93797001",
+                "VOCABULARY_ID": "SNOMED",
+                "CONCEPT_NAME": "Primary malignant neoplasm of female genital organ",
+                "DOMAIN_ID": "Condition",
+                "STANDARD_CONCEPT_CAPTION": "Standard",
+                "CONCEPT_CLASS_ID": "Clinical Finding",
+                "INVALID_REASON": "V"
+              },
+              "includeMapped": false,
+              "includeDescendants": true
+            },
+            {
+              "isExcluded": false,
+              "concept": {
+                "INVALID_REASON_CAPTION": "Valid",
+                "CONCEPT_ID": 135750,
+                "STANDARD_CONCEPT": "S",
+                "CONCEPT_CODE": "93802007",
+                "VOCABULARY_ID": "SNOMED",
+                "CONCEPT_NAME": "Primary malignant neoplasm of floor of mouth",
+                "DOMAIN_ID": "Condition",
+                "STANDARD_CONCEPT_CAPTION": "Standard",
+                "CONCEPT_CLASS_ID": "Clinical Finding",
+                "INVALID_REASON": "V"
+              },
+              "includeMapped": false,
+              "includeDescendants": true
+            },
+            {
+              "isExcluded": false,
+              "concept": {
+                "INVALID_REASON_CAPTION": "Valid",
+                "CONCEPT_ID": 197806,
+                "STANDARD_CONCEPT": "S",
+                "CONCEPT_CODE": "372139008",
+                "VOCABULARY_ID": "SNOMED",
+                "CONCEPT_NAME": "Primary malignant neoplasm of gallbladder",
+                "DOMAIN_ID": "Condition",
+                "STANDARD_CONCEPT_CAPTION": "Standard",
+                "CONCEPT_CLASS_ID": "Clinical Finding",
+                "INVALID_REASON": "V"
+              },
+              "includeMapped": false,
+              "includeDescendants": true
+            },
+            {
+              "isExcluded": false,
+              "concept": {
+                "INVALID_REASON_CAPTION": "Valid",
+                "CONCEPT_ID": 140950,
+                "STANDARD_CONCEPT": "S",
+                "CONCEPT_CODE": "371990006",
+                "VOCABULARY_ID": "SNOMED",
+                "CONCEPT_NAME": "Primary malignant neoplasm of gum",
+                "DOMAIN_ID": "Condition",
+                "STANDARD_CONCEPT_CAPTION": "Standard",
+                "CONCEPT_CLASS_ID": "Clinical Finding",
+                "INVALID_REASON": "V"
+              },
+              "includeMapped": false,
+              "includeDescendants": true
+            },
+            {
+              "isExcluded": false,
+              "concept": {
+                "INVALID_REASON_CAPTION": "Valid",
+                "CONCEPT_ID": 442131,
+                "STANDARD_CONCEPT": "S",
+                "CONCEPT_CODE": "93824007",
+                "VOCABULARY_ID": "SNOMED",
+                "CONCEPT_NAME": "Primary malignant neoplasm of head",
+                "DOMAIN_ID": "Condition",
+                "STANDARD_CONCEPT_CAPTION": "Standard",
+                "CONCEPT_CLASS_ID": "Clinical Finding",
+                "INVALID_REASON": "V"
+              },
+              "includeMapped": false,
+              "includeDescendants": true
+            },
+            {
+              "isExcluded": false,
+              "concept": {
+                "INVALID_REASON_CAPTION": "Valid",
+                "CONCEPT_ID": 439746,
+                "STANDARD_CONCEPT": "S",
+                "CONCEPT_CODE": "93831006",
+                "VOCABULARY_ID": "SNOMED",
+                "CONCEPT_NAME": "Primary malignant neoplasm of hypopharynx",
+                "DOMAIN_ID": "Condition",
+                "STANDARD_CONCEPT_CAPTION": "Standard",
+                "CONCEPT_CLASS_ID": "Clinical Finding",
+                "INVALID_REASON": "V"
+              },
+              "includeMapped": false,
+              "includeDescendants": true
+            },
+            {
+              "isExcluded": false,
+              "concept": {
+                "INVALID_REASON_CAPTION": "Valid",
+                "CONCEPT_ID": 4247331,
+                "STANDARD_CONCEPT": "S",
+                "CONCEPT_CODE": "93841009",
+                "VOCABULARY_ID": "SNOMED",
+                "CONCEPT_NAME": "Primary malignant neoplasm of intrathoracic organs",
+                "DOMAIN_ID": "Condition",
+                "STANDARD_CONCEPT_CAPTION": "Standard",
+                "CONCEPT_CLASS_ID": "Clinical Finding",
+                "INVALID_REASON": "V"
+              },
+              "includeMapped": false,
+              "includeDescendants": true
+            },
+            {
+              "isExcluded": false,
+              "concept": {
+                "INVALID_REASON_CAPTION": "Valid",
+                "CONCEPT_ID": 198985,
+                "STANDARD_CONCEPT": "S",
+                "CONCEPT_CODE": "93849006",
+                "VOCABULARY_ID": "SNOMED",
+                "CONCEPT_NAME": "Primary malignant neoplasm of kidney",
+                "DOMAIN_ID": "Condition",
+                "STANDARD_CONCEPT_CAPTION": "Standard",
+                "CONCEPT_CLASS_ID": "Clinical Finding",
+                "INVALID_REASON": "V"
+              },
+              "includeMapped": false,
+              "includeDescendants": true
+            },
+            {
+              "isExcluded": false,
+              "concept": {
+                "INVALID_REASON_CAPTION": "Valid",
+                "CONCEPT_ID": 26052,
+                "STANDARD_CONCEPT": "S",
+                "CONCEPT_CODE": "371995001",
+                "VOCABULARY_ID": "SNOMED",
+                "CONCEPT_NAME": "Primary malignant neoplasm of larynx",
+                "DOMAIN_ID": "Condition",
+                "STANDARD_CONCEPT_CAPTION": "Standard",
+                "CONCEPT_CLASS_ID": "Clinical Finding",
+                "INVALID_REASON": "V"
+              },
+              "includeMapped": false,
+              "includeDescendants": true
+            },
+            {
+              "isExcluded": false,
+              "concept": {
+                "INVALID_REASON_CAPTION": "Valid",
+                "CONCEPT_ID": 4155171,
+                "STANDARD_CONCEPT": "S",
+                "CONCEPT_CODE": "371996000",
+                "VOCABULARY_ID": "SNOMED",
+                "CONCEPT_NAME": "Primary malignant neoplasm of lip",
+                "DOMAIN_ID": "Condition",
+                "STANDARD_CONCEPT_CAPTION": "Standard",
+                "CONCEPT_CLASS_ID": "Clinical Finding",
+                "INVALID_REASON": "V"
+              },
+              "includeMapped": false,
+              "includeDescendants": true
+            },
+            {
+              "isExcluded": false,
+              "concept": {
+                "INVALID_REASON_CAPTION": "Valid",
+                "CONCEPT_ID": 4247836,
+                "STANDARD_CONCEPT": "S",
+                "CONCEPT_CODE": "93883004",
+                "VOCABULARY_ID": "SNOMED",
+                "CONCEPT_NAME": "Primary malignant neoplasm of major salivary gland",
+                "DOMAIN_ID": "Condition",
+                "STANDARD_CONCEPT_CAPTION": "Standard",
+                "CONCEPT_CLASS_ID": "Clinical Finding",
+                "INVALID_REASON": "V"
+              },
+              "includeMapped": false,
+              "includeDescendants": true
+            },
+            {
+              "isExcluded": false,
+              "concept": {
+                "INVALID_REASON_CAPTION": "Valid",
+                "CONCEPT_ID": 197507,
+                "STANDARD_CONCEPT": "S",
+                "CONCEPT_CODE": "93885006",
+                "VOCABULARY_ID": "SNOMED",
+                "CONCEPT_NAME": "Primary malignant neoplasm of male genital organ",
+                "DOMAIN_ID": "Condition",
+                "STANDARD_CONCEPT_CAPTION": "Standard",
+                "CONCEPT_CLASS_ID": "Clinical Finding",
+                "INVALID_REASON": "V"
+              },
+              "includeMapped": false,
+              "includeDescendants": true
+            },
+            {
+              "isExcluded": false,
+              "concept": {
+                "INVALID_REASON_CAPTION": "Valid",
+                "CONCEPT_ID": 438693,
+                "STANDARD_CONCEPT": "S",
+                "CONCEPT_CODE": "93891008",
+                "VOCABULARY_ID": "SNOMED",
+                "CONCEPT_NAME": "Primary malignant neoplasm of mediastinum",
+                "DOMAIN_ID": "Condition",
+                "STANDARD_CONCEPT_CAPTION": "Standard",
+                "CONCEPT_CLASS_ID": "Clinical Finding",
+                "INVALID_REASON": "V"
+              },
+              "includeMapped": false,
+              "includeDescendants": true
+            },
+            {
+              "isExcluded": false,
+              "concept": {
+                "INVALID_REASON_CAPTION": "Valid",
+                "CONCEPT_ID": 4002340,
+                "STANDARD_CONCEPT": "S",
+                "CONCEPT_CODE": "109915008",
+                "VOCABULARY_ID": "SNOMED",
+                "CONCEPT_NAME": "Primary malignant neoplasm of meninges",
+                "DOMAIN_ID": "Condition",
+                "STANDARD_CONCEPT_CAPTION": "Standard",
+                "CONCEPT_CLASS_ID": "Clinical Finding",
+                "INVALID_REASON": "V"
+              },
+              "includeMapped": false,
+              "includeDescendants": true
+            },
+            {
+              "isExcluded": false,
+              "concept": {
+                "INVALID_REASON_CAPTION": "Valid",
+                "CONCEPT_ID": 376918,
+                "STANDARD_CONCEPT": "S",
+                "CONCEPT_CODE": "93923002",
+                "VOCABULARY_ID": "SNOMED",
+                "CONCEPT_NAME": "Primary malignant neoplasm of nervous system",
+                "DOMAIN_ID": "Condition",
+                "STANDARD_CONCEPT_CAPTION": "Standard",
+                "CONCEPT_CLASS_ID": "Clinical Finding",
+                "INVALID_REASON": "V"
+              },
+              "includeMapped": false,
+              "includeDescendants": true
+            },
+            {
+              "isExcluded": false,
+              "concept": {
+                "INVALID_REASON_CAPTION": "Valid",
+                "CONCEPT_ID": 432833,
+                "STANDARD_CONCEPT": "S",
+                "CONCEPT_CODE": "93933005",
+                "VOCABULARY_ID": "SNOMED",
+                "CONCEPT_NAME": "Primary malignant neoplasm of oropharynx",
+                "DOMAIN_ID": "Condition",
+                "STANDARD_CONCEPT_CAPTION": "Standard",
+                "CONCEPT_CLASS_ID": "Clinical Finding",
+                "INVALID_REASON": "V"
+              },
+              "includeMapped": false,
+              "includeDescendants": true
+            },
+            {
+              "isExcluded": false,
+              "concept": {
+                "INVALID_REASON_CAPTION": "Valid",
+                "CONCEPT_ID": 200051,
+                "STANDARD_CONCEPT": "S",
+                "CONCEPT_CODE": "93934004",
+                "VOCABULARY_ID": "SNOMED",
+                "CONCEPT_NAME": "Primary malignant neoplasm of ovary",
+                "DOMAIN_ID": "Condition",
+                "STANDARD_CONCEPT_CAPTION": "Standard",
+                "CONCEPT_CLASS_ID": "Clinical Finding",
+                "INVALID_REASON": "V"
+              },
+              "includeMapped": false,
+              "includeDescendants": true
+            },
+            {
+              "isExcluded": false,
+              "concept": {
+                "INVALID_REASON_CAPTION": "Valid",
+                "CONCEPT_ID": 134290,
+                "STANDARD_CONCEPT": "S",
+                "CONCEPT_CODE": "372002009",
+                "VOCABULARY_ID": "SNOMED",
+                "CONCEPT_NAME": "Primary malignant neoplasm of palate",
+                "DOMAIN_ID": "Condition",
+                "STANDARD_CONCEPT_CAPTION": "Standard",
+                "CONCEPT_CLASS_ID": "Clinical Finding",
+                "INVALID_REASON": "V"
+              },
+              "includeMapped": false,
+              "includeDescendants": true
+            },
+            {
+              "isExcluded": false,
+              "concept": {
+                "INVALID_REASON_CAPTION": "Valid",
+                "CONCEPT_ID": 199754,
+                "STANDARD_CONCEPT": "S",
+                "CONCEPT_CODE": "372003004",
+                "VOCABULARY_ID": "SNOMED",
+                "CONCEPT_NAME": "Primary malignant neoplasm of pancreas",
+                "DOMAIN_ID": "Condition",
+                "STANDARD_CONCEPT_CAPTION": "Standard",
+                "CONCEPT_CLASS_ID": "Clinical Finding",
+                "INVALID_REASON": "V"
+              },
+              "includeMapped": false,
+              "includeDescendants": true
+            },
+            {
+              "isExcluded": false,
+              "concept": {
+                "INVALID_REASON_CAPTION": "Valid",
+                "CONCEPT_ID": 434588,
+                "STANDARD_CONCEPT": "S",
+                "CONCEPT_CODE": "372004005",
+                "VOCABULARY_ID": "SNOMED",
+                "CONCEPT_NAME": "Primary malignant neoplasm of parotid gland",
+                "DOMAIN_ID": "Condition",
+                "STANDARD_CONCEPT_CAPTION": "Standard",
+                "CONCEPT_CLASS_ID": "Clinical Finding",
+                "INVALID_REASON": "V"
+              },
+              "includeMapped": false,
+              "includeDescendants": true
+            },
+            {
+              "isExcluded": false,
+              "concept": {
+                "INVALID_REASON_CAPTION": "Valid",
+                "CONCEPT_ID": 195483,
+                "STANDARD_CONCEPT": "S",
+                "CONCEPT_CODE": "372005006",
+                "VOCABULARY_ID": "SNOMED",
+                "CONCEPT_NAME": "Primary malignant neoplasm of penis",
+                "DOMAIN_ID": "Condition",
+                "STANDARD_CONCEPT_CAPTION": "Standard",
+                "CONCEPT_CLASS_ID": "Clinical Finding",
+                "INVALID_REASON": "V"
+              },
+              "includeMapped": false,
+              "includeDescendants": true
+            },
+            {
+              "isExcluded": false,
+              "concept": {
+                "INVALID_REASON_CAPTION": "Valid",
+                "CONCEPT_ID": 36715801,
+                "STANDARD_CONCEPT": "S",
+                "CONCEPT_CODE": "721567004",
+                "VOCABULARY_ID": "SNOMED",
+                "CONCEPT_NAME": "Primary malignant neoplasm of placenta",
+                "DOMAIN_ID": "Condition",
+                "STANDARD_CONCEPT_CAPTION": "Standard",
+                "CONCEPT_CLASS_ID": "Clinical Finding",
+                "INVALID_REASON": "V"
+              },
+              "includeMapped": false,
+              "includeDescendants": true
+            },
+            {
+              "isExcluded": false,
+              "concept": {
+                "INVALID_REASON_CAPTION": "Valid",
+                "CONCEPT_ID": 200962,
+                "STANDARD_CONCEPT": "S",
+                "CONCEPT_CODE": "93974005",
+                "VOCABULARY_ID": "SNOMED",
+                "CONCEPT_NAME": "Primary malignant neoplasm of prostate",
+                "DOMAIN_ID": "Condition",
+                "STANDARD_CONCEPT_CAPTION": "Standard",
+                "CONCEPT_CLASS_ID": "Clinical Finding",
+                "INVALID_REASON": "V"
+              },
+              "includeMapped": false,
+              "includeDescendants": true
+            },
+            {
+              "isExcluded": false,
+              "concept": {
+                "INVALID_REASON_CAPTION": "Valid",
+                "CONCEPT_ID": 435190,
+                "STANDARD_CONCEPT": "S",
+                "CONCEPT_CODE": "93978008",
+                "VOCABULARY_ID": "SNOMED",
+                "CONCEPT_NAME": "Primary malignant neoplasm of pyriform sinus",
+                "DOMAIN_ID": "Condition",
+                "STANDARD_CONCEPT_CAPTION": "Standard",
+                "CONCEPT_CLASS_ID": "Clinical Finding",
+                "INVALID_REASON": "V"
+              },
+              "includeMapped": false,
+              "includeDescendants": true
+            },
+            {
+              "isExcluded": false,
+              "concept": {
+                "INVALID_REASON_CAPTION": "Valid",
+                "CONCEPT_ID": 438699,
+                "STANDARD_CONCEPT": "S",
+                "CONCEPT_CODE": "93980002",
+                "VOCABULARY_ID": "SNOMED",
+                "CONCEPT_NAME": "Primary malignant neoplasm of rectosigmoid junction",
+                "DOMAIN_ID": "Condition",
+                "STANDARD_CONCEPT_CAPTION": "Standard",
+                "CONCEPT_CLASS_ID": "Clinical Finding",
+                "INVALID_REASON": "V"
+              },
+              "includeMapped": false,
+              "includeDescendants": true
+            },
+            {
+              "isExcluded": false,
+              "concept": {
+                "INVALID_REASON_CAPTION": "Valid",
+                "CONCEPT_ID": 74582,
+                "STANDARD_CONCEPT": "S",
+                "CONCEPT_CODE": "93984006",
+                "VOCABULARY_ID": "SNOMED",
+                "CONCEPT_NAME": "Primary malignant neoplasm of rectum",
+                "DOMAIN_ID": "Condition",
+                "STANDARD_CONCEPT_CAPTION": "Standard",
+                "CONCEPT_CLASS_ID": "Clinical Finding",
+                "INVALID_REASON": "V"
+              },
+              "includeMapped": false,
+              "includeDescendants": true
+            },
+            {
+              "isExcluded": false,
+              "concept": {
+                "INVALID_REASON_CAPTION": "Valid",
+                "CONCEPT_ID": 195480,
+                "STANDARD_CONCEPT": "S",
+                "CONCEPT_CODE": "93985007",
+                "VOCABULARY_ID": "SNOMED",
+                "CONCEPT_NAME": "Primary malignant neoplasm of renal pelvis",
+                "DOMAIN_ID": "Condition",
+                "STANDARD_CONCEPT_CAPTION": "Standard",
+                "CONCEPT_CLASS_ID": "Clinical Finding",
+                "INVALID_REASON": "V"
+              },
+              "includeMapped": false,
+              "includeDescendants": true
+            },
+            {
+              "isExcluded": false,
+              "concept": {
+                "INVALID_REASON_CAPTION": "Valid",
+                "CONCEPT_ID": 4311499,
+                "STANDARD_CONCEPT": "S",
+                "CONCEPT_CODE": "93986008",
+                "VOCABULARY_ID": "SNOMED",
+                "CONCEPT_NAME": "Primary malignant neoplasm of respiratory tract",
+                "DOMAIN_ID": "Condition",
+                "STANDARD_CONCEPT_CAPTION": "Standard",
+                "CONCEPT_CLASS_ID": "Clinical Finding",
+                "INVALID_REASON": "V"
+              },
+              "includeMapped": false,
+              "includeDescendants": true
+            },
+            {
+              "isExcluded": false,
+              "concept": {
+                "INVALID_REASON_CAPTION": "Valid",
+                "CONCEPT_ID": 139750,
+                "STANDARD_CONCEPT": "S",
+                "CONCEPT_CODE": "94047004",
+                "VOCABULARY_ID": "SNOMED",
+                "CONCEPT_NAME": "Primary malignant neoplasm of skin",
+                "DOMAIN_ID": "Condition",
+                "STANDARD_CONCEPT_CAPTION": "Standard",
+                "CONCEPT_CLASS_ID": "Clinical Finding",
+                "INVALID_REASON": "V"
+              },
+              "includeMapped": false,
+              "includeDescendants": true
+            },
+            {
+              "isExcluded": false,
+              "concept": {
+                "INVALID_REASON_CAPTION": "Valid",
+                "CONCEPT_ID": 376647,
+                "STANDARD_CONCEPT": "S",
+                "CONCEPT_CODE": "372010005",
+                "VOCABULARY_ID": "SNOMED",
+                "CONCEPT_NAME": "Primary malignant neoplasm of soft tissues",
+                "DOMAIN_ID": "Condition",
+                "STANDARD_CONCEPT_CAPTION": "Standard",
+                "CONCEPT_CLASS_ID": "Clinical Finding",
+                "INVALID_REASON": "V"
+              },
+              "includeMapped": false,
+              "includeDescendants": true
+            },
+            {
+              "isExcluded": false,
+              "concept": {
+                "INVALID_REASON_CAPTION": "Valid",
+                "CONCEPT_ID": 196044,
+                "STANDARD_CONCEPT": "S",
+                "CONCEPT_CODE": "372014001",
+                "VOCABULARY_ID": "SNOMED",
+                "CONCEPT_NAME": "Primary malignant neoplasm of stomach",
+                "DOMAIN_ID": "Condition",
+                "STANDARD_CONCEPT_CAPTION": "Standard",
+                "CONCEPT_CLASS_ID": "Clinical Finding",
+                "INVALID_REASON": "V"
+              },
+              "includeMapped": false,
+              "includeDescendants": true
+            },
+            {
+              "isExcluded": false,
+              "concept": {
+                "INVALID_REASON_CAPTION": "Valid",
+                "CONCEPT_ID": 433716,
+                "STANDARD_CONCEPT": "S",
+                "CONCEPT_CODE": "94087009",
+                "VOCABULARY_ID": "SNOMED",
+                "CONCEPT_NAME": "Primary malignant neoplasm of testis",
+                "DOMAIN_ID": "Condition",
+                "STANDARD_CONCEPT_CAPTION": "Standard",
+                "CONCEPT_CLASS_ID": "Clinical Finding",
+                "INVALID_REASON": "V"
+              },
+              "includeMapped": false,
+              "includeDescendants": true
+            },
+            {
+              "isExcluded": false,
+              "concept": {
+                "INVALID_REASON_CAPTION": "Valid",
+                "CONCEPT_ID": 438368,
+                "STANDARD_CONCEPT": "S",
+                "CONCEPT_CODE": "94096009",
+                "VOCABULARY_ID": "SNOMED",
+                "CONCEPT_NAME": "Primary malignant neoplasm of thymus",
+                "DOMAIN_ID": "Condition",
+                "STANDARD_CONCEPT_CAPTION": "Standard",
+                "CONCEPT_CLASS_ID": "Clinical Finding",
+                "INVALID_REASON": "V"
+              },
+              "includeMapped": false,
+              "includeDescendants": true
+            },
+            {
+              "isExcluded": false,
+              "concept": {
+                "INVALID_REASON_CAPTION": "Valid",
+                "CONCEPT_ID": 133424,
+                "STANDARD_CONCEPT": "S",
+                "CONCEPT_CODE": "94098005",
+                "VOCABULARY_ID": "SNOMED",
+                "CONCEPT_NAME": "Primary malignant neoplasm of thyroid gland",
+                "DOMAIN_ID": "Condition",
+                "STANDARD_CONCEPT_CAPTION": "Standard",
+                "CONCEPT_CLASS_ID": "Clinical Finding",
+                "INVALID_REASON": "V"
+              },
+              "includeMapped": false,
+              "includeDescendants": true
+            },
+            {
+              "isExcluded": false,
+              "concept": {
+                "INVALID_REASON_CAPTION": "Valid",
+                "CONCEPT_ID": 437498,
+                "STANDARD_CONCEPT": "S",
+                "CONCEPT_CODE": "94101009",
+                "VOCABULARY_ID": "SNOMED",
+                "CONCEPT_NAME": "Primary malignant neoplasm of tongue",
+                "DOMAIN_ID": "Condition",
+                "STANDARD_CONCEPT_CAPTION": "Standard",
+                "CONCEPT_CLASS_ID": "Clinical Finding",
+                "INVALID_REASON": "V"
+              },
+              "includeMapped": false,
+              "includeDescendants": true
+            },
+            {
+              "isExcluded": false,
+              "concept": {
+                "INVALID_REASON_CAPTION": "Valid",
+                "CONCEPT_ID": 31509,
+                "STANDARD_CONCEPT": "S",
+                "CONCEPT_CODE": "372020000",
+                "VOCABULARY_ID": "SNOMED",
+                "CONCEPT_NAME": "Primary malignant neoplasm of tonsil",
+                "DOMAIN_ID": "Condition",
+                "STANDARD_CONCEPT_CAPTION": "Standard",
+                "CONCEPT_CLASS_ID": "Clinical Finding",
+                "INVALID_REASON": "V"
+              },
+              "includeMapped": false,
+              "includeDescendants": true
+            },
+            {
+              "isExcluded": false,
+              "concept": {
+                "INVALID_REASON_CAPTION": "Valid",
+                "CONCEPT_ID": 200054,
+                "STANDARD_CONCEPT": "S",
+                "CONCEPT_CODE": "94121005",
+                "VOCABULARY_ID": "SNOMED",
+                "CONCEPT_NAME": "Primary malignant neoplasm of ureter",
+                "DOMAIN_ID": "Condition",
+                "STANDARD_CONCEPT_CAPTION": "Standard",
+                "CONCEPT_CLASS_ID": "Clinical Finding",
+                "INVALID_REASON": "V"
+              },
+              "includeMapped": false,
+              "includeDescendants": true
+            },
+            {
+              "isExcluded": false,
+              "concept": {
+                "INVALID_REASON_CAPTION": "Valid",
+                "CONCEPT_ID": 76349,
+                "STANDARD_CONCEPT": "S",
+                "CONCEPT_CODE": "94125001",
+                "VOCABULARY_ID": "SNOMED",
+                "CONCEPT_NAME": "Primary malignant neoplasm of urinary system",
+                "DOMAIN_ID": "Condition",
+                "STANDARD_CONCEPT_CAPTION": "Standard",
+                "CONCEPT_CLASS_ID": "Clinical Finding",
+                "INVALID_REASON": "V"
+              },
+              "includeMapped": false,
+              "includeDescendants": true
+            },
+            {
+              "isExcluded": false,
+              "concept": {
+                "INVALID_REASON_CAPTION": "Valid",
+                "CONCEPT_ID": 196359,
+                "STANDARD_CONCEPT": "S",
+                "CONCEPT_CODE": "372024009",
+                "VOCABULARY_ID": "SNOMED",
+                "CONCEPT_NAME": "Primary malignant neoplasm of uterine cervix",
+                "DOMAIN_ID": "Condition",
+                "STANDARD_CONCEPT_CAPTION": "Standard",
+                "CONCEPT_CLASS_ID": "Clinical Finding",
+                "INVALID_REASON": "V"
+              },
+              "includeMapped": false,
+              "includeDescendants": true
+            },
+            {
+              "isExcluded": false,
+              "concept": {
+                "INVALID_REASON_CAPTION": "Valid",
+                "CONCEPT_ID": 45770892,
+                "STANDARD_CONCEPT": "S",
+                "CONCEPT_CODE": "10708511000119108",
+                "VOCABULARY_ID": "SNOMED",
+                "CONCEPT_NAME": "Primary malignant neoplasm of uterus",
+                "DOMAIN_ID": "Condition",
+                "STANDARD_CONCEPT_CAPTION": "Standard",
+                "CONCEPT_CLASS_ID": "Clinical Finding",
+                "INVALID_REASON": "V"
+              },
+              "includeMapped": false,
+              "includeDescendants": true
+            },
+            {
+              "isExcluded": false,
+              "concept": {
+                "INVALID_REASON_CAPTION": "Valid",
+                "CONCEPT_ID": 196048,
+                "STANDARD_CONCEPT": "S",
+                "CONCEPT_CODE": "372025005",
+                "VOCABULARY_ID": "SNOMED",
+                "CONCEPT_NAME": "Primary malignant neoplasm of vagina",
+                "DOMAIN_ID": "Condition",
+                "STANDARD_CONCEPT_CAPTION": "Standard",
+                "CONCEPT_CLASS_ID": "Clinical Finding",
+                "INVALID_REASON": "V"
+              },
+              "includeMapped": false,
+              "includeDescendants": true
+            },
+            {
+              "isExcluded": false,
+              "concept": {
+                "INVALID_REASON_CAPTION": "Valid",
+                "CONCEPT_ID": 195197,
+                "STANDARD_CONCEPT": "S",
+                "CONCEPT_CODE": "94143002",
+                "VOCABULARY_ID": "SNOMED",
+                "CONCEPT_NAME": "Primary malignant neoplasm of vulva",
+                "DOMAIN_ID": "Condition",
+                "STANDARD_CONCEPT_CAPTION": "Standard",
+                "CONCEPT_CLASS_ID": "Clinical Finding",
+                "INVALID_REASON": "V"
+              },
+              "includeMapped": false,
+              "includeDescendants": true
+            },
+            {
+              "isExcluded": false,
+              "concept": {
+                "INVALID_REASON_CAPTION": "Valid",
+                "CONCEPT_ID": 318096,
+                "STANDARD_CONCEPT": "S",
+                "CONCEPT_CODE": "94392001",
+                "VOCABULARY_ID": "SNOMED",
+                "CONCEPT_NAME": "Secondary malignant neoplasm of lymph node",
+                "DOMAIN_ID": "Condition",
+                "STANDARD_CONCEPT_CAPTION": "Standard",
+                "CONCEPT_CLASS_ID": "Clinical Finding",
+                "INVALID_REASON": "V"
+              },
+              "includeMapped": false,
+              "includeDescendants": true
+            },
+            {
+              "isExcluded": false,
+              "concept": {
+                "INVALID_REASON_CAPTION": "Valid",
+                "CONCEPT_ID": 4147162,
+                "STANDARD_CONCEPT": "S",
+                "CONCEPT_CODE": "269473008",
+                "VOCABULARY_ID": "SNOMED",
+                "CONCEPT_NAME": "Secondary malignant neoplasm of respiratory and digestive systems",
+                "DOMAIN_ID": "Condition",
+                "STANDARD_CONCEPT_CAPTION": "Standard",
+                "CONCEPT_CLASS_ID": "Clinical Finding",
+                "INVALID_REASON": "V"
+              },
+              "includeMapped": false,
+              "includeDescendants": true
+            },
+            {
+              "isExcluded": false,
+              "concept": {
+                "INVALID_REASON_CAPTION": "Valid",
+                "CONCEPT_ID": 432851,
+                "STANDARD_CONCEPT": "S",
+                "CONCEPT_CODE": "128462008",
+                "VOCABULARY_ID": "SNOMED",
+                "CONCEPT_NAME": "Secondary malignant neoplastic disease",
+                "DOMAIN_ID": "Condition",
+                "STANDARD_CONCEPT_CAPTION": "Standard",
+                "CONCEPT_CLASS_ID": "Clinical Finding",
+                "INVALID_REASON": "V"
+              },
+              "includeMapped": false,
+              "includeDescendants": true
+            },
+            {
+              "isExcluded": false,
+              "concept": {
+                "INVALID_REASON_CAPTION": "Valid",
+                "CONCEPT_ID": 4227653,
+                "STANDARD_CONCEPT": "S",
+                "CONCEPT_CODE": "422172005",
+                "VOCABULARY_ID": "SNOMED",
+                "CONCEPT_NAME": "T-cell AND/OR NK-cell neoplasm",
+                "DOMAIN_ID": "Condition",
+                "STANDARD_CONCEPT_CAPTION": "Standard",
+                "CONCEPT_CLASS_ID": "Clinical Finding",
+                "INVALID_REASON": "V"
+              },
+              "includeMapped": false,
+              "includeDescendants": true
+            }
+          ]},
           "name": "[CSKIM] malignant neoplasm_KOSIS",
-          "id": 0
+          "id": 3
         }],
         "EndStrategy": null,
         "CensoringCriteria": [],
@@ -150,7 +1642,7 @@
         "PrimaryCriteria": {
           "CriteriaList": [{"Death": {
             "CorrelatedCriteria": null,
-            "CodesetId": 0,
+            "CodesetId": 3,
             "DeathSourceConcept": null,
             "DeathTypeExclude": false,
             "DeathType": null,
@@ -168,10 +1660,10 @@
       "createdDate": "2019-06-12T07:02:21.073+0000",
       "createdBy": "ted9219",
       "name": "[CSKIM] Cancer death _KOSIS",
-      "modifiedDate": null,
+      "modifiedDate": "2019-07-23T00:57:17.567+0000",
       "description": null,
       "expressionType": "SIMPLE_EXPRESSION",
-      "modifiedBy": null,
+      "modifiedBy": "ted9219",
       "id": 222
     },
     {
@@ -259,6 +1751,23 @@
               "isExcluded": false,
               "concept": {
                 "INVALID_REASON_CAPTION": "Valid",
+                "CONCEPT_ID": 4185932,
+                "STANDARD_CONCEPT": "S",
+                "CONCEPT_CODE": "414545008",
+                "VOCABULARY_ID": "SNOMED",
+                "CONCEPT_NAME": "Ischemic heart disease",
+                "DOMAIN_ID": "Condition",
+                "STANDARD_CONCEPT_CAPTION": "Standard",
+                "CONCEPT_CLASS_ID": "Clinical Finding",
+                "INVALID_REASON": "V"
+              },
+              "includeMapped": false,
+              "includeDescendants": true
+            },
+            {
+              "isExcluded": false,
+              "concept": {
+                "INVALID_REASON_CAPTION": "Valid",
                 "CONCEPT_ID": 4176969,
                 "STANDARD_CONCEPT": "S",
                 "CONCEPT_CODE": "363294003",
@@ -290,8 +1799,8 @@
               "includeDescendants": true
             }
           ]},
-          "name": "[CSKIM] Cardiovascular disease_KOSIS",
-          "id": 0
+          "name": "[CSKIM] Ischemic heart disease_KOSIS",
+          "id": 2
         }],
         "EndStrategy": null,
         "CensoringCriteria": [],
@@ -302,7 +1811,7 @@
         "PrimaryCriteria": {
           "CriteriaList": [{"Death": {
             "CorrelatedCriteria": null,
-            "CodesetId": 0,
+            "CodesetId": 2,
             "DeathSourceConcept": null,
             "DeathTypeExclude": false,
             "DeathType": null,
@@ -319,11 +1828,11 @@
       },
       "createdDate": "2019-06-12T07:04:08.990+0000",
       "createdBy": "ted9219",
-      "name": "[CSKIM] cardiovascular death _KOSIS",
-      "modifiedDate": null,
+      "name": "[CSKIM] Ischemic Heart Disease death _KOSIS",
+      "modifiedDate": "2019-07-23T00:59:57.823+0000",
       "description": null,
       "expressionType": "SIMPLE_EXPRESSION",
-      "modifiedBy": null,
+      "modifiedBy": "ted9219",
       "id": 223
     },
     {
@@ -337,62 +1846,17 @@
           "StartDate": null,
           "EndDate": null
         },
-        "ConceptSets": [],
-        "EndStrategy": null,
-        "CensoringCriteria": [],
-        "Title": null,
-        "AdditionalCriteria": null,
-        "QualifiedLimit": {"Type": "First"},
-        "InclusionRules": [],
-        "PrimaryCriteria": {
-          "CriteriaList": [{"Death": {
-            "CorrelatedCriteria": null,
-            "CodesetId": null,
-            "DeathSourceConcept": null,
-            "DeathTypeExclude": false,
-            "DeathType": null,
-            "OccurrenceStartDate": null,
-            "Gender": null,
-            "Age": null
-          }}],
-          "PrimaryCriteriaLimit": {"Type": "First"},
-          "ObservationWindow": {
-            "PostDays": 0,
-            "PriorDays": 0
-          }
-        }
-      },
-      "createdDate": "2019-05-04T06:22:16.457+0000",
-      "createdBy": "ted9219",
-      "name": "[CSKIM] Any death",
-      "modifiedDate": "2019-05-12T06:24:05.197+0000",
-      "description": null,
-      "expressionType": "SIMPLE_EXPRESSION",
-      "modifiedBy": "ted9219",
-      "id": 132
-    },
-    {
-      "expression": {
-        "ExpressionLimit": {"Type": "First"},
-        "CollapseSettings": {
-          "CollapseType": "ERA",
-          "EraPad": 0
-        },
-        "CensorWindow": {
-          "StartDate": null,
-          "EndDate": null
-        },
         "ConceptSets": [{
           "expression": {"items": [
             {
               "isExcluded": false,
               "concept": {
                 "INVALID_REASON_CAPTION": "Valid",
-                "CONCEPT_ID": 201612,
+                "CONCEPT_ID": 376713,
                 "STANDARD_CONCEPT": "S",
-                "CONCEPT_CODE": "41309000",
+                "CONCEPT_CODE": "274100004",
                 "VOCABULARY_ID": "SNOMED",
-                "CONCEPT_NAME": "Alcoholic liver damage",
+                "CONCEPT_NAME": "Cerebral hemorrhage",
                 "DOMAIN_ID": "Condition",
                 "STANDARD_CONCEPT_CAPTION": "Standard",
                 "CONCEPT_CLASS_ID": "Clinical Finding",
@@ -405,11 +1869,11 @@
               "isExcluded": false,
               "concept": {
                 "INVALID_REASON_CAPTION": "Valid",
-                "CONCEPT_ID": 200763,
+                "CONCEPT_ID": 443454,
                 "STANDARD_CONCEPT": "S",
-                "CONCEPT_CODE": "76783007",
+                "CONCEPT_CODE": "432504007",
                 "VOCABULARY_ID": "SNOMED",
-                "CONCEPT_NAME": "Chronic hepatitis",
+                "CONCEPT_NAME": "Cerebral infarction",
                 "DOMAIN_ID": "Condition",
                 "STANDARD_CONCEPT_CAPTION": "Standard",
                 "CONCEPT_CLASS_ID": "Clinical Finding",
@@ -422,11 +1886,11 @@
               "isExcluded": false,
               "concept": {
                 "INVALID_REASON_CAPTION": "Valid",
-                "CONCEPT_ID": 194984,
+                "CONCEPT_ID": 381316,
                 "STANDARD_CONCEPT": "S",
-                "CONCEPT_CODE": "235856003",
+                "CONCEPT_CODE": "230690007",
                 "VOCABULARY_ID": "SNOMED",
-                "CONCEPT_NAME": "Disease of liver",
+                "CONCEPT_NAME": "Cerebrovascular accident",
                 "DOMAIN_ID": "Condition",
                 "STANDARD_CONCEPT_CAPTION": "Standard",
                 "CONCEPT_CLASS_ID": "Clinical Finding",
@@ -439,11 +1903,11 @@
               "isExcluded": false,
               "concept": {
                 "INVALID_REASON_CAPTION": "Valid",
-                "CONCEPT_ID": 4245975,
+                "CONCEPT_ID": 381591,
                 "STANDARD_CONCEPT": "S",
-                "CONCEPT_CODE": "59927004",
+                "CONCEPT_CODE": "62914000",
                 "VOCABULARY_ID": "SNOMED",
-                "CONCEPT_NAME": "Hepatic failure",
+                "CONCEPT_NAME": "Cerebrovascular disease",
                 "DOMAIN_ID": "Condition",
                 "STANDARD_CONCEPT_CAPTION": "Standard",
                 "CONCEPT_CLASS_ID": "Clinical Finding",
@@ -456,11 +1920,11 @@
               "isExcluded": false,
               "concept": {
                 "INVALID_REASON_CAPTION": "Valid",
-                "CONCEPT_ID": 4267417,
+                "CONCEPT_ID": 439847,
                 "STANDARD_CONCEPT": "S",
-                "CONCEPT_CODE": "62484002",
+                "CONCEPT_CODE": "1386000",
                 "VOCABULARY_ID": "SNOMED",
-                "CONCEPT_NAME": "Hepatic fibrosis",
+                "CONCEPT_NAME": "Intracranial hemorrhage",
                 "DOMAIN_ID": "Condition",
                 "STANDARD_CONCEPT_CAPTION": "Standard",
                 "CONCEPT_CLASS_ID": "Clinical Finding",
@@ -473,11 +1937,11 @@
               "isExcluded": false,
               "concept": {
                 "INVALID_REASON_CAPTION": "Valid",
-                "CONCEPT_ID": 194990,
+                "CONCEPT_ID": 434056,
                 "STANDARD_CONCEPT": "S",
-                "CONCEPT_CODE": "128241005",
+                "CONCEPT_CODE": "195239002",
                 "VOCABULARY_ID": "SNOMED",
-                "CONCEPT_NAME": "Inflammatory disease of liver",
+                "CONCEPT_NAME": "Late effects of cerebrovascular disease",
                 "DOMAIN_ID": "Condition",
                 "STANDARD_CONCEPT_CAPTION": "Standard",
                 "CONCEPT_CLASS_ID": "Clinical Finding",
@@ -490,11 +1954,28 @@
               "isExcluded": false,
               "concept": {
                 "INVALID_REASON_CAPTION": "Valid",
-                "CONCEPT_ID": 4055224,
+                "CONCEPT_ID": 4111715,
                 "STANDARD_CONCEPT": "S",
-                "CONCEPT_CODE": "197354009",
+                "CONCEPT_CODE": "195231004",
                 "VOCABULARY_ID": "SNOMED",
-                "CONCEPT_NAME": "Toxic liver disease",
+                "CONCEPT_NAME": "Occlusion and stenosis of cerebral arteries, not resulting in cerebral infarction",
+                "DOMAIN_ID": "Condition",
+                "STANDARD_CONCEPT_CAPTION": "Standard",
+                "CONCEPT_CLASS_ID": "Clinical Finding",
+                "INVALID_REASON": "V"
+              },
+              "includeMapped": false,
+              "includeDescendants": true
+            },
+            {
+              "isExcluded": false,
+              "concept": {
+                "INVALID_REASON_CAPTION": "Valid",
+                "CONCEPT_ID": 432923,
+                "STANDARD_CONCEPT": "S",
+                "CONCEPT_CODE": "21454007",
+                "VOCABULARY_ID": "SNOMED",
+                "CONCEPT_NAME": "Subarachnoid hemorrhage",
                 "DOMAIN_ID": "Condition",
                 "STANDARD_CONCEPT_CAPTION": "Standard",
                 "CONCEPT_CLASS_ID": "Clinical Finding",
@@ -504,8 +1985,8 @@
               "includeDescendants": true
             }
           ]},
-          "name": "[CSKIM] Liver disease_KOSIS",
-          "id": 0
+          "name": "[CSKIM] cerebrovascular disease_KOSIS",
+          "id": 2
         }],
         "EndStrategy": null,
         "CensoringCriteria": [],
@@ -516,7 +1997,7 @@
         "PrimaryCriteria": {
           "CriteriaList": [{"Death": {
             "CorrelatedCriteria": null,
-            "CodesetId": 0,
+            "CodesetId": 2,
             "DeathSourceConcept": null,
             "DeathTypeExclude": false,
             "DeathType": null,
@@ -531,183 +2012,14 @@
           }
         }
       },
-      "createdDate": "2019-06-12T07:10:06.877+0000",
+      "createdDate": "2019-06-12T07:05:29.070+0000",
       "createdBy": "ted9219",
-      "name": "[CSKIM] liver disease death _KOSIS",
-      "modifiedDate": "2019-06-15T06:29:52.993+0000",
+      "name": "[CSKIM] cerebrovascular death _KOSIS",
+      "modifiedDate": "2019-07-23T01:01:13.107+0000",
       "description": null,
       "expressionType": "SIMPLE_EXPRESSION",
       "modifiedBy": "ted9219",
-      "id": 227
-    },
-    {
-      "expression": {
-        "ExpressionLimit": {"Type": "First"},
-        "CollapseSettings": {
-          "CollapseType": "ERA",
-          "EraPad": 0
-        },
-        "CensorWindow": {
-          "StartDate": null,
-          "EndDate": null
-        },
-        "ConceptSets": [{
-          "expression": {"items": [
-            {
-              "isExcluded": false,
-              "concept": {
-                "INVALID_REASON_CAPTION": "Valid",
-                "CONCEPT_ID": 37116845,
-                "STANDARD_CONCEPT": "S",
-                "CONCEPT_CODE": "733858005",
-                "VOCABULARY_ID": "SNOMED",
-                "CONCEPT_NAME": "Acute severe refractory exacerbation of asthma",
-                "DOMAIN_ID": "Condition",
-                "STANDARD_CONCEPT_CAPTION": "Standard",
-                "CONCEPT_CLASS_ID": "Clinical Finding",
-                "INVALID_REASON": "V"
-              },
-              "includeMapped": false,
-              "includeDescendants": true
-            },
-            {
-              "isExcluded": false,
-              "concept": {
-                "INVALID_REASON_CAPTION": "Valid",
-                "CONCEPT_ID": 317009,
-                "STANDARD_CONCEPT": "S",
-                "CONCEPT_CODE": "195967001",
-                "VOCABULARY_ID": "SNOMED",
-                "CONCEPT_NAME": "Asthma",
-                "DOMAIN_ID": "Condition",
-                "STANDARD_CONCEPT_CAPTION": "Standard",
-                "CONCEPT_CLASS_ID": "Clinical Finding",
-                "INVALID_REASON": "V"
-              },
-              "includeMapped": false,
-              "includeDescendants": true
-            },
-            {
-              "isExcluded": false,
-              "concept": {
-                "INVALID_REASON_CAPTION": "Valid",
-                "CONCEPT_ID": 256449,
-                "STANDARD_CONCEPT": "S",
-                "CONCEPT_CODE": "12295008",
-                "VOCABULARY_ID": "SNOMED",
-                "CONCEPT_NAME": "Bronchiectasis",
-                "DOMAIN_ID": "Condition",
-                "STANDARD_CONCEPT_CAPTION": "Standard",
-                "CONCEPT_CLASS_ID": "Clinical Finding",
-                "INVALID_REASON": "V"
-              },
-              "includeMapped": false,
-              "includeDescendants": true
-            },
-            {
-              "isExcluded": false,
-              "concept": {
-                "INVALID_REASON_CAPTION": "Valid",
-                "CONCEPT_ID": 256451,
-                "STANDARD_CONCEPT": "S",
-                "CONCEPT_CODE": "32398004",
-                "VOCABULARY_ID": "SNOMED",
-                "CONCEPT_NAME": "Bronchitis",
-                "DOMAIN_ID": "Condition",
-                "STANDARD_CONCEPT_CAPTION": "Standard",
-                "CONCEPT_CLASS_ID": "Clinical Finding",
-                "INVALID_REASON": "V"
-              },
-              "includeMapped": false,
-              "includeDescendants": true
-            },
-            {
-              "isExcluded": false,
-              "concept": {
-                "INVALID_REASON_CAPTION": "Valid",
-                "CONCEPT_ID": 255841,
-                "STANDARD_CONCEPT": "S",
-                "CONCEPT_CODE": "63480004",
-                "VOCABULARY_ID": "SNOMED",
-                "CONCEPT_NAME": "Chronic bronchitis",
-                "DOMAIN_ID": "Condition",
-                "STANDARD_CONCEPT_CAPTION": "Standard",
-                "CONCEPT_CLASS_ID": "Clinical Finding",
-                "INVALID_REASON": "V"
-              },
-              "includeMapped": false,
-              "includeDescendants": true
-            },
-            {
-              "isExcluded": false,
-              "concept": {
-                "INVALID_REASON_CAPTION": "Valid",
-                "CONCEPT_ID": 255573,
-                "STANDARD_CONCEPT": "S",
-                "CONCEPT_CODE": "13645005",
-                "VOCABULARY_ID": "SNOMED",
-                "CONCEPT_NAME": "Chronic obstructive lung disease",
-                "DOMAIN_ID": "Condition",
-                "STANDARD_CONCEPT_CAPTION": "Standard",
-                "CONCEPT_CLASS_ID": "Clinical Finding",
-                "INVALID_REASON": "V"
-              },
-              "includeMapped": false,
-              "includeDescendants": true
-            },
-            {
-              "isExcluded": false,
-              "concept": {
-                "INVALID_REASON_CAPTION": "Valid",
-                "CONCEPT_ID": 261325,
-                "STANDARD_CONCEPT": "S",
-                "CONCEPT_CODE": "87433001",
-                "VOCABULARY_ID": "SNOMED",
-                "CONCEPT_NAME": "Pulmonary emphysema",
-                "DOMAIN_ID": "Condition",
-                "STANDARD_CONCEPT_CAPTION": "Standard",
-                "CONCEPT_CLASS_ID": "Clinical Finding",
-                "INVALID_REASON": "V"
-              },
-              "includeMapped": false,
-              "includeDescendants": true
-            }
-          ]},
-          "name": "[CSKIM] Chronic lower respiratory disease _KOSIS",
-          "id": 0
-        }],
-        "EndStrategy": null,
-        "CensoringCriteria": [],
-        "Title": null,
-        "AdditionalCriteria": null,
-        "QualifiedLimit": {"Type": "First"},
-        "InclusionRules": [],
-        "PrimaryCriteria": {
-          "CriteriaList": [{"Death": {
-            "CorrelatedCriteria": null,
-            "CodesetId": 0,
-            "DeathSourceConcept": null,
-            "DeathTypeExclude": false,
-            "DeathType": null,
-            "OccurrenceStartDate": null,
-            "Gender": null,
-            "Age": null
-          }}],
-          "PrimaryCriteriaLimit": {"Type": "First"},
-          "ObservationWindow": {
-            "PostDays": 0,
-            "PriorDays": 0
-          }
-        }
-      },
-      "createdDate": "2019-06-12T07:11:24.927+0000",
-      "createdBy": "ted9219",
-      "name": "[CSKIM] chronic lower respiratory disease death _KOSIS",
-      "modifiedDate": "2019-07-22T02:39:39.797+0000",
-      "description": null,
-      "expressionType": "SIMPLE_EXPRESSION",
-      "modifiedBy": "ted9219",
-      "id": 228
+      "id": 224
     },
     {
       "expression": {
@@ -860,7 +2172,7 @@
             }
           ]},
           "name": "[CSKIM] Pneumonia_KOSIS",
-          "id": 0
+          "id": 3
         }],
         "EndStrategy": null,
         "CensoringCriteria": [],
@@ -871,7 +2183,7 @@
         "PrimaryCriteria": {
           "CriteriaList": [{"Death": {
             "CorrelatedCriteria": null,
-            "CodesetId": 0,
+            "CodesetId": 3,
             "DeathSourceConcept": null,
             "DeathTypeExclude": false,
             "DeathType": null,
@@ -888,8 +2200,8 @@
       },
       "createdDate": "2019-06-12T07:06:40.433+0000",
       "createdBy": "ted9219",
-      "name": "[CSKIM] pneumonia death _KOSIS",
-      "modifiedDate": "2019-07-22T02:40:37.280+0000",
+      "name": "[CSKIM] Pneumonia death _KOSIS",
+      "modifiedDate": "2019-07-23T01:06:27.387+0000",
       "description": null,
       "expressionType": "SIMPLE_EXPRESSION",
       "modifiedBy": "ted9219",
@@ -912,11 +2224,11 @@
               "isExcluded": false,
               "concept": {
                 "INVALID_REASON_CAPTION": "Valid",
-                "CONCEPT_ID": 443454,
+                "CONCEPT_ID": 201820,
                 "STANDARD_CONCEPT": "S",
-                "CONCEPT_CODE": "432504007",
+                "CONCEPT_CODE": "73211009",
                 "VOCABULARY_ID": "SNOMED",
-                "CONCEPT_NAME": "Cerebral infarction",
+                "CONCEPT_NAME": "Diabetes mellitus",
                 "DOMAIN_ID": "Condition",
                 "STANDARD_CONCEPT_CAPTION": "Standard",
                 "CONCEPT_CLASS_ID": "Clinical Finding",
@@ -929,11 +2241,11 @@
               "isExcluded": false,
               "concept": {
                 "INVALID_REASON_CAPTION": "Valid",
-                "CONCEPT_ID": 381316,
+                "CONCEPT_ID": 4327944,
                 "STANDARD_CONCEPT": "S",
-                "CONCEPT_CODE": "230690007",
+                "CONCEPT_CODE": "75524006",
                 "VOCABULARY_ID": "SNOMED",
-                "CONCEPT_NAME": "Cerebrovascular accident",
+                "CONCEPT_NAME": "Malnutrition related diabetes mellitus",
                 "DOMAIN_ID": "Condition",
                 "STANDARD_CONCEPT_CAPTION": "Standard",
                 "CONCEPT_CLASS_ID": "Clinical Finding",
@@ -946,11 +2258,11 @@
               "isExcluded": false,
               "concept": {
                 "INVALID_REASON_CAPTION": "Valid",
-                "CONCEPT_ID": 381591,
+                "CONCEPT_ID": 201254,
                 "STANDARD_CONCEPT": "S",
-                "CONCEPT_CODE": "62914000",
+                "CONCEPT_CODE": "46635009",
                 "VOCABULARY_ID": "SNOMED",
-                "CONCEPT_NAME": "Cerebrovascular disease",
+                "CONCEPT_NAME": "Type 1 diabetes mellitus",
                 "DOMAIN_ID": "Condition",
                 "STANDARD_CONCEPT_CAPTION": "Standard",
                 "CONCEPT_CLASS_ID": "Clinical Finding",
@@ -963,79 +2275,11 @@
               "isExcluded": false,
               "concept": {
                 "INVALID_REASON_CAPTION": "Valid",
-                "CONCEPT_ID": 434056,
+                "CONCEPT_ID": 201826,
                 "STANDARD_CONCEPT": "S",
-                "CONCEPT_CODE": "195239002",
+                "CONCEPT_CODE": "44054006",
                 "VOCABULARY_ID": "SNOMED",
-                "CONCEPT_NAME": "Late effects of cerebrovascular disease",
-                "DOMAIN_ID": "Condition",
-                "STANDARD_CONCEPT_CAPTION": "Standard",
-                "CONCEPT_CLASS_ID": "Clinical Finding",
-                "INVALID_REASON": "V"
-              },
-              "includeMapped": false,
-              "includeDescendants": true
-            },
-            {
-              "isExcluded": false,
-              "concept": {
-                "INVALID_REASON_CAPTION": "Valid",
-                "CONCEPT_ID": 4111715,
-                "STANDARD_CONCEPT": "S",
-                "CONCEPT_CODE": "195231004",
-                "VOCABULARY_ID": "SNOMED",
-                "CONCEPT_NAME": "Occlusion and stenosis of cerebral arteries, not resulting in cerebral infarction",
-                "DOMAIN_ID": "Condition",
-                "STANDARD_CONCEPT_CAPTION": "Standard",
-                "CONCEPT_CLASS_ID": "Clinical Finding",
-                "INVALID_REASON": "V"
-              },
-              "includeMapped": false,
-              "includeDescendants": true
-            },
-            {
-              "isExcluded": false,
-              "concept": {
-                "INVALID_REASON_CAPTION": "Valid",
-                "CONCEPT_ID": 43530727,
-                "STANDARD_CONCEPT": "S",
-                "CONCEPT_CODE": "291571000119106",
-                "VOCABULARY_ID": "SNOMED",
-                "CONCEPT_NAME": "Spontaneous cerebral hemorrhage",
-                "DOMAIN_ID": "Condition",
-                "STANDARD_CONCEPT_CAPTION": "Standard",
-                "CONCEPT_CLASS_ID": "Clinical Finding",
-                "INVALID_REASON": "V"
-              },
-              "includeMapped": false,
-              "includeDescendants": true
-            },
-            {
-              "isExcluded": false,
-              "concept": {
-                "INVALID_REASON_CAPTION": "Valid",
-                "CONCEPT_ID": 42538062,
-                "STANDARD_CONCEPT": "S",
-                "CONCEPT_CODE": "738779002",
-                "VOCABULARY_ID": "SNOMED",
-                "CONCEPT_NAME": "Spontaneous intracranial hemorrhage",
-                "DOMAIN_ID": "Condition",
-                "STANDARD_CONCEPT_CAPTION": "Standard",
-                "CONCEPT_CLASS_ID": "Clinical Finding",
-                "INVALID_REASON": "V"
-              },
-              "includeMapped": false,
-              "includeDescendants": true
-            },
-            {
-              "isExcluded": false,
-              "concept": {
-                "INVALID_REASON_CAPTION": "Valid",
-                "CONCEPT_ID": 4148906,
-                "STANDARD_CONCEPT": "S",
-                "CONCEPT_CODE": "270907008",
-                "VOCABULARY_ID": "SNOMED",
-                "CONCEPT_NAME": "Spontaneous subarachnoid hemorrhage",
+                "CONCEPT_NAME": "Type 2 diabetes mellitus",
                 "DOMAIN_ID": "Condition",
                 "STANDARD_CONCEPT_CAPTION": "Standard",
                 "CONCEPT_CLASS_ID": "Clinical Finding",
@@ -1045,8 +2289,8 @@
               "includeDescendants": true
             }
           ]},
-          "name": "[CSKIM] cerebrovascular disease_KOSIS",
-          "id": 0
+          "name": "[CSKIM] Diabetes_KOSIS",
+          "id": 2
         }],
         "EndStrategy": null,
         "CensoringCriteria": [],
@@ -1057,7 +2301,7 @@
         "PrimaryCriteria": {
           "CriteriaList": [{"Death": {
             "CorrelatedCriteria": null,
-            "CodesetId": 0,
+            "CodesetId": 2,
             "DeathSourceConcept": null,
             "DeathTypeExclude": false,
             "DeathType": null,
@@ -1072,14 +2316,403 @@
           }
         }
       },
-      "createdDate": "2019-06-12T07:05:29.070+0000",
+      "createdDate": "2019-06-12T07:07:57.953+0000",
       "createdBy": "ted9219",
-      "name": "[CSKIM] cerebrovascular death _KOSIS",
-      "modifiedDate": "2019-07-22T02:40:17.237+0000",
+      "name": "[CSKIM] diabetes death _KOSIS",
+      "modifiedDate": "2019-07-23T01:07:39.670+0000",
       "description": null,
       "expressionType": "SIMPLE_EXPRESSION",
       "modifiedBy": "ted9219",
-      "id": 224
+      "id": 226
+    },
+    {
+      "expression": {
+        "ExpressionLimit": {"Type": "First"},
+        "CollapseSettings": {
+          "CollapseType": "ERA",
+          "EraPad": 0
+        },
+        "CensorWindow": {
+          "StartDate": null,
+          "EndDate": null
+        },
+        "ConceptSets": [{
+          "expression": {"items": [
+            {
+              "isExcluded": false,
+              "concept": {
+                "INVALID_REASON_CAPTION": "Valid",
+                "CONCEPT_ID": 201612,
+                "STANDARD_CONCEPT": "S",
+                "CONCEPT_CODE": "41309000",
+                "VOCABULARY_ID": "SNOMED",
+                "CONCEPT_NAME": "Alcoholic liver damage",
+                "DOMAIN_ID": "Condition",
+                "STANDARD_CONCEPT_CAPTION": "Standard",
+                "CONCEPT_CLASS_ID": "Clinical Finding",
+                "INVALID_REASON": "V"
+              },
+              "includeMapped": false,
+              "includeDescendants": true
+            },
+            {
+              "isExcluded": false,
+              "concept": {
+                "INVALID_REASON_CAPTION": "Valid",
+                "CONCEPT_ID": 200763,
+                "STANDARD_CONCEPT": "S",
+                "CONCEPT_CODE": "76783007",
+                "VOCABULARY_ID": "SNOMED",
+                "CONCEPT_NAME": "Chronic hepatitis",
+                "DOMAIN_ID": "Condition",
+                "STANDARD_CONCEPT_CAPTION": "Standard",
+                "CONCEPT_CLASS_ID": "Clinical Finding",
+                "INVALID_REASON": "V"
+              },
+              "includeMapped": false,
+              "includeDescendants": true
+            },
+            {
+              "isExcluded": false,
+              "concept": {
+                "INVALID_REASON_CAPTION": "Valid",
+                "CONCEPT_ID": 194984,
+                "STANDARD_CONCEPT": "S",
+                "CONCEPT_CODE": "235856003",
+                "VOCABULARY_ID": "SNOMED",
+                "CONCEPT_NAME": "Disease of liver",
+                "DOMAIN_ID": "Condition",
+                "STANDARD_CONCEPT_CAPTION": "Standard",
+                "CONCEPT_CLASS_ID": "Clinical Finding",
+                "INVALID_REASON": "V"
+              },
+              "includeMapped": false,
+              "includeDescendants": true
+            },
+            {
+              "isExcluded": false,
+              "concept": {
+                "INVALID_REASON_CAPTION": "Valid",
+                "CONCEPT_ID": 4245975,
+                "STANDARD_CONCEPT": "S",
+                "CONCEPT_CODE": "59927004",
+                "VOCABULARY_ID": "SNOMED",
+                "CONCEPT_NAME": "Hepatic failure",
+                "DOMAIN_ID": "Condition",
+                "STANDARD_CONCEPT_CAPTION": "Standard",
+                "CONCEPT_CLASS_ID": "Clinical Finding",
+                "INVALID_REASON": "V"
+              },
+              "includeMapped": false,
+              "includeDescendants": true
+            },
+            {
+              "isExcluded": false,
+              "concept": {
+                "INVALID_REASON_CAPTION": "Valid",
+                "CONCEPT_ID": 4267417,
+                "STANDARD_CONCEPT": "S",
+                "CONCEPT_CODE": "62484002",
+                "VOCABULARY_ID": "SNOMED",
+                "CONCEPT_NAME": "Hepatic fibrosis",
+                "DOMAIN_ID": "Condition",
+                "STANDARD_CONCEPT_CAPTION": "Standard",
+                "CONCEPT_CLASS_ID": "Clinical Finding",
+                "INVALID_REASON": "V"
+              },
+              "includeMapped": false,
+              "includeDescendants": true
+            },
+            {
+              "isExcluded": false,
+              "concept": {
+                "INVALID_REASON_CAPTION": "Valid",
+                "CONCEPT_ID": 194990,
+                "STANDARD_CONCEPT": "S",
+                "CONCEPT_CODE": "128241005",
+                "VOCABULARY_ID": "SNOMED",
+                "CONCEPT_NAME": "Inflammatory disease of liver",
+                "DOMAIN_ID": "Condition",
+                "STANDARD_CONCEPT_CAPTION": "Standard",
+                "CONCEPT_CLASS_ID": "Clinical Finding",
+                "INVALID_REASON": "V"
+              },
+              "includeMapped": false,
+              "includeDescendants": true
+            },
+            {
+              "isExcluded": false,
+              "concept": {
+                "INVALID_REASON_CAPTION": "Valid",
+                "CONCEPT_ID": 4055224,
+                "STANDARD_CONCEPT": "S",
+                "CONCEPT_CODE": "197354009",
+                "VOCABULARY_ID": "SNOMED",
+                "CONCEPT_NAME": "Toxic liver disease",
+                "DOMAIN_ID": "Condition",
+                "STANDARD_CONCEPT_CAPTION": "Standard",
+                "CONCEPT_CLASS_ID": "Clinical Finding",
+                "INVALID_REASON": "V"
+              },
+              "includeMapped": false,
+              "includeDescendants": true
+            },
+            {
+              "isExcluded": false,
+              "concept": {
+                "INVALID_REASON_CAPTION": "Valid",
+                "CONCEPT_ID": 4058695,
+                "STANDARD_CONCEPT": "S",
+                "CONCEPT_CODE": "197362001",
+                "VOCABULARY_ID": "SNOMED",
+                "CONCEPT_NAME": "Toxic liver disease with fibrosis and cirrhosis of liver",
+                "DOMAIN_ID": "Condition",
+                "STANDARD_CONCEPT_CAPTION": "Standard",
+                "CONCEPT_CLASS_ID": "Clinical Finding",
+                "INVALID_REASON": "V"
+              },
+              "includeMapped": false,
+              "includeDescendants": true
+            }
+          ]},
+          "name": "[CSKIM] Liver disease_KOSIS",
+          "id": 2
+        }],
+        "EndStrategy": null,
+        "CensoringCriteria": [],
+        "Title": null,
+        "AdditionalCriteria": null,
+        "QualifiedLimit": {"Type": "First"},
+        "InclusionRules": [],
+        "PrimaryCriteria": {
+          "CriteriaList": [{"Death": {
+            "CorrelatedCriteria": null,
+            "CodesetId": 2,
+            "DeathSourceConcept": null,
+            "DeathTypeExclude": false,
+            "DeathType": null,
+            "OccurrenceStartDate": null,
+            "Gender": null,
+            "Age": null
+          }}],
+          "PrimaryCriteriaLimit": {"Type": "First"},
+          "ObservationWindow": {
+            "PostDays": 0,
+            "PriorDays": 0
+          }
+        }
+      },
+      "createdDate": "2019-06-12T07:10:06.877+0000",
+      "createdBy": "ted9219",
+      "name": "[CSKIM] Liver disease death _KOSIS",
+      "modifiedDate": "2019-07-23T01:08:44.053+0000",
+      "description": null,
+      "expressionType": "SIMPLE_EXPRESSION",
+      "modifiedBy": "ted9219",
+      "id": 227
+    },
+    {
+      "expression": {
+        "ExpressionLimit": {"Type": "First"},
+        "CollapseSettings": {
+          "CollapseType": "ERA",
+          "EraPad": 0
+        },
+        "CensorWindow": {
+          "StartDate": null,
+          "EndDate": null
+        },
+        "ConceptSets": [{
+          "expression": {"items": [
+            {
+              "isExcluded": false,
+              "concept": {
+                "INVALID_REASON_CAPTION": "Valid",
+                "CONCEPT_ID": 37116845,
+                "STANDARD_CONCEPT": "S",
+                "CONCEPT_CODE": "733858005",
+                "VOCABULARY_ID": "SNOMED",
+                "CONCEPT_NAME": "Acute severe refractory exacerbation of asthma",
+                "DOMAIN_ID": "Condition",
+                "STANDARD_CONCEPT_CAPTION": "Standard",
+                "CONCEPT_CLASS_ID": "Clinical Finding",
+                "INVALID_REASON": "V"
+              },
+              "includeMapped": false,
+              "includeDescendants": true
+            },
+            {
+              "isExcluded": false,
+              "concept": {
+                "INVALID_REASON_CAPTION": "Valid",
+                "CONCEPT_ID": 317009,
+                "STANDARD_CONCEPT": "S",
+                "CONCEPT_CODE": "195967001",
+                "VOCABULARY_ID": "SNOMED",
+                "CONCEPT_NAME": "Asthma",
+                "DOMAIN_ID": "Condition",
+                "STANDARD_CONCEPT_CAPTION": "Standard",
+                "CONCEPT_CLASS_ID": "Clinical Finding",
+                "INVALID_REASON": "V"
+              },
+              "includeMapped": false,
+              "includeDescendants": true
+            },
+            {
+              "isExcluded": false,
+              "concept": {
+                "INVALID_REASON_CAPTION": "Valid",
+                "CONCEPT_ID": 256449,
+                "STANDARD_CONCEPT": "S",
+                "CONCEPT_CODE": "12295008",
+                "VOCABULARY_ID": "SNOMED",
+                "CONCEPT_NAME": "Bronchiectasis",
+                "DOMAIN_ID": "Condition",
+                "STANDARD_CONCEPT_CAPTION": "Standard",
+                "CONCEPT_CLASS_ID": "Clinical Finding",
+                "INVALID_REASON": "V"
+              },
+              "includeMapped": false,
+              "includeDescendants": true
+            },
+            {
+              "isExcluded": false,
+              "concept": {
+                "INVALID_REASON_CAPTION": "Valid",
+                "CONCEPT_ID": 256451,
+                "STANDARD_CONCEPT": "S",
+                "CONCEPT_CODE": "32398004",
+                "VOCABULARY_ID": "SNOMED",
+                "CONCEPT_NAME": "Bronchitis",
+                "DOMAIN_ID": "Condition",
+                "STANDARD_CONCEPT_CAPTION": "Standard",
+                "CONCEPT_CLASS_ID": "Clinical Finding",
+                "INVALID_REASON": "V"
+              },
+              "includeMapped": false,
+              "includeDescendants": true
+            },
+            {
+              "isExcluded": false,
+              "concept": {
+                "INVALID_REASON_CAPTION": "Valid",
+                "CONCEPT_ID": 255841,
+                "STANDARD_CONCEPT": "S",
+                "CONCEPT_CODE": "63480004",
+                "VOCABULARY_ID": "SNOMED",
+                "CONCEPT_NAME": "Chronic bronchitis",
+                "DOMAIN_ID": "Condition",
+                "STANDARD_CONCEPT_CAPTION": "Standard",
+                "CONCEPT_CLASS_ID": "Clinical Finding",
+                "INVALID_REASON": "V"
+              },
+              "includeMapped": false,
+              "includeDescendants": true
+            },
+            {
+              "isExcluded": false,
+              "concept": {
+                "INVALID_REASON_CAPTION": "Valid",
+                "CONCEPT_ID": 255573,
+                "STANDARD_CONCEPT": "S",
+                "CONCEPT_CODE": "13645005",
+                "VOCABULARY_ID": "SNOMED",
+                "CONCEPT_NAME": "Chronic obstructive lung disease",
+                "DOMAIN_ID": "Condition",
+                "STANDARD_CONCEPT_CAPTION": "Standard",
+                "CONCEPT_CLASS_ID": "Clinical Finding",
+                "INVALID_REASON": "V"
+              },
+              "includeMapped": false,
+              "includeDescendants": true
+            },
+            {
+              "isExcluded": false,
+              "concept": {
+                "INVALID_REASON_CAPTION": "Valid",
+                "CONCEPT_ID": 4169883,
+                "STANDARD_CONCEPT": "S",
+                "CONCEPT_CODE": "49158009",
+                "VOCABULARY_ID": "SNOMED",
+                "CONCEPT_NAME": "Emphysema",
+                "DOMAIN_ID": "Observation",
+                "STANDARD_CONCEPT_CAPTION": "Standard",
+                "CONCEPT_CLASS_ID": "Morph Abnormality",
+                "INVALID_REASON": "V"
+              },
+              "includeMapped": false,
+              "includeDescendants": true
+            },
+            {
+              "isExcluded": false,
+              "concept": {
+                "INVALID_REASON_CAPTION": "Valid",
+                "CONCEPT_ID": 261325,
+                "STANDARD_CONCEPT": "S",
+                "CONCEPT_CODE": "87433001",
+                "VOCABULARY_ID": "SNOMED",
+                "CONCEPT_NAME": "Pulmonary emphysema",
+                "DOMAIN_ID": "Condition",
+                "STANDARD_CONCEPT_CAPTION": "Standard",
+                "CONCEPT_CLASS_ID": "Clinical Finding",
+                "INVALID_REASON": "V"
+              },
+              "includeMapped": false,
+              "includeDescendants": true
+            },
+            {
+              "isExcluded": false,
+              "concept": {
+                "INVALID_REASON_CAPTION": "Valid",
+                "CONCEPT_ID": 4145356,
+                "STANDARD_CONCEPT": "S",
+                "CONCEPT_CODE": "426656000",
+                "VOCABULARY_ID": "SNOMED",
+                "CONCEPT_NAME": "Severe persistent asthma",
+                "DOMAIN_ID": "Condition",
+                "STANDARD_CONCEPT_CAPTION": "Standard",
+                "CONCEPT_CLASS_ID": "Clinical Finding",
+                "INVALID_REASON": "V"
+              },
+              "includeMapped": false,
+              "includeDescendants": true
+            }
+          ]},
+          "name": "[CSKIM] Chronic lower respiratory disease _KOSIS",
+          "id": 2
+        }],
+        "EndStrategy": null,
+        "CensoringCriteria": [],
+        "Title": null,
+        "AdditionalCriteria": null,
+        "QualifiedLimit": {"Type": "First"},
+        "InclusionRules": [],
+        "PrimaryCriteria": {
+          "CriteriaList": [{"Death": {
+            "CorrelatedCriteria": null,
+            "CodesetId": 2,
+            "DeathSourceConcept": null,
+            "DeathTypeExclude": false,
+            "DeathType": null,
+            "OccurrenceStartDate": null,
+            "Gender": null,
+            "Age": null
+          }}],
+          "PrimaryCriteriaLimit": {"Type": "First"},
+          "ObservationWindow": {
+            "PostDays": 0,
+            "PriorDays": 0
+          }
+        }
+      },
+      "createdDate": "2019-06-12T07:11:24.927+0000",
+      "createdBy": "ted9219",
+      "name": "[CSKIM] Chronic lower respiratory disease death _KOSIS",
+      "modifiedDate": "2019-07-23T01:10:05.027+0000",
+      "description": null,
+      "expressionType": "SIMPLE_EXPRESSION",
+      "modifiedBy": "ted9219",
+      "id": 228
     },
     {
       "expression": {
@@ -1181,7 +2814,7 @@
             }
           ]},
           "name": "[CSKIM] Hypertension_KOSIS",
-          "id": 0
+          "id": 3
         }],
         "EndStrategy": null,
         "CensoringCriteria": [],
@@ -1192,7 +2825,7 @@
         "PrimaryCriteria": {
           "CriteriaList": [{"Death": {
             "CorrelatedCriteria": null,
-            "CodesetId": 0,
+            "CodesetId": 3,
             "DeathSourceConcept": null,
             "DeathTypeExclude": false,
             "DeathType": null,
@@ -1209,130 +2842,12 @@
       },
       "createdDate": "2019-06-12T07:12:16.823+0000",
       "createdBy": "ted9219",
-      "name": "[CSKIM] hypertensive disease death _KOSIS",
-      "modifiedDate": "2019-07-22T02:41:35.540+0000",
+      "name": "[CSKIM] Hypertensive disease death _KOSIS",
+      "modifiedDate": "2019-07-23T01:11:30.717+0000",
       "description": null,
       "expressionType": "SIMPLE_EXPRESSION",
       "modifiedBy": "ted9219",
       "id": 229
-    },
-    {
-      "expression": {
-        "ExpressionLimit": {"Type": "First"},
-        "CollapseSettings": {
-          "CollapseType": "ERA",
-          "EraPad": 0
-        },
-        "CensorWindow": {
-          "StartDate": null,
-          "EndDate": null
-        },
-        "ConceptSets": [{
-          "expression": {"items": [
-            {
-              "isExcluded": false,
-              "concept": {
-                "INVALID_REASON_CAPTION": "Valid",
-                "CONCEPT_ID": 201820,
-                "STANDARD_CONCEPT": "S",
-                "CONCEPT_CODE": "73211009",
-                "VOCABULARY_ID": "SNOMED",
-                "CONCEPT_NAME": "Diabetes mellitus",
-                "DOMAIN_ID": "Condition",
-                "STANDARD_CONCEPT_CAPTION": "Standard",
-                "CONCEPT_CLASS_ID": "Clinical Finding",
-                "INVALID_REASON": "V"
-              },
-              "includeMapped": false,
-              "includeDescendants": true
-            },
-            {
-              "isExcluded": false,
-              "concept": {
-                "INVALID_REASON_CAPTION": "Valid",
-                "CONCEPT_ID": 4327944,
-                "STANDARD_CONCEPT": "S",
-                "CONCEPT_CODE": "75524006",
-                "VOCABULARY_ID": "SNOMED",
-                "CONCEPT_NAME": "Malnutrition related diabetes mellitus",
-                "DOMAIN_ID": "Condition",
-                "STANDARD_CONCEPT_CAPTION": "Standard",
-                "CONCEPT_CLASS_ID": "Clinical Finding",
-                "INVALID_REASON": "V"
-              },
-              "includeMapped": false,
-              "includeDescendants": true
-            },
-            {
-              "isExcluded": false,
-              "concept": {
-                "INVALID_REASON_CAPTION": "Valid",
-                "CONCEPT_ID": 201254,
-                "STANDARD_CONCEPT": "S",
-                "CONCEPT_CODE": "46635009",
-                "VOCABULARY_ID": "SNOMED",
-                "CONCEPT_NAME": "Type 1 diabetes mellitus",
-                "DOMAIN_ID": "Condition",
-                "STANDARD_CONCEPT_CAPTION": "Standard",
-                "CONCEPT_CLASS_ID": "Clinical Finding",
-                "INVALID_REASON": "V"
-              },
-              "includeMapped": false,
-              "includeDescendants": true
-            },
-            {
-              "isExcluded": false,
-              "concept": {
-                "INVALID_REASON_CAPTION": "Valid",
-                "CONCEPT_ID": 201826,
-                "STANDARD_CONCEPT": "S",
-                "CONCEPT_CODE": "44054006",
-                "VOCABULARY_ID": "SNOMED",
-                "CONCEPT_NAME": "Type 2 diabetes mellitus",
-                "DOMAIN_ID": "Condition",
-                "STANDARD_CONCEPT_CAPTION": "Standard",
-                "CONCEPT_CLASS_ID": "Clinical Finding",
-                "INVALID_REASON": "V"
-              },
-              "includeMapped": false,
-              "includeDescendants": true
-            }
-          ]},
-          "name": "[CSKIM] Diabetes_KOSIS",
-          "id": 0
-        }],
-        "EndStrategy": null,
-        "CensoringCriteria": [],
-        "Title": null,
-        "AdditionalCriteria": null,
-        "QualifiedLimit": {"Type": "First"},
-        "InclusionRules": [],
-        "PrimaryCriteria": {
-          "CriteriaList": [{"Death": {
-            "CorrelatedCriteria": null,
-            "CodesetId": 0,
-            "DeathSourceConcept": null,
-            "DeathTypeExclude": false,
-            "DeathType": null,
-            "OccurrenceStartDate": null,
-            "Gender": null,
-            "Age": null
-          }}],
-          "PrimaryCriteriaLimit": {"Type": "First"},
-          "ObservationWindow": {
-            "PostDays": 0,
-            "PriorDays": 0
-          }
-        }
-      },
-      "createdDate": "2019-06-12T07:07:57.953+0000",
-      "createdBy": "ted9219",
-      "name": "[CSKIM] diabetes death _KOSIS",
-      "modifiedDate": "2019-07-22T02:41:14.947+0000",
-      "description": null,
-      "expressionType": "SIMPLE_EXPRESSION",
-      "modifiedBy": "ted9219",
-      "id": 226
     },
     {
       "expression": {
@@ -1354,11 +2869,7 @@
         "InclusionRules": [],
         "PrimaryCriteria": {
           "CriteriaList": [{"VisitOccurrence": {
-            "OccurrenceEndDate": {
-              "Op": "lte",
-              "Extent": null,
-              "Value": "2013-12-31"
-            },
+            "OccurrenceEndDate": null,
             "VisitLength": null,
             "CorrelatedCriteria": null,
             "VisitSourceConcept": null,
@@ -1381,8 +2892,8 @@
       },
       "createdDate": "2019-05-05T08:58:31.173+0000",
       "createdBy": "ted9219",
-      "name": "[CSKIM] All visit",
-      "modifiedDate": "2019-06-12T07:14:45.310+0000",
+      "name": "[CSKIM] Any Visit",
+      "modifiedDate": "2019-07-22T05:09:10.957+0000",
       "description": null,
       "expressionType": "SIMPLE_EXPRESSION",
       "modifiedBy": "ted9219",

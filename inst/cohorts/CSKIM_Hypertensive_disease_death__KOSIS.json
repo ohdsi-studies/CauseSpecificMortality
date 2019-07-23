@@ -14,11 +14,11 @@
         "isExcluded": false,
         "concept": {
           "INVALID_REASON_CAPTION": "Valid",
-          "CONCEPT_ID": 201820,
+          "CONCEPT_ID": 320128,
           "STANDARD_CONCEPT": "S",
-          "CONCEPT_CODE": "73211009",
+          "CONCEPT_CODE": "59621000",
           "VOCABULARY_ID": "SNOMED",
-          "CONCEPT_NAME": "Diabetes mellitus",
+          "CONCEPT_NAME": "Essential hypertension",
           "DOMAIN_ID": "Condition",
           "STANDARD_CONCEPT_CAPTION": "Standard",
           "CONCEPT_CLASS_ID": "Clinical Finding",
@@ -31,11 +31,11 @@
         "isExcluded": false,
         "concept": {
           "INVALID_REASON_CAPTION": "Valid",
-          "CONCEPT_ID": 4327944,
+          "CONCEPT_ID": 195556,
           "STANDARD_CONCEPT": "S",
-          "CONCEPT_CODE": "75524006",
+          "CONCEPT_CODE": "86234004",
           "VOCABULARY_ID": "SNOMED",
-          "CONCEPT_NAME": "Malnutrition related diabetes mellitus",
+          "CONCEPT_NAME": "Hypertensive heart AND renal disease",
           "DOMAIN_ID": "Condition",
           "STANDARD_CONCEPT_CAPTION": "Standard",
           "CONCEPT_CLASS_ID": "Clinical Finding",
@@ -48,11 +48,11 @@
         "isExcluded": false,
         "concept": {
           "INVALID_REASON_CAPTION": "Valid",
-          "CONCEPT_ID": 201254,
+          "CONCEPT_ID": 442604,
           "STANDARD_CONCEPT": "S",
-          "CONCEPT_CODE": "46635009",
+          "CONCEPT_CODE": "64715009",
           "VOCABULARY_ID": "SNOMED",
-          "CONCEPT_NAME": "Type 1 diabetes mellitus",
+          "CONCEPT_NAME": "Hypertensive heart disease",
           "DOMAIN_ID": "Condition",
           "STANDARD_CONCEPT_CAPTION": "Standard",
           "CONCEPT_CLASS_ID": "Clinical Finding",
@@ -65,11 +65,28 @@
         "isExcluded": false,
         "concept": {
           "INVALID_REASON_CAPTION": "Valid",
-          "CONCEPT_ID": 201826,
+          "CONCEPT_ID": 201313,
           "STANDARD_CONCEPT": "S",
-          "CONCEPT_CODE": "44054006",
+          "CONCEPT_CODE": "38481006",
           "VOCABULARY_ID": "SNOMED",
-          "CONCEPT_NAME": "Type 2 diabetes mellitus",
+          "CONCEPT_NAME": "Hypertensive renal disease",
+          "DOMAIN_ID": "Condition",
+          "STANDARD_CONCEPT_CAPTION": "Standard",
+          "CONCEPT_CLASS_ID": "Clinical Finding",
+          "INVALID_REASON": "V"
+        },
+        "includeMapped": false,
+        "includeDescendants": true
+      },
+      {
+        "isExcluded": false,
+        "concept": {
+          "INVALID_REASON_CAPTION": "Valid",
+          "CONCEPT_ID": 319826,
+          "STANDARD_CONCEPT": "S",
+          "CONCEPT_CODE": "31992008",
+          "VOCABULARY_ID": "SNOMED",
+          "CONCEPT_NAME": "Secondary hypertension",
           "DOMAIN_ID": "Condition",
           "STANDARD_CONCEPT_CAPTION": "Standard",
           "CONCEPT_CLASS_ID": "Clinical Finding",
@@ -79,8 +96,8 @@
         "includeDescendants": true
       }
     ]},
-    "name": "[CSKIM] Diabetes_KOSIS",
-    "id": 2
+    "name": "[CSKIM] Hypertension_KOSIS",
+    "id": 3
   }],
   "EndStrategy": null,
   "CensoringCriteria": [],
@@ -91,7 +108,7 @@
   "PrimaryCriteria": {
     "CriteriaList": [{"Death": {
       "CorrelatedCriteria": null,
-      "CodesetId": 2,
+      "CodesetId": 3,
       "DeathSourceConcept": null,
       "DeathTypeExclude": false,
       "DeathType": null,
