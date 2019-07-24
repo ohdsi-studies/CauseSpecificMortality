@@ -96,6 +96,23 @@
         "includeDescendants": true
       },
       {
+        "isExcluded": true,
+        "concept": {
+          "INVALID_REASON_CAPTION": "Valid",
+          "CONCEPT_ID": 434056,
+          "STANDARD_CONCEPT": "S",
+          "CONCEPT_CODE": "195239002",
+          "VOCABULARY_ID": "SNOMED",
+          "CONCEPT_NAME": "Late effects of cerebrovascular disease",
+          "DOMAIN_ID": "Condition",
+          "STANDARD_CONCEPT_CAPTION": "Standard",
+          "CONCEPT_CLASS_ID": "Clinical Finding",
+          "INVALID_REASON": "V"
+        },
+        "includeMapped": false,
+        "includeDescendants": false
+      },
+      {
         "isExcluded": false,
         "concept": {
           "INVALID_REASON_CAPTION": "Valid",
@@ -131,7 +148,7 @@
       }
     ]},
     "name": "[CSKIM] Ischemic heart disease_KOSIS",
-    "id": 2
+    "id": 3
   }],
   "EndStrategy": null,
   "CensoringCriteria": [],
@@ -142,7 +159,7 @@
   "PrimaryCriteria": {
     "CriteriaList": [{"Death": {
       "CorrelatedCriteria": null,
-      "CodesetId": 2,
+      "CodesetId": 3,
       "DeathSourceConcept": null,
       "DeathTypeExclude": false,
       "DeathType": null,

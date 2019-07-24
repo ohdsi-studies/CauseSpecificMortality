@@ -96,13 +96,13 @@
   "outcomeIds": [
     132,
     222,
-    223,
     224,
     225,
     226,
-    227,
     228,
-    229
+    229,
+    223,
+    227
   ],
   "skeletonVersion": "v0.0.1",
   "createdDate": null,
@@ -1683,175 +1683,6 @@
               "isExcluded": false,
               "concept": {
                 "INVALID_REASON_CAPTION": "Valid",
-                "CONCEPT_ID": 319844,
-                "STANDARD_CONCEPT": "S",
-                "CONCEPT_CODE": "413439005",
-                "VOCABULARY_ID": "SNOMED",
-                "CONCEPT_NAME": "Acute ischemic heart disease",
-                "DOMAIN_ID": "Condition",
-                "STANDARD_CONCEPT_CAPTION": "Standard",
-                "CONCEPT_CLASS_ID": "Clinical Finding",
-                "INVALID_REASON": "V"
-              },
-              "includeMapped": false,
-              "includeDescendants": true
-            },
-            {
-              "isExcluded": false,
-              "concept": {
-                "INVALID_REASON_CAPTION": "Valid",
-                "CONCEPT_ID": 312327,
-                "STANDARD_CONCEPT": "S",
-                "CONCEPT_CODE": "57054005",
-                "VOCABULARY_ID": "SNOMED",
-                "CONCEPT_NAME": "Acute myocardial infarction",
-                "DOMAIN_ID": "Condition",
-                "STANDARD_CONCEPT_CAPTION": "Standard",
-                "CONCEPT_CLASS_ID": "Clinical Finding",
-                "INVALID_REASON": "V"
-              },
-              "includeMapped": false,
-              "includeDescendants": true
-            },
-            {
-              "isExcluded": false,
-              "concept": {
-                "INVALID_REASON_CAPTION": "Valid",
-                "CONCEPT_ID": 321318,
-                "STANDARD_CONCEPT": "S",
-                "CONCEPT_CODE": "194828000",
-                "VOCABULARY_ID": "SNOMED",
-                "CONCEPT_NAME": "Angina pectoris",
-                "DOMAIN_ID": "Condition",
-                "STANDARD_CONCEPT_CAPTION": "Standard",
-                "CONCEPT_CLASS_ID": "Clinical Finding",
-                "INVALID_REASON": "V"
-              },
-              "includeMapped": false,
-              "includeDescendants": true
-            },
-            {
-              "isExcluded": false,
-              "concept": {
-                "INVALID_REASON_CAPTION": "Valid",
-                "CONCEPT_ID": 315286,
-                "STANDARD_CONCEPT": "S",
-                "CONCEPT_CODE": "413838009",
-                "VOCABULARY_ID": "SNOMED",
-                "CONCEPT_NAME": "Chronic ischemic heart disease",
-                "DOMAIN_ID": "Condition",
-                "STANDARD_CONCEPT_CAPTION": "Standard",
-                "CONCEPT_CLASS_ID": "Clinical Finding",
-                "INVALID_REASON": "V"
-              },
-              "includeMapped": false,
-              "includeDescendants": true
-            },
-            {
-              "isExcluded": false,
-              "concept": {
-                "INVALID_REASON_CAPTION": "Valid",
-                "CONCEPT_ID": 4185932,
-                "STANDARD_CONCEPT": "S",
-                "CONCEPT_CODE": "414545008",
-                "VOCABULARY_ID": "SNOMED",
-                "CONCEPT_NAME": "Ischemic heart disease",
-                "DOMAIN_ID": "Condition",
-                "STANDARD_CONCEPT_CAPTION": "Standard",
-                "CONCEPT_CLASS_ID": "Clinical Finding",
-                "INVALID_REASON": "V"
-              },
-              "includeMapped": false,
-              "includeDescendants": true
-            },
-            {
-              "isExcluded": false,
-              "concept": {
-                "INVALID_REASON_CAPTION": "Valid",
-                "CONCEPT_ID": 4176969,
-                "STANDARD_CONCEPT": "S",
-                "CONCEPT_CODE": "363294003",
-                "VOCABULARY_ID": "SNOMED",
-                "CONCEPT_NAME": "Sequelae of cardiovascular disorders",
-                "DOMAIN_ID": "Condition",
-                "STANDARD_CONCEPT_CAPTION": "Standard",
-                "CONCEPT_CLASS_ID": "Clinical Finding",
-                "INVALID_REASON": "V"
-              },
-              "includeMapped": false,
-              "includeDescendants": true
-            },
-            {
-              "isExcluded": false,
-              "concept": {
-                "INVALID_REASON_CAPTION": "Valid",
-                "CONCEPT_ID": 4108217,
-                "STANDARD_CONCEPT": "S",
-                "CONCEPT_CODE": "194856005",
-                "VOCABULARY_ID": "SNOMED",
-                "CONCEPT_NAME": "Subsequent myocardial infarction",
-                "DOMAIN_ID": "Condition",
-                "STANDARD_CONCEPT_CAPTION": "Standard",
-                "CONCEPT_CLASS_ID": "Clinical Finding",
-                "INVALID_REASON": "V"
-              },
-              "includeMapped": false,
-              "includeDescendants": true
-            }
-          ]},
-          "name": "[CSKIM] Ischemic heart disease_KOSIS",
-          "id": 2
-        }],
-        "EndStrategy": null,
-        "CensoringCriteria": [],
-        "Title": null,
-        "AdditionalCriteria": null,
-        "QualifiedLimit": {"Type": "First"},
-        "InclusionRules": [],
-        "PrimaryCriteria": {
-          "CriteriaList": [{"Death": {
-            "CorrelatedCriteria": null,
-            "CodesetId": 2,
-            "DeathSourceConcept": null,
-            "DeathTypeExclude": false,
-            "DeathType": null,
-            "OccurrenceStartDate": null,
-            "Gender": null,
-            "Age": null
-          }}],
-          "PrimaryCriteriaLimit": {"Type": "First"},
-          "ObservationWindow": {
-            "PostDays": 0,
-            "PriorDays": 0
-          }
-        }
-      },
-      "createdDate": "2019-06-12T07:04:08.990+0000",
-      "createdBy": "ted9219",
-      "name": "[CSKIM] Ischemic Heart Disease death _KOSIS",
-      "modifiedDate": "2019-07-23T00:59:57.823+0000",
-      "description": null,
-      "expressionType": "SIMPLE_EXPRESSION",
-      "modifiedBy": "ted9219",
-      "id": 223
-    },
-    {
-      "expression": {
-        "ExpressionLimit": {"Type": "First"},
-        "CollapseSettings": {
-          "CollapseType": "ERA",
-          "EraPad": 0
-        },
-        "CensorWindow": {
-          "StartDate": null,
-          "EndDate": null
-        },
-        "ConceptSets": [{
-          "expression": {"items": [
-            {
-              "isExcluded": false,
-              "concept": {
-                "INVALID_REASON_CAPTION": "Valid",
                 "CONCEPT_ID": 376713,
                 "STANDARD_CONCEPT": "S",
                 "CONCEPT_CODE": "274100004",
@@ -2342,192 +2173,6 @@
               "isExcluded": false,
               "concept": {
                 "INVALID_REASON_CAPTION": "Valid",
-                "CONCEPT_ID": 201612,
-                "STANDARD_CONCEPT": "S",
-                "CONCEPT_CODE": "41309000",
-                "VOCABULARY_ID": "SNOMED",
-                "CONCEPT_NAME": "Alcoholic liver damage",
-                "DOMAIN_ID": "Condition",
-                "STANDARD_CONCEPT_CAPTION": "Standard",
-                "CONCEPT_CLASS_ID": "Clinical Finding",
-                "INVALID_REASON": "V"
-              },
-              "includeMapped": false,
-              "includeDescendants": true
-            },
-            {
-              "isExcluded": false,
-              "concept": {
-                "INVALID_REASON_CAPTION": "Valid",
-                "CONCEPT_ID": 200763,
-                "STANDARD_CONCEPT": "S",
-                "CONCEPT_CODE": "76783007",
-                "VOCABULARY_ID": "SNOMED",
-                "CONCEPT_NAME": "Chronic hepatitis",
-                "DOMAIN_ID": "Condition",
-                "STANDARD_CONCEPT_CAPTION": "Standard",
-                "CONCEPT_CLASS_ID": "Clinical Finding",
-                "INVALID_REASON": "V"
-              },
-              "includeMapped": false,
-              "includeDescendants": true
-            },
-            {
-              "isExcluded": false,
-              "concept": {
-                "INVALID_REASON_CAPTION": "Valid",
-                "CONCEPT_ID": 194984,
-                "STANDARD_CONCEPT": "S",
-                "CONCEPT_CODE": "235856003",
-                "VOCABULARY_ID": "SNOMED",
-                "CONCEPT_NAME": "Disease of liver",
-                "DOMAIN_ID": "Condition",
-                "STANDARD_CONCEPT_CAPTION": "Standard",
-                "CONCEPT_CLASS_ID": "Clinical Finding",
-                "INVALID_REASON": "V"
-              },
-              "includeMapped": false,
-              "includeDescendants": true
-            },
-            {
-              "isExcluded": false,
-              "concept": {
-                "INVALID_REASON_CAPTION": "Valid",
-                "CONCEPT_ID": 4245975,
-                "STANDARD_CONCEPT": "S",
-                "CONCEPT_CODE": "59927004",
-                "VOCABULARY_ID": "SNOMED",
-                "CONCEPT_NAME": "Hepatic failure",
-                "DOMAIN_ID": "Condition",
-                "STANDARD_CONCEPT_CAPTION": "Standard",
-                "CONCEPT_CLASS_ID": "Clinical Finding",
-                "INVALID_REASON": "V"
-              },
-              "includeMapped": false,
-              "includeDescendants": true
-            },
-            {
-              "isExcluded": false,
-              "concept": {
-                "INVALID_REASON_CAPTION": "Valid",
-                "CONCEPT_ID": 4267417,
-                "STANDARD_CONCEPT": "S",
-                "CONCEPT_CODE": "62484002",
-                "VOCABULARY_ID": "SNOMED",
-                "CONCEPT_NAME": "Hepatic fibrosis",
-                "DOMAIN_ID": "Condition",
-                "STANDARD_CONCEPT_CAPTION": "Standard",
-                "CONCEPT_CLASS_ID": "Clinical Finding",
-                "INVALID_REASON": "V"
-              },
-              "includeMapped": false,
-              "includeDescendants": true
-            },
-            {
-              "isExcluded": false,
-              "concept": {
-                "INVALID_REASON_CAPTION": "Valid",
-                "CONCEPT_ID": 194990,
-                "STANDARD_CONCEPT": "S",
-                "CONCEPT_CODE": "128241005",
-                "VOCABULARY_ID": "SNOMED",
-                "CONCEPT_NAME": "Inflammatory disease of liver",
-                "DOMAIN_ID": "Condition",
-                "STANDARD_CONCEPT_CAPTION": "Standard",
-                "CONCEPT_CLASS_ID": "Clinical Finding",
-                "INVALID_REASON": "V"
-              },
-              "includeMapped": false,
-              "includeDescendants": true
-            },
-            {
-              "isExcluded": false,
-              "concept": {
-                "INVALID_REASON_CAPTION": "Valid",
-                "CONCEPT_ID": 4055224,
-                "STANDARD_CONCEPT": "S",
-                "CONCEPT_CODE": "197354009",
-                "VOCABULARY_ID": "SNOMED",
-                "CONCEPT_NAME": "Toxic liver disease",
-                "DOMAIN_ID": "Condition",
-                "STANDARD_CONCEPT_CAPTION": "Standard",
-                "CONCEPT_CLASS_ID": "Clinical Finding",
-                "INVALID_REASON": "V"
-              },
-              "includeMapped": false,
-              "includeDescendants": true
-            },
-            {
-              "isExcluded": false,
-              "concept": {
-                "INVALID_REASON_CAPTION": "Valid",
-                "CONCEPT_ID": 4058695,
-                "STANDARD_CONCEPT": "S",
-                "CONCEPT_CODE": "197362001",
-                "VOCABULARY_ID": "SNOMED",
-                "CONCEPT_NAME": "Toxic liver disease with fibrosis and cirrhosis of liver",
-                "DOMAIN_ID": "Condition",
-                "STANDARD_CONCEPT_CAPTION": "Standard",
-                "CONCEPT_CLASS_ID": "Clinical Finding",
-                "INVALID_REASON": "V"
-              },
-              "includeMapped": false,
-              "includeDescendants": true
-            }
-          ]},
-          "name": "[CSKIM] Liver disease_KOSIS",
-          "id": 2
-        }],
-        "EndStrategy": null,
-        "CensoringCriteria": [],
-        "Title": null,
-        "AdditionalCriteria": null,
-        "QualifiedLimit": {"Type": "First"},
-        "InclusionRules": [],
-        "PrimaryCriteria": {
-          "CriteriaList": [{"Death": {
-            "CorrelatedCriteria": null,
-            "CodesetId": 2,
-            "DeathSourceConcept": null,
-            "DeathTypeExclude": false,
-            "DeathType": null,
-            "OccurrenceStartDate": null,
-            "Gender": null,
-            "Age": null
-          }}],
-          "PrimaryCriteriaLimit": {"Type": "First"},
-          "ObservationWindow": {
-            "PostDays": 0,
-            "PriorDays": 0
-          }
-        }
-      },
-      "createdDate": "2019-06-12T07:10:06.877+0000",
-      "createdBy": "ted9219",
-      "name": "[CSKIM] Liver disease death _KOSIS",
-      "modifiedDate": "2019-07-23T01:08:44.053+0000",
-      "description": null,
-      "expressionType": "SIMPLE_EXPRESSION",
-      "modifiedBy": "ted9219",
-      "id": 227
-    },
-    {
-      "expression": {
-        "ExpressionLimit": {"Type": "First"},
-        "CollapseSettings": {
-          "CollapseType": "ERA",
-          "EraPad": 0
-        },
-        "CensorWindow": {
-          "StartDate": null,
-          "EndDate": null
-        },
-        "ConceptSets": [{
-          "expression": {"items": [
-            {
-              "isExcluded": false,
-              "concept": {
-                "INVALID_REASON_CAPTION": "Valid",
                 "CONCEPT_ID": 37116845,
                 "STANDARD_CONCEPT": "S",
                 "CONCEPT_CODE": "733858005",
@@ -2848,6 +2493,616 @@
       "expressionType": "SIMPLE_EXPRESSION",
       "modifiedBy": "ted9219",
       "id": 229
+    },
+    {
+      "expression": {
+        "ExpressionLimit": {"Type": "First"},
+        "CollapseSettings": {
+          "CollapseType": "ERA",
+          "EraPad": 0
+        },
+        "CensorWindow": {
+          "StartDate": null,
+          "EndDate": null
+        },
+        "ConceptSets": [{
+          "expression": {"items": [
+            {
+              "isExcluded": false,
+              "concept": {
+                "INVALID_REASON_CAPTION": "Valid",
+                "CONCEPT_ID": 319844,
+                "STANDARD_CONCEPT": "S",
+                "CONCEPT_CODE": "413439005",
+                "VOCABULARY_ID": "SNOMED",
+                "CONCEPT_NAME": "Acute ischemic heart disease",
+                "DOMAIN_ID": "Condition",
+                "STANDARD_CONCEPT_CAPTION": "Standard",
+                "CONCEPT_CLASS_ID": "Clinical Finding",
+                "INVALID_REASON": "V"
+              },
+              "includeMapped": false,
+              "includeDescendants": true
+            },
+            {
+              "isExcluded": false,
+              "concept": {
+                "INVALID_REASON_CAPTION": "Valid",
+                "CONCEPT_ID": 312327,
+                "STANDARD_CONCEPT": "S",
+                "CONCEPT_CODE": "57054005",
+                "VOCABULARY_ID": "SNOMED",
+                "CONCEPT_NAME": "Acute myocardial infarction",
+                "DOMAIN_ID": "Condition",
+                "STANDARD_CONCEPT_CAPTION": "Standard",
+                "CONCEPT_CLASS_ID": "Clinical Finding",
+                "INVALID_REASON": "V"
+              },
+              "includeMapped": false,
+              "includeDescendants": true
+            },
+            {
+              "isExcluded": false,
+              "concept": {
+                "INVALID_REASON_CAPTION": "Valid",
+                "CONCEPT_ID": 321318,
+                "STANDARD_CONCEPT": "S",
+                "CONCEPT_CODE": "194828000",
+                "VOCABULARY_ID": "SNOMED",
+                "CONCEPT_NAME": "Angina pectoris",
+                "DOMAIN_ID": "Condition",
+                "STANDARD_CONCEPT_CAPTION": "Standard",
+                "CONCEPT_CLASS_ID": "Clinical Finding",
+                "INVALID_REASON": "V"
+              },
+              "includeMapped": false,
+              "includeDescendants": true
+            },
+            {
+              "isExcluded": false,
+              "concept": {
+                "INVALID_REASON_CAPTION": "Valid",
+                "CONCEPT_ID": 315286,
+                "STANDARD_CONCEPT": "S",
+                "CONCEPT_CODE": "413838009",
+                "VOCABULARY_ID": "SNOMED",
+                "CONCEPT_NAME": "Chronic ischemic heart disease",
+                "DOMAIN_ID": "Condition",
+                "STANDARD_CONCEPT_CAPTION": "Standard",
+                "CONCEPT_CLASS_ID": "Clinical Finding",
+                "INVALID_REASON": "V"
+              },
+              "includeMapped": false,
+              "includeDescendants": true
+            },
+            {
+              "isExcluded": false,
+              "concept": {
+                "INVALID_REASON_CAPTION": "Valid",
+                "CONCEPT_ID": 4185932,
+                "STANDARD_CONCEPT": "S",
+                "CONCEPT_CODE": "414545008",
+                "VOCABULARY_ID": "SNOMED",
+                "CONCEPT_NAME": "Ischemic heart disease",
+                "DOMAIN_ID": "Condition",
+                "STANDARD_CONCEPT_CAPTION": "Standard",
+                "CONCEPT_CLASS_ID": "Clinical Finding",
+                "INVALID_REASON": "V"
+              },
+              "includeMapped": false,
+              "includeDescendants": true
+            },
+            {
+              "isExcluded": true,
+              "concept": {
+                "INVALID_REASON_CAPTION": "Valid",
+                "CONCEPT_ID": 434056,
+                "STANDARD_CONCEPT": "S",
+                "CONCEPT_CODE": "195239002",
+                "VOCABULARY_ID": "SNOMED",
+                "CONCEPT_NAME": "Late effects of cerebrovascular disease",
+                "DOMAIN_ID": "Condition",
+                "STANDARD_CONCEPT_CAPTION": "Standard",
+                "CONCEPT_CLASS_ID": "Clinical Finding",
+                "INVALID_REASON": "V"
+              },
+              "includeMapped": false,
+              "includeDescendants": false
+            },
+            {
+              "isExcluded": false,
+              "concept": {
+                "INVALID_REASON_CAPTION": "Valid",
+                "CONCEPT_ID": 4176969,
+                "STANDARD_CONCEPT": "S",
+                "CONCEPT_CODE": "363294003",
+                "VOCABULARY_ID": "SNOMED",
+                "CONCEPT_NAME": "Sequelae of cardiovascular disorders",
+                "DOMAIN_ID": "Condition",
+                "STANDARD_CONCEPT_CAPTION": "Standard",
+                "CONCEPT_CLASS_ID": "Clinical Finding",
+                "INVALID_REASON": "V"
+              },
+              "includeMapped": false,
+              "includeDescendants": true
+            },
+            {
+              "isExcluded": false,
+              "concept": {
+                "INVALID_REASON_CAPTION": "Valid",
+                "CONCEPT_ID": 4108217,
+                "STANDARD_CONCEPT": "S",
+                "CONCEPT_CODE": "194856005",
+                "VOCABULARY_ID": "SNOMED",
+                "CONCEPT_NAME": "Subsequent myocardial infarction",
+                "DOMAIN_ID": "Condition",
+                "STANDARD_CONCEPT_CAPTION": "Standard",
+                "CONCEPT_CLASS_ID": "Clinical Finding",
+                "INVALID_REASON": "V"
+              },
+              "includeMapped": false,
+              "includeDescendants": true
+            }
+          ]},
+          "name": "[CSKIM] Ischemic heart disease_KOSIS",
+          "id": 3
+        }],
+        "EndStrategy": null,
+        "CensoringCriteria": [],
+        "Title": null,
+        "AdditionalCriteria": null,
+        "QualifiedLimit": {"Type": "First"},
+        "InclusionRules": [],
+        "PrimaryCriteria": {
+          "CriteriaList": [{"Death": {
+            "CorrelatedCriteria": null,
+            "CodesetId": 3,
+            "DeathSourceConcept": null,
+            "DeathTypeExclude": false,
+            "DeathType": null,
+            "OccurrenceStartDate": null,
+            "Gender": null,
+            "Age": null
+          }}],
+          "PrimaryCriteriaLimit": {"Type": "First"},
+          "ObservationWindow": {
+            "PostDays": 0,
+            "PriorDays": 0
+          }
+        }
+      },
+      "createdDate": "2019-06-12T07:04:08.990+0000",
+      "createdBy": "ted9219",
+      "name": "[CSKIM] Ischemic Heart Disease death _KOSIS",
+      "modifiedDate": "2019-07-24T02:42:18.480+0000",
+      "description": null,
+      "expressionType": "SIMPLE_EXPRESSION",
+      "modifiedBy": "ted9219",
+      "id": 223
+    },
+    {
+      "expression": {
+        "ExpressionLimit": {"Type": "First"},
+        "CollapseSettings": {
+          "CollapseType": "ERA",
+          "EraPad": 0
+        },
+        "CensorWindow": {
+          "StartDate": null,
+          "EndDate": null
+        },
+        "ConceptSets": [{
+          "expression": {"items": [
+            {
+              "isExcluded": false,
+              "concept": {
+                "INVALID_REASON_CAPTION": "Valid",
+                "CONCEPT_ID": 201612,
+                "STANDARD_CONCEPT": "S",
+                "CONCEPT_CODE": "41309000",
+                "VOCABULARY_ID": "SNOMED",
+                "CONCEPT_NAME": "Alcoholic liver damage",
+                "DOMAIN_ID": "Condition",
+                "STANDARD_CONCEPT_CAPTION": "Standard",
+                "CONCEPT_CLASS_ID": "Clinical Finding",
+                "INVALID_REASON": "V"
+              },
+              "includeMapped": false,
+              "includeDescendants": true
+            },
+            {
+              "isExcluded": false,
+              "concept": {
+                "INVALID_REASON_CAPTION": "Valid",
+                "CONCEPT_ID": 200763,
+                "STANDARD_CONCEPT": "S",
+                "CONCEPT_CODE": "76783007",
+                "VOCABULARY_ID": "SNOMED",
+                "CONCEPT_NAME": "Chronic hepatitis",
+                "DOMAIN_ID": "Condition",
+                "STANDARD_CONCEPT_CAPTION": "Standard",
+                "CONCEPT_CLASS_ID": "Clinical Finding",
+                "INVALID_REASON": "V"
+              },
+              "includeMapped": false,
+              "includeDescendants": true
+            },
+            {
+              "isExcluded": false,
+              "concept": {
+                "INVALID_REASON_CAPTION": "Valid",
+                "CONCEPT_ID": 194984,
+                "STANDARD_CONCEPT": "S",
+                "CONCEPT_CODE": "235856003",
+                "VOCABULARY_ID": "SNOMED",
+                "CONCEPT_NAME": "Disease of liver",
+                "DOMAIN_ID": "Condition",
+                "STANDARD_CONCEPT_CAPTION": "Standard",
+                "CONCEPT_CLASS_ID": "Clinical Finding",
+                "INVALID_REASON": "V"
+              },
+              "includeMapped": false,
+              "includeDescendants": true
+            },
+            {
+              "isExcluded": false,
+              "concept": {
+                "INVALID_REASON_CAPTION": "Valid",
+                "CONCEPT_ID": 4245975,
+                "STANDARD_CONCEPT": "S",
+                "CONCEPT_CODE": "59927004",
+                "VOCABULARY_ID": "SNOMED",
+                "CONCEPT_NAME": "Hepatic failure",
+                "DOMAIN_ID": "Condition",
+                "STANDARD_CONCEPT_CAPTION": "Standard",
+                "CONCEPT_CLASS_ID": "Clinical Finding",
+                "INVALID_REASON": "V"
+              },
+              "includeMapped": false,
+              "includeDescendants": true
+            },
+            {
+              "isExcluded": false,
+              "concept": {
+                "INVALID_REASON_CAPTION": "Valid",
+                "CONCEPT_ID": 4267417,
+                "STANDARD_CONCEPT": "S",
+                "CONCEPT_CODE": "62484002",
+                "VOCABULARY_ID": "SNOMED",
+                "CONCEPT_NAME": "Hepatic fibrosis",
+                "DOMAIN_ID": "Condition",
+                "STANDARD_CONCEPT_CAPTION": "Standard",
+                "CONCEPT_CLASS_ID": "Clinical Finding",
+                "INVALID_REASON": "V"
+              },
+              "includeMapped": false,
+              "includeDescendants": true
+            },
+            {
+              "isExcluded": false,
+              "concept": {
+                "INVALID_REASON_CAPTION": "Valid",
+                "CONCEPT_ID": 194990,
+                "STANDARD_CONCEPT": "S",
+                "CONCEPT_CODE": "128241005",
+                "VOCABULARY_ID": "SNOMED",
+                "CONCEPT_NAME": "Inflammatory disease of liver",
+                "DOMAIN_ID": "Condition",
+                "STANDARD_CONCEPT_CAPTION": "Standard",
+                "CONCEPT_CLASS_ID": "Clinical Finding",
+                "INVALID_REASON": "V"
+              },
+              "includeMapped": false,
+              "includeDescendants": true
+            },
+            {
+              "isExcluded": true,
+              "concept": {
+                "INVALID_REASON_CAPTION": "Valid",
+                "CONCEPT_ID": 4089662,
+                "STANDARD_CONCEPT": "S",
+                "CONCEPT_CODE": "187773007",
+                "VOCABULARY_ID": "SNOMED",
+                "CONCEPT_NAME": "Malignant neoplasm of interlobular bile ducts",
+                "DOMAIN_ID": "Condition",
+                "STANDARD_CONCEPT_CAPTION": "Standard",
+                "CONCEPT_CLASS_ID": "Clinical Finding",
+                "INVALID_REASON": "V"
+              },
+              "includeMapped": false,
+              "includeDescendants": false
+            },
+            {
+              "isExcluded": true,
+              "concept": {
+                "INVALID_REASON_CAPTION": "Valid",
+                "CONCEPT_ID": 4089663,
+                "STANDARD_CONCEPT": "S",
+                "CONCEPT_CODE": "187776004",
+                "VOCABULARY_ID": "SNOMED",
+                "CONCEPT_NAME": "Malignant neoplasm of intrahepatic canaliculi",
+                "DOMAIN_ID": "Condition",
+                "STANDARD_CONCEPT_CAPTION": "Standard",
+                "CONCEPT_CLASS_ID": "Clinical Finding",
+                "INVALID_REASON": "V"
+              },
+              "includeMapped": false,
+              "includeDescendants": false
+            },
+            {
+              "isExcluded": true,
+              "concept": {
+                "INVALID_REASON_CAPTION": "Valid",
+                "CONCEPT_ID": 4094865,
+                "STANDARD_CONCEPT": "S",
+                "CONCEPT_CODE": "187777008",
+                "VOCABULARY_ID": "SNOMED",
+                "CONCEPT_NAME": "Malignant neoplasm of intrahepatic gall duct",
+                "DOMAIN_ID": "Condition",
+                "STANDARD_CONCEPT_CAPTION": "Standard",
+                "CONCEPT_CLASS_ID": "Clinical Finding",
+                "INVALID_REASON": "V"
+              },
+              "includeMapped": false,
+              "includeDescendants": false
+            },
+            {
+              "isExcluded": true,
+              "concept": {
+                "INVALID_REASON_CAPTION": "Valid",
+                "CONCEPT_ID": 4246127,
+                "STANDARD_CONCEPT": "S",
+                "CONCEPT_CODE": "93870000",
+                "VOCABULARY_ID": "SNOMED",
+                "CONCEPT_NAME": "Malignant neoplasm of liver",
+                "DOMAIN_ID": "Condition",
+                "STANDARD_CONCEPT_CAPTION": "Standard",
+                "CONCEPT_CLASS_ID": "Clinical Finding",
+                "INVALID_REASON": "V"
+              },
+              "includeMapped": false,
+              "includeDescendants": false
+            },
+            {
+              "isExcluded": true,
+              "concept": {
+                "INVALID_REASON_CAPTION": "Valid",
+                "CONCEPT_ID": 4095432,
+                "STANDARD_CONCEPT": "S",
+                "CONCEPT_CODE": "187767006",
+                "VOCABULARY_ID": "SNOMED",
+                "CONCEPT_NAME": "Malignant neoplasm of liver and intrahepatic bile ducts",
+                "DOMAIN_ID": "Condition",
+                "STANDARD_CONCEPT_CAPTION": "Standard",
+                "CONCEPT_CLASS_ID": "Clinical Finding",
+                "INVALID_REASON": "V"
+              },
+              "includeMapped": false,
+              "includeDescendants": false
+            },
+            {
+              "isExcluded": true,
+              "concept": {
+                "INVALID_REASON_CAPTION": "Valid",
+                "CONCEPT_ID": 4130519,
+                "STANDARD_CONCEPT": "S",
+                "CONCEPT_CODE": "126852003",
+                "VOCABULARY_ID": "SNOMED",
+                "CONCEPT_NAME": "Neoplasm of intrahepatic bile ducts",
+                "DOMAIN_ID": "Condition",
+                "STANDARD_CONCEPT_CAPTION": "Standard",
+                "CONCEPT_CLASS_ID": "Clinical Finding",
+                "INVALID_REASON": "V"
+              },
+              "includeMapped": false,
+              "includeDescendants": false
+            },
+            {
+              "isExcluded": true,
+              "concept": {
+                "INVALID_REASON_CAPTION": "Valid",
+                "CONCEPT_ID": 4130518,
+                "STANDARD_CONCEPT": "S",
+                "CONCEPT_CODE": "126851005",
+                "VOCABULARY_ID": "SNOMED",
+                "CONCEPT_NAME": "Neoplasm of liver",
+                "DOMAIN_ID": "Condition",
+                "STANDARD_CONCEPT_CAPTION": "Standard",
+                "CONCEPT_CLASS_ID": "Clinical Finding",
+                "INVALID_REASON": "V"
+              },
+              "includeMapped": false,
+              "includeDescendants": false
+            },
+            {
+              "isExcluded": true,
+              "concept": {
+                "INVALID_REASON_CAPTION": "Valid",
+                "CONCEPT_ID": 4317541,
+                "STANDARD_CONCEPT": "S",
+                "CONCEPT_CODE": "94880005",
+                "VOCABULARY_ID": "SNOMED",
+                "CONCEPT_NAME": "Neoplasm of uncertain behavior of intrahepatic bile ducts",
+                "DOMAIN_ID": "Condition",
+                "STANDARD_CONCEPT_CAPTION": "Standard",
+                "CONCEPT_CLASS_ID": "Clinical Finding",
+                "INVALID_REASON": "V"
+              },
+              "includeMapped": false,
+              "includeDescendants": false
+            },
+            {
+              "isExcluded": true,
+              "concept": {
+                "INVALID_REASON_CAPTION": "Valid",
+                "CONCEPT_ID": 4313636,
+                "STANDARD_CONCEPT": "S",
+                "CONCEPT_CODE": "94910002",
+                "VOCABULARY_ID": "SNOMED",
+                "CONCEPT_NAME": "Neoplasm of uncertain behavior of liver",
+                "DOMAIN_ID": "Condition",
+                "STANDARD_CONCEPT_CAPTION": "Standard",
+                "CONCEPT_CLASS_ID": "Clinical Finding",
+                "INVALID_REASON": "V"
+              },
+              "includeMapped": false,
+              "includeDescendants": false
+            },
+            {
+              "isExcluded": true,
+              "concept": {
+                "INVALID_REASON_CAPTION": "Valid",
+                "CONCEPT_ID": 40490929,
+                "STANDARD_CONCEPT": "S",
+                "CONCEPT_CODE": "447109003",
+                "VOCABULARY_ID": "SNOMED",
+                "CONCEPT_NAME": "Primary malignant neoplasm of intrahepatic bile duct",
+                "DOMAIN_ID": "Condition",
+                "STANDARD_CONCEPT_CAPTION": "Standard",
+                "CONCEPT_CLASS_ID": "Clinical Finding",
+                "INVALID_REASON": "V"
+              },
+              "includeMapped": false,
+              "includeDescendants": false
+            },
+            {
+              "isExcluded": true,
+              "concept": {
+                "INVALID_REASON_CAPTION": "Valid",
+                "CONCEPT_ID": 201519,
+                "STANDARD_CONCEPT": "S",
+                "CONCEPT_CODE": "95214007",
+                "VOCABULARY_ID": "SNOMED",
+                "CONCEPT_NAME": "Primary malignant neoplasm of liver",
+                "DOMAIN_ID": "Condition",
+                "STANDARD_CONCEPT_CAPTION": "Standard",
+                "CONCEPT_CLASS_ID": "Clinical Finding",
+                "INVALID_REASON": "V"
+              },
+              "includeMapped": false,
+              "includeDescendants": false
+            },
+            {
+              "isExcluded": true,
+              "concept": {
+                "INVALID_REASON_CAPTION": "Valid",
+                "CONCEPT_ID": 4312024,
+                "STANDARD_CONCEPT": "S",
+                "CONCEPT_CODE": "94349006",
+                "VOCABULARY_ID": "SNOMED",
+                "CONCEPT_NAME": "Secondary malignant neoplasm of intrahepatic bile ducts",
+                "DOMAIN_ID": "Condition",
+                "STANDARD_CONCEPT_CAPTION": "Standard",
+                "CONCEPT_CLASS_ID": "Clinical Finding",
+                "INVALID_REASON": "V"
+              },
+              "includeMapped": false,
+              "includeDescendants": false
+            },
+            {
+              "isExcluded": true,
+              "concept": {
+                "INVALID_REASON_CAPTION": "Valid",
+                "CONCEPT_ID": 198700,
+                "STANDARD_CONCEPT": "S",
+                "CONCEPT_CODE": "94381002",
+                "VOCABULARY_ID": "SNOMED",
+                "CONCEPT_NAME": "Secondary malignant neoplasm of liver",
+                "DOMAIN_ID": "Condition",
+                "STANDARD_CONCEPT_CAPTION": "Standard",
+                "CONCEPT_CLASS_ID": "Clinical Finding",
+                "INVALID_REASON": "V"
+              },
+              "includeMapped": false,
+              "includeDescendants": false
+            },
+            {
+              "isExcluded": true,
+              "concept": {
+                "INVALID_REASON_CAPTION": "Valid",
+                "CONCEPT_ID": 44806773,
+                "STANDARD_CONCEPT": "S",
+                "CONCEPT_CODE": "813671000000107",
+                "VOCABULARY_ID": "SNOMED",
+                "CONCEPT_NAME": "Secondary malignant neoplasm of liver and intrahepatic bile duct",
+                "DOMAIN_ID": "Condition",
+                "STANDARD_CONCEPT_CAPTION": "Standard",
+                "CONCEPT_CLASS_ID": "Clinical Finding",
+                "INVALID_REASON": "V"
+              },
+              "includeMapped": false,
+              "includeDescendants": false
+            },
+            {
+              "isExcluded": false,
+              "concept": {
+                "INVALID_REASON_CAPTION": "Valid",
+                "CONCEPT_ID": 4055224,
+                "STANDARD_CONCEPT": "S",
+                "CONCEPT_CODE": "197354009",
+                "VOCABULARY_ID": "SNOMED",
+                "CONCEPT_NAME": "Toxic liver disease",
+                "DOMAIN_ID": "Condition",
+                "STANDARD_CONCEPT_CAPTION": "Standard",
+                "CONCEPT_CLASS_ID": "Clinical Finding",
+                "INVALID_REASON": "V"
+              },
+              "includeMapped": false,
+              "includeDescendants": true
+            },
+            {
+              "isExcluded": false,
+              "concept": {
+                "INVALID_REASON_CAPTION": "Valid",
+                "CONCEPT_ID": 4058695,
+                "STANDARD_CONCEPT": "S",
+                "CONCEPT_CODE": "197362001",
+                "VOCABULARY_ID": "SNOMED",
+                "CONCEPT_NAME": "Toxic liver disease with fibrosis and cirrhosis of liver",
+                "DOMAIN_ID": "Condition",
+                "STANDARD_CONCEPT_CAPTION": "Standard",
+                "CONCEPT_CLASS_ID": "Clinical Finding",
+                "INVALID_REASON": "V"
+              },
+              "includeMapped": false,
+              "includeDescendants": true
+            }
+          ]},
+          "name": "[CSKIM] Liver disease_KOSIS",
+          "id": 3
+        }],
+        "EndStrategy": null,
+        "CensoringCriteria": [],
+        "Title": null,
+        "AdditionalCriteria": null,
+        "QualifiedLimit": {"Type": "First"},
+        "InclusionRules": [],
+        "PrimaryCriteria": {
+          "CriteriaList": [{"Death": {
+            "CorrelatedCriteria": null,
+            "CodesetId": 3,
+            "DeathSourceConcept": null,
+            "DeathTypeExclude": false,
+            "DeathType": null,
+            "OccurrenceStartDate": null,
+            "Gender": null,
+            "Age": null
+          }}],
+          "PrimaryCriteriaLimit": {"Type": "First"},
+          "ObservationWindow": {
+            "PostDays": 0,
+            "PriorDays": 0
+          }
+        }
+      },
+      "createdDate": "2019-06-12T07:10:06.877+0000",
+      "createdBy": "ted9219",
+      "name": "[CSKIM] Liver disease death _KOSIS",
+      "modifiedDate": "2019-07-24T02:29:09.287+0000",
+      "description": null,
+      "expressionType": "SIMPLE_EXPRESSION",
+      "modifiedBy": "ted9219",
+      "id": 227
     },
     {
       "expression": {

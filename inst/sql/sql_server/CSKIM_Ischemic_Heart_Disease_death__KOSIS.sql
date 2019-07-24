@@ -5,7 +5,7 @@ CREATE TABLE #Codesets (
 ;
 
 INSERT INTO #Codesets (codeset_id, concept_id)
-SELECT 2 as codeset_id, c.concept_id FROM (select distinct I.concept_id FROM
+SELECT 3 as codeset_id, c.concept_id FROM (select distinct I.concept_id FROM
 ( 
   select concept_id from @vocabulary_database_schema.CONCEPT where concept_id in (319844,312327,321318,315286,4185932,4176969,4108217)and invalid_reason is null
 UNION  select c.concept_id
@@ -15,6 +15,12 @@ UNION  select c.concept_id
   and c.invalid_reason is null
 
 ) I
+LEFT JOIN
+(
+  select concept_id from @vocabulary_database_schema.CONCEPT where concept_id in (434056)and invalid_reason is null
+
+) E ON I.concept_id = E.concept_id
+WHERE E.concept_id is null
 ) C;
 
 
@@ -33,7 +39,7 @@ from
 (
   select d.*
   FROM @cdm_database_schema.DEATH d
-JOIN #Codesets codesets on ((d.cause_concept_id = codesets.concept_id and codesets.codeset_id = 2))
+JOIN #Codesets codesets on ((d.cause_concept_id = codesets.concept_id and codesets.codeset_id = 3))
 ) C
 
 
