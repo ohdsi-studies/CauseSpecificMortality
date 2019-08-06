@@ -5,8 +5,7 @@
 \title{Create the exposure and outcome cohorts}
 \usage{
 createCohorts(connectionDetails, cdmDatabaseSchema, cohortDatabaseSchema,
-  cohortTable = "cohort", oracleTempSchema, outputFolder,
-  DB_END_DATE = DB_END_DATE)
+  cohortTable = "cohort", oracleTempSchema, outputFolder)
 }
 \arguments{
 \item{connectionDetails}{An object of type \code{connectionDetails} as created using the
@@ -30,8 +29,6 @@ priviliges for storing temporary tables.}
 
 \item{outputFolder}{Name of local folder to place results; make sure to use forward slashes
 (/)}
-
-\item{DB_END_DATE}{}
 }
 \description{
 Create the exposure and outcome cohorts

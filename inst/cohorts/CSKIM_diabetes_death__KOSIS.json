@@ -1,0 +1,108 @@
+{
+  "ExpressionLimit": {"Type": "First"},
+  "CollapseSettings": {
+    "CollapseType": "ERA",
+    "EraPad": 0
+  },
+  "CensorWindow": {
+    "StartDate": null,
+    "EndDate": null
+  },
+  "ConceptSets": [{
+    "expression": {"items": [
+      {
+        "isExcluded": false,
+        "concept": {
+          "INVALID_REASON_CAPTION": "Valid",
+          "CONCEPT_ID": 201820,
+          "STANDARD_CONCEPT": "S",
+          "CONCEPT_CODE": "73211009",
+          "VOCABULARY_ID": "SNOMED",
+          "CONCEPT_NAME": "Diabetes mellitus",
+          "DOMAIN_ID": "Condition",
+          "STANDARD_CONCEPT_CAPTION": "Standard",
+          "CONCEPT_CLASS_ID": "Clinical Finding",
+          "INVALID_REASON": "V"
+        },
+        "includeMapped": false,
+        "includeDescendants": true
+      },
+      {
+        "isExcluded": false,
+        "concept": {
+          "INVALID_REASON_CAPTION": "Valid",
+          "CONCEPT_ID": 4327944,
+          "STANDARD_CONCEPT": "S",
+          "CONCEPT_CODE": "75524006",
+          "VOCABULARY_ID": "SNOMED",
+          "CONCEPT_NAME": "Malnutrition related diabetes mellitus",
+          "DOMAIN_ID": "Condition",
+          "STANDARD_CONCEPT_CAPTION": "Standard",
+          "CONCEPT_CLASS_ID": "Clinical Finding",
+          "INVALID_REASON": "V"
+        },
+        "includeMapped": false,
+        "includeDescendants": true
+      },
+      {
+        "isExcluded": false,
+        "concept": {
+          "INVALID_REASON_CAPTION": "Valid",
+          "CONCEPT_ID": 201254,
+          "STANDARD_CONCEPT": "S",
+          "CONCEPT_CODE": "46635009",
+          "VOCABULARY_ID": "SNOMED",
+          "CONCEPT_NAME": "Type 1 diabetes mellitus",
+          "DOMAIN_ID": "Condition",
+          "STANDARD_CONCEPT_CAPTION": "Standard",
+          "CONCEPT_CLASS_ID": "Clinical Finding",
+          "INVALID_REASON": "V"
+        },
+        "includeMapped": false,
+        "includeDescendants": true
+      },
+      {
+        "isExcluded": false,
+        "concept": {
+          "INVALID_REASON_CAPTION": "Valid",
+          "CONCEPT_ID": 201826,
+          "STANDARD_CONCEPT": "S",
+          "CONCEPT_CODE": "44054006",
+          "VOCABULARY_ID": "SNOMED",
+          "CONCEPT_NAME": "Type 2 diabetes mellitus",
+          "DOMAIN_ID": "Condition",
+          "STANDARD_CONCEPT_CAPTION": "Standard",
+          "CONCEPT_CLASS_ID": "Clinical Finding",
+          "INVALID_REASON": "V"
+        },
+        "includeMapped": false,
+        "includeDescendants": true
+      }
+    ]},
+    "name": "[CSKIM] Diabetes_KOSIS",
+    "id": 2
+  }],
+  "EndStrategy": null,
+  "CensoringCriteria": [],
+  "Title": null,
+  "AdditionalCriteria": null,
+  "QualifiedLimit": {"Type": "First"},
+  "InclusionRules": [],
+  "PrimaryCriteria": {
+    "CriteriaList": [{"Death": {
+      "CorrelatedCriteria": null,
+      "CodesetId": 2,
+      "DeathSourceConcept": null,
+      "DeathTypeExclude": false,
+      "DeathType": null,
+      "OccurrenceStartDate": null,
+      "Gender": null,
+      "Age": null
+    }}],
+    "PrimaryCriteriaLimit": {"Type": "First"},
+    "ObservationWindow": {
+      "PostDays": 0,
+      "PriorDays": 0
+    }
+  }
+}

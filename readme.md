@@ -1,41 +1,14 @@
-A Package Skeleton for Patientl-Level Prediction Studies
-========================================================
-
-A skeleton package, to be used as a starting point when implementing patient-level prediction studies.
-
-Vignette: [Using the package skeleton for patient-level prediction studies](https://raw.githubusercontent.com/OHDSI/StudyProtocolSandbox/master/CauseSpecificMortality/inst/doc/UsingSkeletonPackage.pdf)
-
-Instructions To Prepare Package Outside Atlas
-===================
-
-- Step 1: Change package name, readme and description (replace (CauseSpecificMortality with the package name)
-- Step 2: Change all references of package name [in Main.R lines 101 and 126, CreateCohorts.R lines 27,37 and 42, CreateAllCohorts.R lines 62 and 77, readme.md and in PackageMaintenance.R]
-- Step 3: Add inst/settings/CohortToCreate.csv - a csv containing three columns, cohortId, atlasId and name - the cohorts in your local atlas with the atlasId will be downloaded into the package and given the cohortId cohort_definition_id when the user creates the cohorts.
-- Step 4: Create prediction analysis detail r code that specifies the models, populations, covariates, Ts and Os used in the study (extras/CreatePredictionAnalysisDetails)
-- Step 5: Run package management to extract cohorts (using CohortToCreate.csv) and create json specification (using extras/CreatePredictionAnalysisDetails.R)
-
-
 Instructions To Build Package
 ===================
 
 - Build the package by clicking the R studio 'Install and Restart' button in the built tab 
 
+
+
 Instructions To Run Package
 ===================
 
-- Share the package by adding it to the OHDSI/StudyProtocolSandbox github repo and get people to install by running but replace 'CauseSpecificMortality' with your study name if not using atlas:
-```r
-  # get the latest PatientLevelPrediction
-  install.packages("devtools")
-  devtools::install_github("OHDSI/PatientLevelPrediction")
-  # check the package
-  PatientLevelPrediction::checkPlpInstallation()
-  
-  # install the network package
-  devtools::install_github("OHDSI/StudyProtocolSandbox/CauseSpecificMortality")
-```
 
-- Get users to execute the study by running the code in (extras/CodeToRun.R) but replace 'CauseSpecificMortality' with your study name:
 ```r
   library(CauseSpecificMortality)
   # USER INPUTS
@@ -68,23 +41,28 @@ oracleTempSchema <- NULL
 
 # table name where the cohorts will be generated
 cohortTable <- 'CauseSpecificMortalityCohort'
+
+# your Database end date
+DB_END_DATE <- 'your DB end date'
+
 #=======================
 
 execute(connectionDetails = connectionDetails,
         cdmDatabaseSchema = cdmDatabaseSchema,
         cohortDatabaseSchema = cohortDatabaseSchema,
         cohortTable = cohortTable,
-        oracleTempSchema = oracleTempSchema,
         outputFolder = outputFolder,
+        DB_END_DATE = DB_END_DATE,
         createProtocol = F,
         createCohorts = T,
         runAnalyses = T,
         createResultsDoc = F,
-        packageResults = T,
+        packageResults = F,
         createValidationPackage = F,
         minCellCount= 5)
 ```
-- You can then easily transport the trained models into a network validation study package by running:
+- You can then easily transport the trained models into a network validation study package by running :
+
 ```r
   
   execute(connectionDetails = connectionDetails,
@@ -92,6 +70,7 @@ execute(connectionDetails = connectionDetails,
         cohortDatabaseSchema = cohortDatabaseSchema,
         cohortTable = cohortTable,
         outputFolder = outputFolder,
+        DB_END_DATE = DB_END_DATE,
         createProtocol = F,
         createCohorts = F,
         runAnalyses = F,
@@ -103,7 +82,16 @@ execute(connectionDetails = connectionDetails,
 
 ```
 
+- To predict cause of death after PLP analysis (model 1 = Lasso logistic regression, 2 = Gradient boosting machine)
+  
+```r
+
+CauseClassification(outputFolder, TAR = 30, model = 1, nTree = 500, seedNum = NULL)
+
+```
+
 - To create the shiny app and view run:
+
 ```r
   
 populateShinyApp(resultDirectory = outputFolder,
@@ -115,7 +103,6 @@ viewShiny('CauseSpecificMortality')
   
 
 ```
-
 
 # Development status
 Under development. Do not use

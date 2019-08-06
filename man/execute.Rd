@@ -8,8 +8,8 @@ execute(connectionDetails, cdmDatabaseSchema,
   cdmDatabaseName = "friendly database name",
   cohortDatabaseSchema = cdmDatabaseSchema, cohortTable = "cohort",
   oracleTempSchema = cohortDatabaseSchema, outputFolder,
-  DB_END_DATE = DB_END_DATE, createProtocol = F, createCohorts = F,
-  runAnalyses = F, createResultsDoc = F, createValidationPackage = F,
+  createProtocol = F, createCohorts = F, runAnalyses = F,
+  createResultsDoc = F, createValidationPackage = F,
   analysesToValidate = NULL, packageResults = F, minCellCount = 5,
   verbosity = "INFO", cdmVersion = 5)
 }
@@ -68,7 +68,7 @@ in packaged results.}
 
 \item{cdmVersion}{The version of the common data model}
 
-\item{CauseClassification}{}
+\item{CausePrediction}{}
 }
 \description{
 Execute the Study

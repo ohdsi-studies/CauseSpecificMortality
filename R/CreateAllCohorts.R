@@ -36,15 +36,13 @@
 #'                             priviliges for storing temporary tables.
 #' @param outputFolder         Name of local folder to place results; make sure to use forward slashes
 #'                             (/)
-#' @param DB_END_DATE  
 #' @export
 createCohorts <- function(connectionDetails,
                           cdmDatabaseSchema,
                           cohortDatabaseSchema,
                           cohortTable = "cohort",
                           oracleTempSchema,
-                          outputFolder,
-                          DB_END_DATE = DB_END_DATE) {
+                          outputFolder) {
   if (!file.exists(outputFolder))
     dir.create(outputFolder)
   
@@ -55,8 +53,7 @@ createCohorts <- function(connectionDetails,
                  cohortDatabaseSchema = cohortDatabaseSchema,
                  cohortTable = cohortTable,
                  oracleTempSchema = oracleTempSchema,
-                 outputFolder = outputFolder,
-                 DB_END_DATE = DB_END_DATE)
+                 outputFolder = outputFolder)
   
   # Check number of subjects per cohort:
   ParallelLogger::logInfo("Counting cohorts")

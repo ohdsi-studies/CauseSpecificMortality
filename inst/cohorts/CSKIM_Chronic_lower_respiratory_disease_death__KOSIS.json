@@ -1,0 +1,193 @@
+{
+  "ExpressionLimit": {"Type": "First"},
+  "CollapseSettings": {
+    "CollapseType": "ERA",
+    "EraPad": 0
+  },
+  "CensorWindow": {
+    "StartDate": null,
+    "EndDate": null
+  },
+  "ConceptSets": [{
+    "expression": {"items": [
+      {
+        "isExcluded": false,
+        "concept": {
+          "INVALID_REASON_CAPTION": "Valid",
+          "CONCEPT_ID": 37116845,
+          "STANDARD_CONCEPT": "S",
+          "CONCEPT_CODE": "733858005",
+          "VOCABULARY_ID": "SNOMED",
+          "CONCEPT_NAME": "Acute severe refractory exacerbation of asthma",
+          "DOMAIN_ID": "Condition",
+          "STANDARD_CONCEPT_CAPTION": "Standard",
+          "CONCEPT_CLASS_ID": "Clinical Finding",
+          "INVALID_REASON": "V"
+        },
+        "includeMapped": false,
+        "includeDescendants": true
+      },
+      {
+        "isExcluded": false,
+        "concept": {
+          "INVALID_REASON_CAPTION": "Valid",
+          "CONCEPT_ID": 317009,
+          "STANDARD_CONCEPT": "S",
+          "CONCEPT_CODE": "195967001",
+          "VOCABULARY_ID": "SNOMED",
+          "CONCEPT_NAME": "Asthma",
+          "DOMAIN_ID": "Condition",
+          "STANDARD_CONCEPT_CAPTION": "Standard",
+          "CONCEPT_CLASS_ID": "Clinical Finding",
+          "INVALID_REASON": "V"
+        },
+        "includeMapped": false,
+        "includeDescendants": true
+      },
+      {
+        "isExcluded": false,
+        "concept": {
+          "INVALID_REASON_CAPTION": "Valid",
+          "CONCEPT_ID": 256449,
+          "STANDARD_CONCEPT": "S",
+          "CONCEPT_CODE": "12295008",
+          "VOCABULARY_ID": "SNOMED",
+          "CONCEPT_NAME": "Bronchiectasis",
+          "DOMAIN_ID": "Condition",
+          "STANDARD_CONCEPT_CAPTION": "Standard",
+          "CONCEPT_CLASS_ID": "Clinical Finding",
+          "INVALID_REASON": "V"
+        },
+        "includeMapped": false,
+        "includeDescendants": true
+      },
+      {
+        "isExcluded": false,
+        "concept": {
+          "INVALID_REASON_CAPTION": "Valid",
+          "CONCEPT_ID": 256451,
+          "STANDARD_CONCEPT": "S",
+          "CONCEPT_CODE": "32398004",
+          "VOCABULARY_ID": "SNOMED",
+          "CONCEPT_NAME": "Bronchitis",
+          "DOMAIN_ID": "Condition",
+          "STANDARD_CONCEPT_CAPTION": "Standard",
+          "CONCEPT_CLASS_ID": "Clinical Finding",
+          "INVALID_REASON": "V"
+        },
+        "includeMapped": false,
+        "includeDescendants": true
+      },
+      {
+        "isExcluded": false,
+        "concept": {
+          "INVALID_REASON_CAPTION": "Valid",
+          "CONCEPT_ID": 255841,
+          "STANDARD_CONCEPT": "S",
+          "CONCEPT_CODE": "63480004",
+          "VOCABULARY_ID": "SNOMED",
+          "CONCEPT_NAME": "Chronic bronchitis",
+          "DOMAIN_ID": "Condition",
+          "STANDARD_CONCEPT_CAPTION": "Standard",
+          "CONCEPT_CLASS_ID": "Clinical Finding",
+          "INVALID_REASON": "V"
+        },
+        "includeMapped": false,
+        "includeDescendants": true
+      },
+      {
+        "isExcluded": false,
+        "concept": {
+          "INVALID_REASON_CAPTION": "Valid",
+          "CONCEPT_ID": 255573,
+          "STANDARD_CONCEPT": "S",
+          "CONCEPT_CODE": "13645005",
+          "VOCABULARY_ID": "SNOMED",
+          "CONCEPT_NAME": "Chronic obstructive lung disease",
+          "DOMAIN_ID": "Condition",
+          "STANDARD_CONCEPT_CAPTION": "Standard",
+          "CONCEPT_CLASS_ID": "Clinical Finding",
+          "INVALID_REASON": "V"
+        },
+        "includeMapped": false,
+        "includeDescendants": true
+      },
+      {
+        "isExcluded": false,
+        "concept": {
+          "INVALID_REASON_CAPTION": "Valid",
+          "CONCEPT_ID": 4169883,
+          "STANDARD_CONCEPT": "S",
+          "CONCEPT_CODE": "49158009",
+          "VOCABULARY_ID": "SNOMED",
+          "CONCEPT_NAME": "Emphysema",
+          "DOMAIN_ID": "Observation",
+          "STANDARD_CONCEPT_CAPTION": "Standard",
+          "CONCEPT_CLASS_ID": "Morph Abnormality",
+          "INVALID_REASON": "V"
+        },
+        "includeMapped": false,
+        "includeDescendants": true
+      },
+      {
+        "isExcluded": false,
+        "concept": {
+          "INVALID_REASON_CAPTION": "Valid",
+          "CONCEPT_ID": 261325,
+          "STANDARD_CONCEPT": "S",
+          "CONCEPT_CODE": "87433001",
+          "VOCABULARY_ID": "SNOMED",
+          "CONCEPT_NAME": "Pulmonary emphysema",
+          "DOMAIN_ID": "Condition",
+          "STANDARD_CONCEPT_CAPTION": "Standard",
+          "CONCEPT_CLASS_ID": "Clinical Finding",
+          "INVALID_REASON": "V"
+        },
+        "includeMapped": false,
+        "includeDescendants": true
+      },
+      {
+        "isExcluded": false,
+        "concept": {
+          "INVALID_REASON_CAPTION": "Valid",
+          "CONCEPT_ID": 4145356,
+          "STANDARD_CONCEPT": "S",
+          "CONCEPT_CODE": "426656000",
+          "VOCABULARY_ID": "SNOMED",
+          "CONCEPT_NAME": "Severe persistent asthma",
+          "DOMAIN_ID": "Condition",
+          "STANDARD_CONCEPT_CAPTION": "Standard",
+          "CONCEPT_CLASS_ID": "Clinical Finding",
+          "INVALID_REASON": "V"
+        },
+        "includeMapped": false,
+        "includeDescendants": true
+      }
+    ]},
+    "name": "[CSKIM] Chronic lower respiratory disease _KOSIS",
+    "id": 2
+  }],
+  "EndStrategy": null,
+  "CensoringCriteria": [],
+  "Title": null,
+  "AdditionalCriteria": null,
+  "QualifiedLimit": {"Type": "First"},
+  "InclusionRules": [],
+  "PrimaryCriteria": {
+    "CriteriaList": [{"Death": {
+      "CorrelatedCriteria": null,
+      "CodesetId": 2,
+      "DeathSourceConcept": null,
+      "DeathTypeExclude": false,
+      "DeathType": null,
+      "OccurrenceStartDate": null,
+      "Gender": null,
+      "Age": null
+    }}],
+    "PrimaryCriteriaLimit": {"Type": "First"},
+    "ObservationWindow": {
+      "PostDays": 0,
+      "PriorDays": 0
+    }
+  }
+}

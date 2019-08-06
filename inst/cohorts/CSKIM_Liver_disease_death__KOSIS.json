@@ -1,0 +1,414 @@
+{
+  "ExpressionLimit": {"Type": "First"},
+  "CollapseSettings": {
+    "CollapseType": "ERA",
+    "EraPad": 0
+  },
+  "CensorWindow": {
+    "StartDate": null,
+    "EndDate": null
+  },
+  "ConceptSets": [{
+    "expression": {"items": [
+      {
+        "isExcluded": false,
+        "concept": {
+          "INVALID_REASON_CAPTION": "Valid",
+          "CONCEPT_ID": 201612,
+          "STANDARD_CONCEPT": "S",
+          "CONCEPT_CODE": "41309000",
+          "VOCABULARY_ID": "SNOMED",
+          "CONCEPT_NAME": "Alcoholic liver damage",
+          "DOMAIN_ID": "Condition",
+          "STANDARD_CONCEPT_CAPTION": "Standard",
+          "CONCEPT_CLASS_ID": "Clinical Finding",
+          "INVALID_REASON": "V"
+        },
+        "includeMapped": false,
+        "includeDescendants": true
+      },
+      {
+        "isExcluded": false,
+        "concept": {
+          "INVALID_REASON_CAPTION": "Valid",
+          "CONCEPT_ID": 200763,
+          "STANDARD_CONCEPT": "S",
+          "CONCEPT_CODE": "76783007",
+          "VOCABULARY_ID": "SNOMED",
+          "CONCEPT_NAME": "Chronic hepatitis",
+          "DOMAIN_ID": "Condition",
+          "STANDARD_CONCEPT_CAPTION": "Standard",
+          "CONCEPT_CLASS_ID": "Clinical Finding",
+          "INVALID_REASON": "V"
+        },
+        "includeMapped": false,
+        "includeDescendants": true
+      },
+      {
+        "isExcluded": false,
+        "concept": {
+          "INVALID_REASON_CAPTION": "Valid",
+          "CONCEPT_ID": 194984,
+          "STANDARD_CONCEPT": "S",
+          "CONCEPT_CODE": "235856003",
+          "VOCABULARY_ID": "SNOMED",
+          "CONCEPT_NAME": "Disease of liver",
+          "DOMAIN_ID": "Condition",
+          "STANDARD_CONCEPT_CAPTION": "Standard",
+          "CONCEPT_CLASS_ID": "Clinical Finding",
+          "INVALID_REASON": "V"
+        },
+        "includeMapped": false,
+        "includeDescendants": true
+      },
+      {
+        "isExcluded": false,
+        "concept": {
+          "INVALID_REASON_CAPTION": "Valid",
+          "CONCEPT_ID": 4245975,
+          "STANDARD_CONCEPT": "S",
+          "CONCEPT_CODE": "59927004",
+          "VOCABULARY_ID": "SNOMED",
+          "CONCEPT_NAME": "Hepatic failure",
+          "DOMAIN_ID": "Condition",
+          "STANDARD_CONCEPT_CAPTION": "Standard",
+          "CONCEPT_CLASS_ID": "Clinical Finding",
+          "INVALID_REASON": "V"
+        },
+        "includeMapped": false,
+        "includeDescendants": true
+      },
+      {
+        "isExcluded": false,
+        "concept": {
+          "INVALID_REASON_CAPTION": "Valid",
+          "CONCEPT_ID": 4267417,
+          "STANDARD_CONCEPT": "S",
+          "CONCEPT_CODE": "62484002",
+          "VOCABULARY_ID": "SNOMED",
+          "CONCEPT_NAME": "Hepatic fibrosis",
+          "DOMAIN_ID": "Condition",
+          "STANDARD_CONCEPT_CAPTION": "Standard",
+          "CONCEPT_CLASS_ID": "Clinical Finding",
+          "INVALID_REASON": "V"
+        },
+        "includeMapped": false,
+        "includeDescendants": true
+      },
+      {
+        "isExcluded": false,
+        "concept": {
+          "INVALID_REASON_CAPTION": "Valid",
+          "CONCEPT_ID": 194990,
+          "STANDARD_CONCEPT": "S",
+          "CONCEPT_CODE": "128241005",
+          "VOCABULARY_ID": "SNOMED",
+          "CONCEPT_NAME": "Inflammatory disease of liver",
+          "DOMAIN_ID": "Condition",
+          "STANDARD_CONCEPT_CAPTION": "Standard",
+          "CONCEPT_CLASS_ID": "Clinical Finding",
+          "INVALID_REASON": "V"
+        },
+        "includeMapped": false,
+        "includeDescendants": true
+      },
+      {
+        "isExcluded": true,
+        "concept": {
+          "INVALID_REASON_CAPTION": "Valid",
+          "CONCEPT_ID": 4089662,
+          "STANDARD_CONCEPT": "S",
+          "CONCEPT_CODE": "187773007",
+          "VOCABULARY_ID": "SNOMED",
+          "CONCEPT_NAME": "Malignant neoplasm of interlobular bile ducts",
+          "DOMAIN_ID": "Condition",
+          "STANDARD_CONCEPT_CAPTION": "Standard",
+          "CONCEPT_CLASS_ID": "Clinical Finding",
+          "INVALID_REASON": "V"
+        },
+        "includeMapped": false,
+        "includeDescendants": false
+      },
+      {
+        "isExcluded": true,
+        "concept": {
+          "INVALID_REASON_CAPTION": "Valid",
+          "CONCEPT_ID": 4089663,
+          "STANDARD_CONCEPT": "S",
+          "CONCEPT_CODE": "187776004",
+          "VOCABULARY_ID": "SNOMED",
+          "CONCEPT_NAME": "Malignant neoplasm of intrahepatic canaliculi",
+          "DOMAIN_ID": "Condition",
+          "STANDARD_CONCEPT_CAPTION": "Standard",
+          "CONCEPT_CLASS_ID": "Clinical Finding",
+          "INVALID_REASON": "V"
+        },
+        "includeMapped": false,
+        "includeDescendants": false
+      },
+      {
+        "isExcluded": true,
+        "concept": {
+          "INVALID_REASON_CAPTION": "Valid",
+          "CONCEPT_ID": 4094865,
+          "STANDARD_CONCEPT": "S",
+          "CONCEPT_CODE": "187777008",
+          "VOCABULARY_ID": "SNOMED",
+          "CONCEPT_NAME": "Malignant neoplasm of intrahepatic gall duct",
+          "DOMAIN_ID": "Condition",
+          "STANDARD_CONCEPT_CAPTION": "Standard",
+          "CONCEPT_CLASS_ID": "Clinical Finding",
+          "INVALID_REASON": "V"
+        },
+        "includeMapped": false,
+        "includeDescendants": false
+      },
+      {
+        "isExcluded": true,
+        "concept": {
+          "INVALID_REASON_CAPTION": "Valid",
+          "CONCEPT_ID": 4246127,
+          "STANDARD_CONCEPT": "S",
+          "CONCEPT_CODE": "93870000",
+          "VOCABULARY_ID": "SNOMED",
+          "CONCEPT_NAME": "Malignant neoplasm of liver",
+          "DOMAIN_ID": "Condition",
+          "STANDARD_CONCEPT_CAPTION": "Standard",
+          "CONCEPT_CLASS_ID": "Clinical Finding",
+          "INVALID_REASON": "V"
+        },
+        "includeMapped": false,
+        "includeDescendants": false
+      },
+      {
+        "isExcluded": true,
+        "concept": {
+          "INVALID_REASON_CAPTION": "Valid",
+          "CONCEPT_ID": 4095432,
+          "STANDARD_CONCEPT": "S",
+          "CONCEPT_CODE": "187767006",
+          "VOCABULARY_ID": "SNOMED",
+          "CONCEPT_NAME": "Malignant neoplasm of liver and intrahepatic bile ducts",
+          "DOMAIN_ID": "Condition",
+          "STANDARD_CONCEPT_CAPTION": "Standard",
+          "CONCEPT_CLASS_ID": "Clinical Finding",
+          "INVALID_REASON": "V"
+        },
+        "includeMapped": false,
+        "includeDescendants": false
+      },
+      {
+        "isExcluded": true,
+        "concept": {
+          "INVALID_REASON_CAPTION": "Valid",
+          "CONCEPT_ID": 4130519,
+          "STANDARD_CONCEPT": "S",
+          "CONCEPT_CODE": "126852003",
+          "VOCABULARY_ID": "SNOMED",
+          "CONCEPT_NAME": "Neoplasm of intrahepatic bile ducts",
+          "DOMAIN_ID": "Condition",
+          "STANDARD_CONCEPT_CAPTION": "Standard",
+          "CONCEPT_CLASS_ID": "Clinical Finding",
+          "INVALID_REASON": "V"
+        },
+        "includeMapped": false,
+        "includeDescendants": false
+      },
+      {
+        "isExcluded": true,
+        "concept": {
+          "INVALID_REASON_CAPTION": "Valid",
+          "CONCEPT_ID": 4130518,
+          "STANDARD_CONCEPT": "S",
+          "CONCEPT_CODE": "126851005",
+          "VOCABULARY_ID": "SNOMED",
+          "CONCEPT_NAME": "Neoplasm of liver",
+          "DOMAIN_ID": "Condition",
+          "STANDARD_CONCEPT_CAPTION": "Standard",
+          "CONCEPT_CLASS_ID": "Clinical Finding",
+          "INVALID_REASON": "V"
+        },
+        "includeMapped": false,
+        "includeDescendants": false
+      },
+      {
+        "isExcluded": true,
+        "concept": {
+          "INVALID_REASON_CAPTION": "Valid",
+          "CONCEPT_ID": 4317541,
+          "STANDARD_CONCEPT": "S",
+          "CONCEPT_CODE": "94880005",
+          "VOCABULARY_ID": "SNOMED",
+          "CONCEPT_NAME": "Neoplasm of uncertain behavior of intrahepatic bile ducts",
+          "DOMAIN_ID": "Condition",
+          "STANDARD_CONCEPT_CAPTION": "Standard",
+          "CONCEPT_CLASS_ID": "Clinical Finding",
+          "INVALID_REASON": "V"
+        },
+        "includeMapped": false,
+        "includeDescendants": false
+      },
+      {
+        "isExcluded": true,
+        "concept": {
+          "INVALID_REASON_CAPTION": "Valid",
+          "CONCEPT_ID": 4313636,
+          "STANDARD_CONCEPT": "S",
+          "CONCEPT_CODE": "94910002",
+          "VOCABULARY_ID": "SNOMED",
+          "CONCEPT_NAME": "Neoplasm of uncertain behavior of liver",
+          "DOMAIN_ID": "Condition",
+          "STANDARD_CONCEPT_CAPTION": "Standard",
+          "CONCEPT_CLASS_ID": "Clinical Finding",
+          "INVALID_REASON": "V"
+        },
+        "includeMapped": false,
+        "includeDescendants": false
+      },
+      {
+        "isExcluded": true,
+        "concept": {
+          "INVALID_REASON_CAPTION": "Valid",
+          "CONCEPT_ID": 40490929,
+          "STANDARD_CONCEPT": "S",
+          "CONCEPT_CODE": "447109003",
+          "VOCABULARY_ID": "SNOMED",
+          "CONCEPT_NAME": "Primary malignant neoplasm of intrahepatic bile duct",
+          "DOMAIN_ID": "Condition",
+          "STANDARD_CONCEPT_CAPTION": "Standard",
+          "CONCEPT_CLASS_ID": "Clinical Finding",
+          "INVALID_REASON": "V"
+        },
+        "includeMapped": false,
+        "includeDescendants": false
+      },
+      {
+        "isExcluded": true,
+        "concept": {
+          "INVALID_REASON_CAPTION": "Valid",
+          "CONCEPT_ID": 201519,
+          "STANDARD_CONCEPT": "S",
+          "CONCEPT_CODE": "95214007",
+          "VOCABULARY_ID": "SNOMED",
+          "CONCEPT_NAME": "Primary malignant neoplasm of liver",
+          "DOMAIN_ID": "Condition",
+          "STANDARD_CONCEPT_CAPTION": "Standard",
+          "CONCEPT_CLASS_ID": "Clinical Finding",
+          "INVALID_REASON": "V"
+        },
+        "includeMapped": false,
+        "includeDescendants": false
+      },
+      {
+        "isExcluded": true,
+        "concept": {
+          "INVALID_REASON_CAPTION": "Valid",
+          "CONCEPT_ID": 4312024,
+          "STANDARD_CONCEPT": "S",
+          "CONCEPT_CODE": "94349006",
+          "VOCABULARY_ID": "SNOMED",
+          "CONCEPT_NAME": "Secondary malignant neoplasm of intrahepatic bile ducts",
+          "DOMAIN_ID": "Condition",
+          "STANDARD_CONCEPT_CAPTION": "Standard",
+          "CONCEPT_CLASS_ID": "Clinical Finding",
+          "INVALID_REASON": "V"
+        },
+        "includeMapped": false,
+        "includeDescendants": false
+      },
+      {
+        "isExcluded": true,
+        "concept": {
+          "INVALID_REASON_CAPTION": "Valid",
+          "CONCEPT_ID": 198700,
+          "STANDARD_CONCEPT": "S",
+          "CONCEPT_CODE": "94381002",
+          "VOCABULARY_ID": "SNOMED",
+          "CONCEPT_NAME": "Secondary malignant neoplasm of liver",
+          "DOMAIN_ID": "Condition",
+          "STANDARD_CONCEPT_CAPTION": "Standard",
+          "CONCEPT_CLASS_ID": "Clinical Finding",
+          "INVALID_REASON": "V"
+        },
+        "includeMapped": false,
+        "includeDescendants": false
+      },
+      {
+        "isExcluded": true,
+        "concept": {
+          "INVALID_REASON_CAPTION": "Valid",
+          "CONCEPT_ID": 44806773,
+          "STANDARD_CONCEPT": "S",
+          "CONCEPT_CODE": "813671000000107",
+          "VOCABULARY_ID": "SNOMED",
+          "CONCEPT_NAME": "Secondary malignant neoplasm of liver and intrahepatic bile duct",
+          "DOMAIN_ID": "Condition",
+          "STANDARD_CONCEPT_CAPTION": "Standard",
+          "CONCEPT_CLASS_ID": "Clinical Finding",
+          "INVALID_REASON": "V"
+        },
+        "includeMapped": false,
+        "includeDescendants": false
+      },
+      {
+        "isExcluded": false,
+        "concept": {
+          "INVALID_REASON_CAPTION": "Valid",
+          "CONCEPT_ID": 4055224,
+          "STANDARD_CONCEPT": "S",
+          "CONCEPT_CODE": "197354009",
+          "VOCABULARY_ID": "SNOMED",
+          "CONCEPT_NAME": "Toxic liver disease",
+          "DOMAIN_ID": "Condition",
+          "STANDARD_CONCEPT_CAPTION": "Standard",
+          "CONCEPT_CLASS_ID": "Clinical Finding",
+          "INVALID_REASON": "V"
+        },
+        "includeMapped": false,
+        "includeDescendants": true
+      },
+      {
+        "isExcluded": false,
+        "concept": {
+          "INVALID_REASON_CAPTION": "Valid",
+          "CONCEPT_ID": 4058695,
+          "STANDARD_CONCEPT": "S",
+          "CONCEPT_CODE": "197362001",
+          "VOCABULARY_ID": "SNOMED",
+          "CONCEPT_NAME": "Toxic liver disease with fibrosis and cirrhosis of liver",
+          "DOMAIN_ID": "Condition",
+          "STANDARD_CONCEPT_CAPTION": "Standard",
+          "CONCEPT_CLASS_ID": "Clinical Finding",
+          "INVALID_REASON": "V"
+        },
+        "includeMapped": false,
+        "includeDescendants": true
+      }
+    ]},
+    "name": "[CSKIM] Liver disease_KOSIS",
+    "id": 3
+  }],
+  "EndStrategy": null,
+  "CensoringCriteria": [],
+  "Title": null,
+  "AdditionalCriteria": null,
+  "QualifiedLimit": {"Type": "First"},
+  "InclusionRules": [],
+  "PrimaryCriteria": {
+    "CriteriaList": [{"Death": {
+      "CorrelatedCriteria": null,
+      "CodesetId": 3,
+      "DeathSourceConcept": null,
+      "DeathTypeExclude": false,
+      "DeathType": null,
+      "OccurrenceStartDate": null,
+      "Gender": null,
+      "Age": null
+    }}],
+    "PrimaryCriteriaLimit": {"Type": "First"},
+    "ObservationWindow": {
+      "PostDays": 0,
+      "PriorDays": 0
+    }
+  }
+}

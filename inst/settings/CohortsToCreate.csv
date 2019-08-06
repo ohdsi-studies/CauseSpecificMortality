@@ -1,6 +1,11 @@
 cohortId,atlasId,name
-153,153,CSKIM_CV_death
-154,154,CSKIM_Cancer_death
-161,161,CSKIM_Infection_related_death
 132,132,CSKIM_Any_death
-133,133,CSKIM_All_visit_2012
+222,222,CSKIM_Cancer_death__KOSIS
+224,224,CSKIM_cerebrovascular_death__KOSIS
+225,225,CSKIM_Pneumonia_death__KOSIS
+226,226,CSKIM_diabetes_death__KOSIS
+228,228,CSKIM_Chronic_lower_respiratory_disease_death__KOSIS
+229,229,CSKIM_Hypertensive_disease_death__KOSIS
+223,223,CSKIM_Ischemic_Heart_Disease_death__KOSIS
+227,227,CSKIM_Liver_disease_death__KOSIS
+133,133,CSKIM_Any_Visit

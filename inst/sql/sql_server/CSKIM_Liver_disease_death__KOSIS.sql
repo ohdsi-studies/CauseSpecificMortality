@@ -5,44 +5,22 @@ CREATE TABLE #Codesets (
 ;
 
 INSERT INTO #Codesets (codeset_id, concept_id)
-SELECT 0 as codeset_id, c.concept_id FROM (select distinct I.concept_id FROM
+SELECT 3 as codeset_id, c.concept_id FROM (select distinct I.concept_id FROM
 ( 
-  select concept_id from @vocabulary_database_schema.CONCEPT where concept_id in (319844,312327,321318,321319,376713,443454,381316,381591,315286,316999,316139,434056,42538062,4111715,4176969,432923,4108217)and invalid_reason is null
-UNION
-select distinct cr.concept_id_1 as concept_id
-FROM
-(
-  select concept_id from @vocabulary_database_schema.CONCEPT where concept_id in (319844,312327,321318,321319,376713,443454,381316,381591,315286,316999,316139,434056,42538062,4111715,4176969,432923,4108217)and invalid_reason is null
-
-) C
-join @vocabulary_database_schema.concept_relationship cr on C.concept_id = cr.concept_id_2 and cr.relationship_id = 'Maps to' and cr.invalid_reason IS NULL
-
-) I
-) C;
-INSERT INTO #Codesets (codeset_id, concept_id)
-SELECT 1 as codeset_id, c.concept_id FROM (select distinct I.concept_id FROM
-( 
-  select concept_id from @vocabulary_database_schema.CONCEPT where concept_id in (319844,312327,321318,321319,376713,443454,381316,381591,315286,316999,316139,434056,42538062,4111715,4176969,432923,4108217)and invalid_reason is null
+  select concept_id from @vocabulary_database_schema.CONCEPT where concept_id in (201612,200763,194984,4245975,4267417,194990,4055224,4058695)and invalid_reason is null
 UNION  select c.concept_id
   from @vocabulary_database_schema.CONCEPT c
   join @vocabulary_database_schema.CONCEPT_ANCESTOR ca on c.concept_id = ca.descendant_concept_id
-  and ca.ancestor_concept_id in (319844,312327,321318,321319,376713,443454,381316,381591,315286,316999,316139,434056,42538062,4111715,4176969,432923,4108217)
+  and ca.ancestor_concept_id in (201612,200763,194984,4245975,4267417,194990,4055224,4058695)
   and c.invalid_reason is null
-UNION
-select distinct cr.concept_id_1 as concept_id
-FROM
-(
-  select concept_id from @vocabulary_database_schema.CONCEPT where concept_id in (319844,312327,321318,321319,376713,443454,381316,381591,315286,316999,316139,434056,42538062,4111715,4176969,432923,4108217)and invalid_reason is null
-UNION  select c.concept_id
-  from @vocabulary_database_schema.CONCEPT c
-  join @vocabulary_database_schema.CONCEPT_ANCESTOR ca on c.concept_id = ca.descendant_concept_id
-  and ca.ancestor_concept_id in (319844,312327,321318,321319,376713,443454,381316,381591,315286,316999,316139,434056,42538062,4111715,4176969,432923,4108217)
-  and c.invalid_reason is null
-
-) C
-join @vocabulary_database_schema.concept_relationship cr on C.concept_id = cr.concept_id_2 and cr.relationship_id = 'Maps to' and cr.invalid_reason IS NULL
 
 ) I
+LEFT JOIN
+(
+  select concept_id from @vocabulary_database_schema.CONCEPT where concept_id in (4089662,4089663,4094865,4246127,4095432,4130519,4130518,4317541,4313636,40490929,201519,4312024,198700,44806773)and invalid_reason is null
+
+) E ON I.concept_id = E.concept_id
+WHERE E.concept_id is null
 ) C;
 
 
@@ -61,7 +39,7 @@ from
 (
   select d.*
   FROM @cdm_database_schema.DEATH d
-JOIN #Codesets codesets on ((d.cause_concept_id = codesets.concept_id and codesets.codeset_id = 1))
+JOIN #Codesets codesets on ((d.cause_concept_id = codesets.concept_id and codesets.codeset_id = 3))
 ) C
 
 

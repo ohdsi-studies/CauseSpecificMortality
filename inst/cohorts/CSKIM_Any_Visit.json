@@ -17,11 +17,7 @@
   "InclusionRules": [],
   "PrimaryCriteria": {
     "CriteriaList": [{"VisitOccurrence": {
-      "OccurrenceEndDate": {
-        "Op": "lte",
-        "Extent": null,
-        "Value": "2013-12-31"
-      },
+      "OccurrenceEndDate": null,
       "VisitLength": null,
       "CorrelatedCriteria": null,
       "VisitSourceConcept": null,

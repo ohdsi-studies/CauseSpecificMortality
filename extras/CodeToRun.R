@@ -1,18 +1,19 @@
+
 library(CauseSpecificMortality)
 # USER INPUTS
 #=======================
 # The folder where the study intermediate and result files will be written:
-outputFolder <- Sys.getenv("outputFolder")
+outputFolder <- "./CauseSpecificMortalityResults"
 
 # Specify where the temporary files (used by the ff package) will be created:
-options(fftempdir = Sys.getenv("temp"))
+options(fftempdir = "location with space to save big data")
 
 # Details for connecting to the server:
-dbms <- Sys.getenv("dbms")
-user <- Sys.getenv("userID")
-pw <- Sys.getenv("userPW")
-server <- Sys.getenv("server16")
-port <- Sys.getenv("port")
+dbms <- "you dbms"
+user <- 'your username'
+pw <- 'your password'
+server <- 'your server'
+port <- 'your port'
 
 connectionDetails <- DatabaseConnector::createConnectionDetails(dbms = dbms,
                                                                 server = server,
@@ -21,24 +22,22 @@ connectionDetails <- DatabaseConnector::createConnectionDetails(dbms = dbms,
                                                                 port = port)
 
 # Add the database containing the OMOP CDM data
-cdmDatabaseSchema <- Sys.getenv("cdmDatabaseSchema")
+cdmDatabaseSchema <- 'cdm database schema'
 # Add a database with read/write access as this is where the cohorts will be generated
-cohortDatabaseSchema <-  Sys.getenv("cohortDatabaseSchema")
+cohortDatabaseSchema <- 'work database schema'
 
 oracleTempSchema <- NULL
 
 # table name where the cohorts will be generated
-cohortTable <- Sys.getenv("cohortTable")
-#=======================
+cohortTable <- 'CauseSpecificMortalityCohort'
 
-DB_END_DATE <- 'your DB end date'
+#=======================
 
 execute(connectionDetails = connectionDetails,
         cdmDatabaseSchema = cdmDatabaseSchema,
         cohortDatabaseSchema = cohortDatabaseSchema,
         cohortTable = cohortTable,
         outputFolder = outputFolder,
-        DB_END_DATE = DB_END_DATE,
         createProtocol = F,
         createCohorts = T,
         runAnalyses = T,
@@ -47,6 +46,7 @@ execute(connectionDetails = connectionDetails,
         createValidationPackage = F,
         minCellCount= 5)
 
-PatientLevelPrediction::viewMultiplePlp(outputFolder)
 
-CauseClassification(outputFolder, TAR = 30, model = 1, nTree = 500, seedNum = 1234)
+# Cause of death prediction
+# TAR = (30,90,180,365), nTree = tree numbers of random forest algorithm, seedNum = Seed number
+CausePrediction(outputFolder, TAR = 30, nTree = 200, seedNum = NULL)

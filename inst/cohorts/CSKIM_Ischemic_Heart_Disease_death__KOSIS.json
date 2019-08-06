@@ -1,0 +1,176 @@
+{
+  "ExpressionLimit": {"Type": "First"},
+  "CollapseSettings": {
+    "CollapseType": "ERA",
+    "EraPad": 0
+  },
+  "CensorWindow": {
+    "StartDate": null,
+    "EndDate": null
+  },
+  "ConceptSets": [{
+    "expression": {"items": [
+      {
+        "isExcluded": false,
+        "concept": {
+          "INVALID_REASON_CAPTION": "Valid",
+          "CONCEPT_ID": 319844,
+          "STANDARD_CONCEPT": "S",
+          "CONCEPT_CODE": "413439005",
+          "VOCABULARY_ID": "SNOMED",
+          "CONCEPT_NAME": "Acute ischemic heart disease",
+          "DOMAIN_ID": "Condition",
+          "STANDARD_CONCEPT_CAPTION": "Standard",
+          "CONCEPT_CLASS_ID": "Clinical Finding",
+          "INVALID_REASON": "V"
+        },
+        "includeMapped": false,
+        "includeDescendants": true
+      },
+      {
+        "isExcluded": false,
+        "concept": {
+          "INVALID_REASON_CAPTION": "Valid",
+          "CONCEPT_ID": 312327,
+          "STANDARD_CONCEPT": "S",
+          "CONCEPT_CODE": "57054005",
+          "VOCABULARY_ID": "SNOMED",
+          "CONCEPT_NAME": "Acute myocardial infarction",
+          "DOMAIN_ID": "Condition",
+          "STANDARD_CONCEPT_CAPTION": "Standard",
+          "CONCEPT_CLASS_ID": "Clinical Finding",
+          "INVALID_REASON": "V"
+        },
+        "includeMapped": false,
+        "includeDescendants": true
+      },
+      {
+        "isExcluded": false,
+        "concept": {
+          "INVALID_REASON_CAPTION": "Valid",
+          "CONCEPT_ID": 321318,
+          "STANDARD_CONCEPT": "S",
+          "CONCEPT_CODE": "194828000",
+          "VOCABULARY_ID": "SNOMED",
+          "CONCEPT_NAME": "Angina pectoris",
+          "DOMAIN_ID": "Condition",
+          "STANDARD_CONCEPT_CAPTION": "Standard",
+          "CONCEPT_CLASS_ID": "Clinical Finding",
+          "INVALID_REASON": "V"
+        },
+        "includeMapped": false,
+        "includeDescendants": true
+      },
+      {
+        "isExcluded": false,
+        "concept": {
+          "INVALID_REASON_CAPTION": "Valid",
+          "CONCEPT_ID": 315286,
+          "STANDARD_CONCEPT": "S",
+          "CONCEPT_CODE": "413838009",
+          "VOCABULARY_ID": "SNOMED",
+          "CONCEPT_NAME": "Chronic ischemic heart disease",
+          "DOMAIN_ID": "Condition",
+          "STANDARD_CONCEPT_CAPTION": "Standard",
+          "CONCEPT_CLASS_ID": "Clinical Finding",
+          "INVALID_REASON": "V"
+        },
+        "includeMapped": false,
+        "includeDescendants": true
+      },
+      {
+        "isExcluded": false,
+        "concept": {
+          "INVALID_REASON_CAPTION": "Valid",
+          "CONCEPT_ID": 4185932,
+          "STANDARD_CONCEPT": "S",
+          "CONCEPT_CODE": "414545008",
+          "VOCABULARY_ID": "SNOMED",
+          "CONCEPT_NAME": "Ischemic heart disease",
+          "DOMAIN_ID": "Condition",
+          "STANDARD_CONCEPT_CAPTION": "Standard",
+          "CONCEPT_CLASS_ID": "Clinical Finding",
+          "INVALID_REASON": "V"
+        },
+        "includeMapped": false,
+        "includeDescendants": true
+      },
+      {
+        "isExcluded": true,
+        "concept": {
+          "INVALID_REASON_CAPTION": "Valid",
+          "CONCEPT_ID": 434056,
+          "STANDARD_CONCEPT": "S",
+          "CONCEPT_CODE": "195239002",
+          "VOCABULARY_ID": "SNOMED",
+          "CONCEPT_NAME": "Late effects of cerebrovascular disease",
+          "DOMAIN_ID": "Condition",
+          "STANDARD_CONCEPT_CAPTION": "Standard",
+          "CONCEPT_CLASS_ID": "Clinical Finding",
+          "INVALID_REASON": "V"
+        },
+        "includeMapped": false,
+        "includeDescendants": false
+      },
+      {
+        "isExcluded": false,
+        "concept": {
+          "INVALID_REASON_CAPTION": "Valid",
+          "CONCEPT_ID": 4176969,
+          "STANDARD_CONCEPT": "S",
+          "CONCEPT_CODE": "363294003",
+          "VOCABULARY_ID": "SNOMED",
+          "CONCEPT_NAME": "Sequelae of cardiovascular disorders",
+          "DOMAIN_ID": "Condition",
+          "STANDARD_CONCEPT_CAPTION": "Standard",
+          "CONCEPT_CLASS_ID": "Clinical Finding",
+          "INVALID_REASON": "V"
+        },
+        "includeMapped": false,
+        "includeDescendants": true
+      },
+      {
+        "isExcluded": false,
+        "concept": {
+          "INVALID_REASON_CAPTION": "Valid",
+          "CONCEPT_ID": 4108217,
+          "STANDARD_CONCEPT": "S",
+          "CONCEPT_CODE": "194856005",
+          "VOCABULARY_ID": "SNOMED",
+          "CONCEPT_NAME": "Subsequent myocardial infarction",
+          "DOMAIN_ID": "Condition",
+          "STANDARD_CONCEPT_CAPTION": "Standard",
+          "CONCEPT_CLASS_ID": "Clinical Finding",
+          "INVALID_REASON": "V"
+        },
+        "includeMapped": false,
+        "includeDescendants": true
+      }
+    ]},
+    "name": "[CSKIM] Ischemic heart disease_KOSIS",
+    "id": 3
+  }],
+  "EndStrategy": null,
+  "CensoringCriteria": [],
+  "Title": null,
+  "AdditionalCriteria": null,
+  "QualifiedLimit": {"Type": "First"},
+  "InclusionRules": [],
+  "PrimaryCriteria": {
+    "CriteriaList": [{"Death": {
+      "CorrelatedCriteria": null,
+      "CodesetId": 3,
+      "DeathSourceConcept": null,
+      "DeathTypeExclude": false,
+      "DeathType": null,
+      "OccurrenceStartDate": null,
+      "Gender": null,
+      "Age": null
+    }}],
+    "PrimaryCriteriaLimit": {"Type": "First"},
+    "ObservationWindow": {
+      "PostDays": 0,
+      "PriorDays": 0
+    }
+  }
+}
