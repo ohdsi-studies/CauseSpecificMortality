@@ -13,13 +13,17 @@
 #' @export
 NULL
 
-CausePrediction <- function (outputFolder, TAR = 30, nTree = 200, seedNum =NULL) {
+CausePrediction <- function (outputFolder, TAR = 30, nTree = 200, seedNum = NULL) {
   
   ###Announcement
   ParallelLogger::logInfo("prediction start...")
   
+  saveFolder <- file.path(outputFolder, "CausePredictionResults")
+  if (!file.exists(saveFolder))
+    dir.create(saveFolder)
+  
+  
   ### 1. Read RDS file in plpResult folder.
-  outputFolder <- Sys.getenv("outputFolder")
   outpath <- file.path(outputFolder, "settings.csv")
   settings <- utils::read.csv(outpath)
   
@@ -39,86 +43,84 @@ CausePrediction <- function (outputFolder, TAR = 30, nTree = 200, seedNum =NULL)
   
   
   ### 3. Merge prediction values and outcomes 
+  out_df_value_1 <- data.frame()
+  out_df_value_2 <- data.frame()
+  model1 <- which(settings$modelSettingId == 1)
+  model2 <- which(settings$modelSettingId == 2)
   
-  out_df_value <- data.frame()
-  for (j in 1:i) {
+  for (j in model1) {
     df1 <- out_list[[j]] %>% select(subjectId, value)
     colnames(df1)[2]<- paste(settings$outcomeName[j], settings$modelSettingsId[j], sep = "_")
-    if (length(out_df_value) == 0) {
-      out_df_value <- df1
+    if (length(out_df_value_1) == 0) {
+      out_df_value_1 <- df1
+    }
+    else {
+      out_df_value_1 <- dplyr::left_join(out_df_value_1, df1, by = "subjectId")
+    }
+  }
+  valueName <- c("subjectId", "DeathValue1", "CancerValue1",
+                 "IHDValue1", "CerebroValue1", "PneumoValue1",
+                 "DMValue1", "LiverValue1", "CLRDValue1", "HTValue1")
+  names(out_df_value_1) <- valueName
+  
+  for (j in model2) {
+    df2 <- out_list[[j]] %>% select(subjectId, value)
+    colnames(df2)[2]<- paste(settings$outcomeName[j], settings$modelSettingsId[j], sep = "_")
+    if (length(out_df_value_2) == 0) {
+      out_df_value_2 <- df2
     }
     else{
-      out_df_value <- dplyr::left_join(out_df_value, df1, by = "subjectId")
+      out_df_value_2 <- dplyr::left_join(out_df_value_2, df2, by = "subjectId")
     }
   }
   
+  valueName <- c("subjectId", "DeathValue2", "CancerValue2",
+                 "IHDValue2", "CerebroValue2", "PneumoValue2",
+                 "DMValue2", "LiverValue2", "CLRDValue2", "HTValue2")
+  names(out_df_value_2) <- valueName
+  
+  
   out_df_outcome <- data.frame()
-  for (j in seq(1,i,2)) {
-    df2 <- out_list[[j]] %>% select(subjectId, outcomeCount)
-    colnames(df2)[2]<- paste(paste("Label", settings$outcomeName[j], sep = "_"), settings$modelSettingsId[j], sep = "_")
+  for (j in model1) {
+    df3 <- out_list[[j]] %>% select(subjectId, outcomeCount)
+    colnames(df3)[2]<- paste(paste("Label", settings$outcomeName[j], sep = "_"), settings$modelSettingsId[j], sep = "_")
     if (length(out_df_outcome) == 0) {
       out_df_outcome <- out_list[[j]] %>% select(indexes, subjectId, outcomeCount)
       colnames(out_df_outcome)[3] <- paste(paste("Label", settings$outcomeName[j], sep = "_"), settings$modelSettingsId[j], sep = "_")
     }
     else{
-      out_df_outcome <- left_join(out_df_outcome, df2, by = "subjectId")
+      out_df_outcome <- left_join(out_df_outcome, df3, by = "subjectId")
     }
   }
   
-  out_df <- left_join(out_df_outcome, out_df_value, by = "subjectId")
+  labelName <- c("indexes", "subjectId", "DeathLabel", "CancerLabel",
+                 "IHDLabel", "CerebroLabel", "PneumoLabel",
+                 "DMLabel", "LiverLabel", "CLRDLabel", "HTLabel")
+  names(out_df_outcome) <- labelName
   
-  ### 4. Death 
-  i<- as.numeric(length(analysispath))
-  m <- i+3
-  
-  #Death Labeled in Database
-  
-  out_df <- rename(out_df, DeathLabel = paste(paste("Label", settings$outcomeName[1], sep = "_"), settings$modelSettingsId[1], sep = "_"))
-  out_df <- rename(out_df, CancerLabel = paste(paste("Label", settings$outcomeName[3], sep = "_"), settings$modelSettingsId[3], sep = "_"))
-  out_df <- rename(out_df, CardioLabel = paste(paste("Label", settings$outcomeName[5], sep = "_"), settings$modelSettingsId[5], sep = "_"))
-  out_df <- rename(out_df, CerebroLabel = paste(paste("Label", settings$outcomeName[7], sep = "_"), settings$modelSettingsId[7], sep = "_"))
-  out_df <- rename(out_df, PneumoLabel = paste(paste("Label", settings$outcomeName[9], sep = "_"), settings$modelSettingsId[9], sep = "_"))
-  out_df <- rename(out_df, DMLabel = paste(paste("Label", settings$outcomeName[11], sep = "_"), settings$modelSettingsId[11], sep = "_"))
-  out_df <- rename(out_df, LiverLabel = paste(paste("Label", settings$outcomeName[13], sep = "_"), settings$modelSettingsId[13], sep = "_"))
-  out_df <- rename(out_df, LowResLabel = paste(paste("Label", settings$outcomeName[15], sep = "_"), settings$modelSettingsId[15], sep = "_"))
-  out_df <- rename(out_df, HTLabel = paste(paste("Label", settings$outcomeName[17], sep = "_"), settings$modelSettingsId[17], sep = "_"))
-  
-  out_df <- rename(out_df, DeathValue1 = paste(settings$outcomeName[1], settings$modelSettingsId[1], sep = "_"))
-  out_df <- rename(out_df, DeathValue2 = paste(settings$outcomeName[2], settings$modelSettingsId[2], sep = "_"))
-  out_df <- rename(out_df, CancerValue1 = paste(settings$outcomeName[3], settings$modelSettingsId[3], sep = "_"))
-  out_df <- rename(out_df, CancerValue2 = paste(settings$outcomeName[4], settings$modelSettingsId[4], sep = "_"))
-  out_df <- rename(out_df, CardioValue2 = paste(settings$outcomeName[5], settings$modelSettingsId[5], sep = "_"))
-  out_df <- rename(out_df, CardioValue1 = paste(settings$outcomeName[6], settings$modelSettingsId[6], sep = "_"))
-  out_df <- rename(out_df, CerebroValue2 = paste(settings$outcomeName[7], settings$modelSettingsId[7], sep = "_"))
-  out_df <- rename(out_df, CerebroValue1 = paste(settings$outcomeName[8], settings$modelSettingsId[8], sep = "_"))
-  out_df <- rename(out_df, PneumoValue2 = paste(settings$outcomeName[9], settings$modelSettingsId[9], sep = "_"))
-  out_df <- rename(out_df, PneumoValue1 = paste(settings$outcomeName[10], settings$modelSettingsId[10], sep = "_"))
-  out_df <- rename(out_df, DMValue1 = paste(settings$outcomeName[11], settings$modelSettingsId[11], sep = "_"))
-  out_df <- rename(out_df, DMValue2 = paste(settings$outcomeName[12], settings$modelSettingsId[12], sep = "_"))
-  out_df <- rename(out_df, LiverValue2 = paste(settings$outcomeName[13], settings$modelSettingsId[13], sep = "_"))
-  out_df <- rename(out_df, LiverValue1 = paste(settings$outcomeName[14], settings$modelSettingsId[14], sep = "_"))
-  out_df <- rename(out_df, LowResValue2 = paste(settings$outcomeName[15], settings$modelSettingsId[15], sep = "_"))
-  out_df <- rename(out_df, LowResValue1 = paste(settings$outcomeName[16], settings$modelSettingsId[16], sep = "_"))
-  out_df <- rename(out_df, HTValue2 = paste(settings$outcomeName[17], settings$modelSettingsId[17], sep = "_"))
-  out_df <- rename(out_df, HTValue1 = paste(settings$outcomeName[18], settings$modelSettingsId[18], sep = "_"))
-  
+  out_df <- left_join(out_df_outcome, out_df_value_1, by = "subjectId")
+  out_df <- left_join(out_df, out_df_value_2, by = "subjectId")
   out_df <- na.omit(out_df)
+  
+  ### save file in save directory
+  ParallelLogger::logInfo("Save preprocessed data file in save folder...")
+  savepath <- file.path(saveFolder, "out_df_")
+  savepath <- paste(savepath,TAR,".rds")
+  saveRDS(out_df, file = savepath)
   
   
   ### 5. Cause of Death
   p <- 4
   q <- 2+i/2
-  max1 <- apply(out_df[,p:q],1,which.max)
-  max1 <- as.numeric(max1)
-  max2 <- max1 + 3
+  max <- apply(out_df[,p:q], 1, which.max)
+  max <- as.numeric(max)
+  
   
   #Cause Labeled in Database
-  CauseLabel <- max1
-  sum <- apply(out_df[,p:q],1, sum)
-  CauseLabel <- ifelse(sum == 0, 99, CauseLabel)
-  CauseLabel <- ifelse(out_df[,3] == 0, 0, CauseLabel)
+  CauseLabel <- max
+  sum <- apply(out_df[,p:q], 1, sum)
+  CauseLabel <- ifelse(out_df[,3] == 0 , 0, CauseLabel)
   out_df$CauseLabel <- CauseLabel
-  
   
   #####################################################################################################################################              
   
@@ -128,13 +130,13 @@ CausePrediction <- function (outputFolder, TAR = 30, nTree = 200, seedNum =NULL)
   ### 6. Random Forest
   
   # Set seed number
-  set.seed(1234)
+  set.seed(seedNum)
   
-  # Train dataset preparation
+  # Train dataset preparation (indexes = c(1,2,3))
   data_train <- out_df %>% filter(indexes != -1)    
   data_train <- na.omit(data_train)
   
-  # Test dataset preparation
+  # Test dataset preparation (indexes = -1)
   data_test <- out_df %>% filter(indexes == -1)
   data_test <- na.omit(data_test)
   
@@ -147,27 +149,37 @@ CausePrediction <- function (outputFolder, TAR = 30, nTree = 200, seedNum =NULL)
   
   
   # Training model
-  cause.model.rf <- randomForest(CauseLabel ~ DeathValue1 + DeathValue2 + CancerValue1 + CancerValue2 + CardioValue1 + CardioValue2
+  cause.model.rf <- randomForest(CauseLabel ~ DeathValue1 + DeathValue2 + CancerValue1 + CancerValue2 + IHDValue1 + IHDValue2
                                  + CerebroValue1 + CerebroValue2 + PneumoValue1 + PneumoValue2 + DMValue1 + DMValue2 + LiverValue1 + LiverValue2
-                                 + LowResValue1 + LowResValue2 + HTValue1 + HTValue2
-                                 , data = data_train, ntree = nTree, mtry = floor(sqrt(18)), importance = T, proximity = F)
+                                 + CLRDValue1 + CLRDValue2 + HTValue1 + HTValue2
+                                 , data = data_train, ntree = nTree, mtry = floor(sqrt(i)), importance = T, proximity = F)
+  saveModel <- paste(saveFolder, "final_model", sep = "/")
+  saveModel <- paste(saveModel, TAR, nTree, sep ="_")
+  saveModel <- paste(saveModel, "rds", sep = ".")
+  saveRDS(cause.model.rf, saveModel)
   
-  # Test
-  data_test$cause.prediction <- predict(cause.model.rf, data_test, type = "response")
-  data_test$cause.value <- predict(cause.model.rf, data_test, type = "prob")[,2]
-  data_test_val <- predict(cause.model.rf, data_test,type = "prob")
-
-  ### 7. Result 
+  ## 7. Result 
   
-  colnames(data_test_val)<-c("NoDeath","Cancer","Cardio", "Cerebro", "Pneumonia", "DM", "Liver", "LowRes", "HT","Others")
+  data_test_result <- data_test 
   
-  AUC<- pROC::multiclass.roc(dt$CauseLabel, data_test_val)
-  print(AUC)
+  data_test_result$cause.prediction <- predict(cause.model.rf, data_test, type = "response")
+  data_test_result$cause.value <- predict(cause.model.rf, data_test, type = "prob")
+  data_test_result$cause.value0 <- predict(cause.model.rf, data_test, type = "prob")[,1]
+  data_test_result$cause.value1 <- predict(cause.model.rf, data_test, type = "prob")[,2]
+  data_test_result$cause.value2 <- predict(cause.model.rf, data_test, type = "prob")[,3]
+  data_test_result$cause.value3 <- predict(cause.model.rf, data_test, type = "prob")[,4]
+  data_test_result$cause.value4 <- predict(cause.model.rf, data_test, type = "prob")[,5]
+  data_test_result$cause.value5 <- predict(cause.model.rf, data_test, type = "prob")[,6]
+  data_test_result$cause.value6 <- predict(cause.model.rf, data_test, type = "prob")[,7]
+  data_test_result$cause.value7 <- predict(cause.model.rf, data_test, type = "prob")[,8]
+  data_test_result$cause.value8 <- predict(cause.model.rf, data_test, type = "prob")[,9]
   
-  # Other Performance measure
+  data_test_val <- predict(cause.model.rf, data_test, type = "prob")
+  colnames(data_test_val)<-c("NoDeath","Cancer","IHD", "Cerebro", "Pneumonia", "DM", "Liver", "CLRD", "HT")
   
   # Accuracy 
-  df_acc <- data_test
+  df_acc <- data_test_result
+  levels(df_acc$CauseLabel) <- c("0", "1","2","3", "4", "5", "6", "7", "8")
   calculate.accuracy <- function(predictions, ref.labels) {
     return(length(which(predictions == ref.labels)) / length(ref.labels))
   }
@@ -183,7 +195,9 @@ CausePrediction <- function (outputFolder, TAR = 30, nTree = 200, seedNum =NULL)
       idx <- which(ref.labels == x)
       return(calculate.accuracy(predictions[idx], ref.labels[idx]))
     })
-    acc <- mean(unlist(accs))
+    accs <- unlist(accs)
+    accs <- accs[is.nan(accs) == FALSE]
+    acc <- mean(accs)
     return(acc)
   }
   acc <- calculate.accuracy(df_acc$cause.prediction, df_acc$CauseLabel)
@@ -193,16 +207,19 @@ CausePrediction <- function (outputFolder, TAR = 30, nTree = 200, seedNum =NULL)
   w.acc <- calculate.w.accuracy(df_acc$cause.prediction, df_acc$CauseLabel, weights)
   print(paste0("Weighted accuracy is: ", round(w.acc, 4)))
   
+  # Confusion Matrix 
   cm <- vector("list", length(levels(df_acc$CauseLabel)))
   for (i in seq_along(cm)) {
     positive.class <- levels(df_acc$CauseLabel)[i]
-    # in the i-th iteration, use the i-th class as the positive class
     cm[[i]] <- confusionMatrix(df_acc$cause.prediction, df_acc$CauseLabel, 
                                positive = positive.class)
   }
   
-  metrics <- c("Precision", "Recall")
-  print(cm[[1]]$byClass[, metrics])
+  print(paste0("Confusion Matrix"))
+  table1 <- cm[[1]]$table
+  print(table1)
+  table2 <- cm[[1]]$byClass
+  print(table2)
   
   get.conf.stats <- function(cm) {
     out <- vector("list", length(cm))
@@ -210,7 +227,7 @@ CausePrediction <- function (outputFolder, TAR = 30, nTree = 200, seedNum =NULL)
       x <- cm[[i]]
       tp <- x$table[x$positive, x$positive] 
       fp <- sum(x$table[x$positive, colnames(x$table) != x$positive])
-      fn <- sum(x$table[colnames(x$table) != x$positie, x$positive])
+      fn <- sum(x$table[colnames(x$table) != x$positive, x$positive])
       # TNs are not well-defined for one-vs-all approach
       elem <- c(tp = tp, fp = fp, fn = fn)
       out[[i]] <- elem
@@ -237,6 +254,7 @@ CausePrediction <- function (outputFolder, TAR = 30, nTree = 200, seedNum =NULL)
   # Macro F1
   get.macro.f1 <- function(cm) {
     c <- cm[[1]]$byClass # a single matrix is sufficient
+    c <- na.omit(c)
     re <- sum(c[, "Recall"]) / nrow(c)
     pr <- sum(c[, "Precision"]) / nrow(c)
     f1 <- 2 * ((re * pr) / (re + pr))
@@ -245,67 +263,138 @@ CausePrediction <- function (outputFolder, TAR = 30, nTree = 200, seedNum =NULL)
   macro.f1 <- get.macro.f1(cm)
   print(paste0("Macro F1 is: ", round(macro.f1, 4)))
   
-  # table
-  table1 <- table(data_test$CauseLabel, data_test$cause.prediction, dnn=c("Label","Prediction"))
-  table2 <- prop.table(table(data_test$CauseLabel, data_test$cause.prediction , dnn=c("Label","Prediction")),1)
-  table3 <- importance(cause.model.rf)
   
-  # plot
-  dt<-data_test
-  dt$CauseLabel <- as.character (dt$CauseLabel)
-  dt$CauseLabel <- ifelse(dt$CauseLabel=="0", "NoDeath", dt$CauseLabel)
-  dt$CauseLabel <- ifelse(dt$CauseLabel=="1", "Cancer",dt$CauseLabel)
-  dt$CauseLabel <- ifelse(dt$CauseLabel=="2", "Cardio",dt$CauseLabel)
-  dt$CauseLabel <- ifelse(dt$CauseLabel=="3", "Cerebro",dt$CauseLabel)
-  dt$CauseLabel <- ifelse(dt$CauseLabel=="4", "Pneumonia",dt$CauseLabel)
-  dt$CauseLabel <- ifelse(dt$CauseLabel=="5", "DM",dt$CauseLabel)
-  dt$CauseLabel <- ifelse(dt$CauseLabel=="6", "Liver",dt$CauseLabel)
-  dt$CauseLabel <- ifelse(dt$CauseLabel=="7", "LowRes",dt$CauseLabel)
-  dt$CauseLabel <- ifelse(dt$CauseLabel=="8", "HT",dt$CauseLabel)
-  dt$CauseLabel <- ifelse(dt$CauseLabel=="99", "Others",dt$CauseLabel)
+  # Precision Recall curve (PR curve)
+  classes <- data_test_result$CauseLabel
+  levels(classes) <- c("0", "1","2","3", "4", "5", "6", "7", "8")
+  
+  plot(x=NA, y=NA, xlim=c(0,1), ylim=c(0,1), ylab="Precision", xlab="Recall", bty="n")
+  colors <- c("#a6cee3", "#1f78b4", "#b2df8a", "#33a02c", "#fb9a99", "#e31a1c", "#fdbf6f", "#cab2d6","#6a3d9a")
+  aucs <- rep(NA, length(levels(classes)))
+  for (i in seq_along(levels(classes))) {
+    cur.classes <- levels(classes)[i]
+    test.labels <- data_test_result$cause.prediction == cur.classes
+    pred <- prediction(data_test_val[,i], test.labels)
+    perf <- performance(pred, "prec", "rec")
+    roc.x <- unlist(perf@x.values)
+    roc.y <- unlist(perf@y.values)
+    # for baseline
+    # ab <- get.conf.stats(cm)
+    # ab <- ab %>% mutate(p = tp + fn, total = length(df_acc$CauseLabel)) %>% mutate(baseline = p/total)
+    # abline(a= ab$baseline[i], b=0, col = colors[i], lwd = 2)
+    lines(roc.y ~ roc.x, col = colors[i], lwd = 2)
+    
+    data_test_true <- as.data.frame(data_test_val)
+    data_test_true$trueClass <- ifelse(data_test_result$cause.prediction == cur.classes, 1 ,0)
+    data_test_pos <- data_test_true %>% filter(trueClass == 1)
+    data_test_neg <- data_test_true %>% filter(trueClass == 0)
+    pr <- PRROC::pr.curve(scores.class0 = data_test_pos[,i], scores.class1 = data_test_neg[,i], curve = T)
+    aucs[i] <- pr$auc.integral
+    
+  }
+  legend("bottomleft", bty = "n", 
+         legend=c("No Death", "Malignant cancer", "Ischemic heart disease", "Cerebrovascular disease", 
+                  "Pneumonia", "Diabetes", "Liver disease", "Chronic lower respiratory disease", "Hypertensive disease"),
+         col=c("#a6cee3", "#1f78b4", "#b2df8a", "#33a02c", "#fb9a99", "#e31a1c", "#fdbf6f", "#cab2d6","#6a3d9a"), lwd = 2)
+  print(paste0("Mean AUC under the precision-recall curve is :", round(mean(aucs), 4)))
+  
+  savepath <- paste("randomForest PR curve", TAR, nTree, sep = "_")
+  savepath <- paste(savepath, ".pdf")
+  savepath <- file.path(saveFolder, savepath)
+  dev.print(pdf, savepath) 
+  
+  # Receiver Operating Characteristics Plot
+  
+  df_roc <- data_test
+  levels(df_roc$CauseLabel) <- c("0", "1","2","3", "4", "5", "6", "7", "8")
+  df_roc$CauseLabel <- as.character (df_roc$CauseLabel)
+  df_roc$CauseLabel <- ifelse(df_roc$CauseLabel=="0", "NoDeath", df_roc$CauseLabel)
+  df_roc$CauseLabel <- ifelse(df_roc$CauseLabel=="1", "Cancer", df_roc$CauseLabel)
+  df_roc$CauseLabel <- ifelse(df_roc$CauseLabel=="2", "IHD", df_roc$CauseLabel)
+  df_roc$CauseLabel <- ifelse(df_roc$CauseLabel=="3", "Cerebro", df_roc$CauseLabel)
+  df_roc$CauseLabel <- ifelse(df_roc$CauseLabel=="4", "Pneumonia", df_roc$CauseLabel)
+  df_roc$CauseLabel <- ifelse(df_roc$CauseLabel=="5", "DM", df_roc$CauseLabel)
+  df_roc$CauseLabel <- ifelse(df_roc$CauseLabel=="6", "Liver", df_roc$CauseLabel)
+  df_roc$CauseLabel <- ifelse(df_roc$CauseLabel=="7", "CLRD", df_roc$CauseLabel)
+  df_roc$CauseLabel <- ifelse(df_roc$CauseLabel=="8", "HT", df_roc$CauseLabel)
+  
+  auroc<- pROC::multiclass.roc(df_roc$CauseLabel, data_test_val)
+  print("The receiver operating characteristics curve :")
+  print(auroc$auc)
   
   par(pty = "s")
-  plot0 <- plot.roc(dt$DeathLabel, dt$cause.value0, legacy.axes = TRUE, percent = F, col = "#a6cee3")
-  plot1 <- lines.roc(dt$CancerLabel, dt$cause.value1, percent = F, col = "#1f78b4")
-  plot2 <- lines.roc(dt$CardioLabel, dt$cause.value2, percent = F, col = "#b2df8a")
-  plot3 <- lines.roc(dt$CerebroLabel, dt$cause.value3, percent = F, col = "#33a02c")
-  plot4 <- lines.roc(dt$PneumoLabel, dt$cause.value4, percent = F, col = "#fb9a99")
-  plot5 <- lines.roc(dt$DMLabel, dt$cause.value5, percent = F, col = "#e31a1c")
-  plot6 <- lines.roc(dt$LiverLabel, dt$cause.value6, percent = F, col = "#fdbf6f")
-  plot7 <- lines.roc(dt$LowResLabel, dt$cause.value7, percent = F, col = "#cab2d6")
-  plot8 <- lines.roc(dt$HTLabel, dt$cause.value8, percent = F, col = "#6a3d9a")
+  try(plot0 <- plot.roc(data_test_result$DeathLabel, data_test_result$cause.value0, legacy.axes = TRUE, percent = F, col = "#a6cee3"))
+  try(plot1 <- lines.roc(data_test_result$CancerLabel, data_test_result$cause.value1, col = "#1f78b4"))
+  try(plot2 <- lines.roc(data_test_result$IHDLabel, data_test_result$cause.value2, col = "#b2df8a"))
+  try(plot3 <- lines.roc(data_test_result$CerebroLabel, data_test_result$cause.value3, col = "#33a02c"))
+  try(plot4 <- lines.roc(data_test_result$PneumoLabel, data_test_result$cause.value4, col = "#fb9a99"))
+  try(plot5 <- lines.roc(data_test_result$DMLabel, data_test_result$cause.value5, col = "#e31a1c"))
+  try(plot6 <- lines.roc(data_test_result$LiverLabel, data_test_result$cause.value6, col = "#fdbf6f"))
+  try(plot7 <- lines.roc(data_test_result$CLRDLabel, data_test_result$cause.value7, col = "#cab2d6"))
+  try(plot8 <- lines.roc(data_test_result$HTLabel, data_test_result$cause.value8, col = "#6a3d9a"))
   
-  legend("bottomright", bty = "n", legend=c("No Death", "Cancer", "Cardiovascular", "Cerebrovascular", "Pneumonia", "DM", "Liver", "Lower respiratory", "Hypertensive"),col=c("#a6cee3", "#1f78b4", "#b2df8a", "#33a02c", "#fb9a99", "#e31a1c", "#fdbf6f", "#cab2d6","#6a3d9a"), lwd = 2)
+  legend("bottomright", bty = "n", 
+         legend=c("No Death", "Malignant cancer", "Ischemic heart disease", "Cerebrovascular disease", 
+                  "Pneumonia", "Diabetes", "Liver disease", "Chronic lower respiratory disease", "Hypertensive disease"),
+         col=c("#a6cee3", "#1f78b4", "#b2df8a", "#33a02c", "#fb9a99", "#e31a1c", "#fdbf6f", "#cab2d6","#6a3d9a"), lwd = 2)
   
- 
+  
+  savepath <- paste("randomForest ROC curve", TAR, nTree, sep = "_")
+  savepath <- paste(savepath, ".pdf")
+  savepath <- file.path(saveFolder, savepath)
+  dev.print(pdf, savepath) 
+  
+  
   ### 8. Save files in saveFolder
   ParallelLogger::logInfo("saving the results in your outputFolder/CausePredictionResults")
   
-  saveFolder <- file.path(outputFolder, "CausePredictionResults")
-  if (!file.exists(saveFolder))
-    dir.create(saveFolder)
+  savepath <- paste("data_test_result", TAR, nTree, sep = "_")
+  savepath <- paste(savepath, ".rds")
+  savepath <- file.path(saveFolder, savepath)
+  saveRDS(data_test_result, file = savepath)
   
-  savepath <- file.path(saveFolder, "multiclassROCcurve.pdf")
-  dev.print(pdf, savepath)
-  
-  savepath <- file.path(saveFolder, "data_test.rds")
-  saveRDS(data_test, file = savepath)
+  savepath <- paste("data_test_val", TAR, nTree, sep = "_")
+  savepath <- paste(savepath, ".rds")
+  savepath <- file.path(saveFolder, savepath)
+  saveRDS(data_test_val, file = savepath)
   
   plot(cause.model.rf)
-  legend("topright", legend = colnames(cause.model.rf$err.rate), col = 1:5, cex = 0.5, fill = 1:5)
-  savepath <- file.path(saveFolder, "randomForestPlot.pdf")
+  legend("topright", legend = colnames(cause.model.rf$err.rate), fill = 1:5)
+  
+  savepath <- paste("randomForestPlot", TAR, nTree, sep = "_")
+  savepath <- paste(savepath, ".pdf")
+  savepath <- file.path(saveFolder, savepath)
   dev.print(pdf, savepath)
   
   varImpPlot(cause.model.rf)
-  savepath <- file.path(saveFolder, "varImpPlot.pdf")
+  savepath <- paste("varImpPlot", TAR, nTree, sep = "_")
+  savepath <- paste(savepath, ".pdf")
+  savepath <- file.path(saveFolder, savepath)
   dev.print(pdf, savepath)
   
-  savepath <- file.path(saveFolder, "table1.csv")
+  savepath <- paste("table1", TAR, nTree, sep = "_")
+  savepath <- paste(savepath, ".csv")
+  savepath <- file.path(saveFolder, savepath)
   write.csv(table1, file = savepath)
-  savepath <- file.path(saveFolder, "table2.csv")
+  
+  savepath <- paste("table2", TAR, nTree, sep = "_")
+  savepath <- paste(savepath, ".csv")
+  savepath <- file.path(saveFolder, savepath)
   write.csv(table2, file = savepath)
-  savepath <- file.path(saveFolder, "table3.csv")
+  
+  # table
+  table3 <- prop.table(table(data_test_result$CauseLabel, data_test_result$cause.prediction , dnn=c("Label","Prediction")),1)
+  table4 <- importance(cause.model.rf)
+  
+  savepath <- paste("table3", TAR, nTree, sep = "_")
+  savepath <- paste(savepath, ".csv")
+  savepath <- file.path(saveFolder, savepath)
   write.csv(table3, file = savepath)
+  
+  savepath <- paste("table4", TAR, nTree, sep = "_")
+  savepath <- paste(savepath, ".csv")
+  savepath <- file.path(saveFolder, savepath)
+  write.csv(table4, file = savepath)
   
   ParallelLogger::logInfo("DONE")
   
