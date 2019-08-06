@@ -1,3 +1,8 @@
+
+Cause-specific mortality package
+========================================================
+
+
 Instructions To Build Package
 ===================
 
@@ -42,8 +47,6 @@ oracleTempSchema <- NULL
 # table name where the cohorts will be generated
 cohortTable <- 'CauseSpecificMortalityCohort'
 
-# your Database end date
-DB_END_DATE <- 'your DB end date'
 
 #=======================
 
@@ -52,7 +55,6 @@ execute(connectionDetails = connectionDetails,
         cohortDatabaseSchema = cohortDatabaseSchema,
         cohortTable = cohortTable,
         outputFolder = outputFolder,
-        DB_END_DATE = DB_END_DATE,
         createProtocol = F,
         createCohorts = T,
         runAnalyses = T,
@@ -61,6 +63,14 @@ execute(connectionDetails = connectionDetails,
         createValidationPackage = F,
         minCellCount= 5)
 ```
+- To predict cause of death after PLP analysis (model 1 = Lasso logistic regression, 2 = Gradient boosting machine)
+  
+```r
+
+CausePrediction(outputFolder, TAR = 30, nTree = 500, seedNum = NULL)
+
+```
+
 - You can then easily transport the trained models into a network validation study package by running :
 
 ```r
@@ -70,7 +80,6 @@ execute(connectionDetails = connectionDetails,
         cohortDatabaseSchema = cohortDatabaseSchema,
         cohortTable = cohortTable,
         outputFolder = outputFolder,
-        DB_END_DATE = DB_END_DATE,
         createProtocol = F,
         createCohorts = F,
         runAnalyses = F,
@@ -78,15 +87,6 @@ execute(connectionDetails = connectionDetails,
         packageResults = F,
         createValidationPackage = T,
         minCellCount= 5)
-  
-
-```
-
-- To predict cause of death after PLP analysis (model 1 = Lasso logistic regression, 2 = Gradient boosting machine)
-  
-```r
-
-CauseClassification(outputFolder, TAR = 30, model = 1, nTree = 500, seedNum = NULL)
 
 ```
 
@@ -106,3 +106,4 @@ viewShiny('CauseSpecificMortality')
 
 # Development status
 Under development. Do not use
+

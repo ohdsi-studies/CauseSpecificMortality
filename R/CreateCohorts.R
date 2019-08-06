@@ -20,7 +20,8 @@
                            cohortDatabaseSchema,
                            cohortTable,
                            oracleTempSchema,
-                           outputFolder) {
+                           outputFolder,
+                           DB_END_DATE = DB_END_DATE) {
   
   # Create study cohort table structure:
   sql <- SqlRender::loadRenderTranslateSql(sqlFilename = "CreateCohortTable.sql",
@@ -44,6 +45,10 @@
                                              oracleTempSchema = oracleTempSchema,
                                              cdm_database_schema = cdmDatabaseSchema,
                                              vocabulary_database_schema = vocabularyDatabaseSchema,
+<<<<<<< HEAD
+=======
+                                             DB_END_DATE = DB_END_DATE,
+>>>>>>> bac472a0e74ea706ae11ebb8bd723c24b7087ec3
                                              target_database_schema = cohortDatabaseSchema,
                                              target_cohort_table = cohortTable,
                                              target_cohort_id = cohortsToCreate$cohortId[i])

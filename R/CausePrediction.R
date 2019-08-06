@@ -8,6 +8,7 @@
 #' @importFrom dplyr %>%
 #' @param outputFolder your output folder
 #' @param TAR          Time At Risk window end
+#' @param model        machine learning model 1- lassologistic regression, 2-Gradient boosting machine
 #' @param nTree        Number of Tree of Random Forest model
 #' @param seedNum      Seed number
 #' @export
@@ -397,5 +398,5 @@ CausePrediction <- function (outputFolder, TAR = 30, nTree = 200, seedNum = NULL
   write.csv(table4, file = savepath)
   
   ParallelLogger::logInfo("DONE")
-  
+
 }
