@@ -42,8 +42,13 @@ oracleTempSchema <- NULL
 # table name where the cohorts will be generated
 cohortTable <- 'CauseSpecificMortalityCohort'
 
-# your Database end date
-DB_END_DATE <- 'your DB end date'
+# parameter settings for causePrediction 
+# TAR = (30,90,180,365)
+# nTree = tree numbers of random forest algorithm, seedNum = Seed number
+
+TAR <- 30
+nTree <- 200 
+seedNum <- NULL
 
 #=======================
 
@@ -52,41 +57,23 @@ execute(connectionDetails = connectionDetails,
         cohortDatabaseSchema = cohortDatabaseSchema,
         cohortTable = cohortTable,
         outputFolder = outputFolder,
-        DB_END_DATE = DB_END_DATE,
         createProtocol = F,
         createCohorts = T,
         runAnalyses = T,
+        causePrediction = T,
         createResultsDoc = F,
         packageResults = F,
         createValidationPackage = F,
         minCellCount= 5)
 ```
-- You can then easily transport the trained models into a network validation study package by running :
+
+- If you want to run the causePrediction function with multiple parameter, you can use this
 
 ```r
-  
-  execute(connectionDetails = connectionDetails,
-        cdmDatabaseSchema = cdmDatabaseSchema,
-        cohortDatabaseSchema = cohortDatabaseSchema,
-        cohortTable = cohortTable,
-        outputFolder = outputFolder,
-        DB_END_DATE = DB_END_DATE,
-        createProtocol = F,
-        createCohorts = F,
-        runAnalyses = F,
-        createResultsDoc = F,
-        packageResults = F,
-        createValidationPackage = T,
-        minCellCount= 5)
-  
 
-```
-
-- To predict cause of death after PLP analysis (model 1 = Lasso logistic regression, 2 = Gradient boosting machine)
-  
-```r
-
-CauseClassification(outputFolder, TAR = 30, model = 1, nTree = 500, seedNum = NULL)
+TAR <- c(30,60,90,180,365)
+nTree <- 200 
+lapply(TAR, function(x) causePrediction(outputFolder, TAR = x))
 
 ```
 

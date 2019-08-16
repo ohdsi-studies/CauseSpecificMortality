@@ -1,5 +1,5 @@
 #' Predict cause of death by comparing with plp prediction values in result files.
-#' @name CausePrediction
+#' @name causePrediction
 #' @import dplyr 
 #' @import randomForest
 #' @import ROCR
@@ -13,12 +13,12 @@
 #' @export
 NULL
 
-CausePrediction <- function (outputFolder, TAR = 30, nTree = 200, seedNum = NULL) {
+causePrediction <- function (outputFolder, TAR = 30, nTree = 200, seedNum = NULL) {
   
   ###Announcement
   ParallelLogger::logInfo("prediction start...")
   
-  saveFolder <- file.path(outputFolder, "CausePredictionResults")
+  saveFolder <- file.path(outputFolder, "causePredictionResults")
   if (!file.exists(saveFolder))
     dir.create(saveFolder)
   
@@ -152,7 +152,7 @@ CausePrediction <- function (outputFolder, TAR = 30, nTree = 200, seedNum = NULL
   cause.model.rf <- randomForest(CauseLabel ~ DeathValue1 + DeathValue2 + CancerValue1 + CancerValue2 + IHDValue1 + IHDValue2
                                  + CerebroValue1 + CerebroValue2 + PneumoValue1 + PneumoValue2 + DMValue1 + DMValue2 + LiverValue1 + LiverValue2
                                  + CLRDValue1 + CLRDValue2 + HTValue1 + HTValue2
-                                 , data = dataTrain, ntree = nTree, mtry = floor(sqrt(i)), importance = T, proximity = F)
+                                 , data = dataTrain, ntree = nTree, mtry = floor(sqrt(length)), importance = T, proximity = F)
   saveModel <- paste(saveFolder, "final_model", sep = "/")
   saveModel <- paste(saveModel, TAR, nTree, sep ="_")
   saveModel <- paste(saveModel, "rds", sep = ".")
@@ -165,13 +165,12 @@ CausePrediction <- function (outputFolder, TAR = 30, nTree = 200, seedNum = NULL
   dataTestResult$cause.prediction <- predict(cause.model.rf, dataTest, type = "response")
   dataTestResult$cause.value <- predict(cause.model.rf, dataTest, type = "prob")
   
-  for(j in 1:length){
+  for(j in 0:length){
     colname <- paste("cause.value", j)
-    dataTestResult$colname <- predict(cause.model.rf, dataTest, type = "prob")[,i+1]
+    dataTestResult[colname] <- predict(cause.model.rf, dataTest, type = "prob")[,j+1]
   }
   
   dataTestValue <- predict(cause.model.rf, dataTest, type = "prob")
-  colnames(dataTestValue)<-c("NoDeath","Cancer","IHD", "Cerebro", "Pneumonia", "DM", "Liver", "CLRD", "HT")
   
   # Accuracy 
   dfAccuracy <- dataTestResult
@@ -301,20 +300,7 @@ CausePrediction <- function (outputFolder, TAR = 30, nTree = 200, seedNum = NULL
   
   # Receiver Operating Characteristics Plot
   
-  dfRoc <- dataTest
-  levels(dfRoc$CauseLabel) <- c("0", "1","2","3", "4", "5", "6", "7", "8")
-  dfRoc$CauseLabel <- as.character (dfRoc$CauseLabel)
-  dfRoc$CauseLabel <- ifelse(dfRoc$CauseLabel=="0", "NoDeath", dfRoc$CauseLabel)
-  dfRoc$CauseLabel <- ifelse(dfRoc$CauseLabel=="1", "Cancer", dfRoc$CauseLabel)
-  dfRoc$CauseLabel <- ifelse(dfRoc$CauseLabel=="2", "IHD", dfRoc$CauseLabel)
-  dfRoc$CauseLabel <- ifelse(dfRoc$CauseLabel=="3", "Cerebro", dfRoc$CauseLabel)
-  dfRoc$CauseLabel <- ifelse(dfRoc$CauseLabel=="4", "Pneumonia", dfRoc$CauseLabel)
-  dfRoc$CauseLabel <- ifelse(dfRoc$CauseLabel=="5", "DM", dfRoc$CauseLabel)
-  dfRoc$CauseLabel <- ifelse(dfRoc$CauseLabel=="6", "Liver", dfRoc$CauseLabel)
-  dfRoc$CauseLabel <- ifelse(dfRoc$CauseLabel=="7", "CLRD", dfRoc$CauseLabel)
-  dfRoc$CauseLabel <- ifelse(dfRoc$CauseLabel=="8", "HT", dfRoc$CauseLabel)
-  
-  auroc<- pROC::multiclass.roc(dfRoc$CauseLabel, dataTestValue)
+  auroc<- pROC::multiclass.roc(dataTestResult$CauseLabel, dataTestValue, levels = levels(dataTestResult$CauseLabel))
   print("The receiver operating characteristics curve :")
   print(auroc$auc)
   
@@ -342,7 +328,7 @@ CausePrediction <- function (outputFolder, TAR = 30, nTree = 200, seedNum = NULL
   
   
   ### 8. Save files in saveFolder
-  ParallelLogger::logInfo("saving the results in your outputFolder/CausePredictionResults")
+  ParallelLogger::logInfo("saving the results in your outputFolder/causePredictionResults")
   
   savepath <- paste("dataTestResult", TAR, nTree, sep = "_")
   savepath <- paste(savepath, ".rds")

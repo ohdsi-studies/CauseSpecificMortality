@@ -56,7 +56,7 @@
 #'                                         \item{FATAL}{Be silent except for fatal errors}
 #'                                         }
 #' @param cdmVersion           The version of the common data model                             
-#' @param CausePrediction      
+#' @param causePrediction      Run the function to classify causes of death   
 #' @examples
 #' \dontrun{
 #' connectionDetails <- createConnectionDetails(dbms = "postgresql",
@@ -74,6 +74,7 @@
 #'         createProtocol = T,
 #'         createCohorts = T,
 #'         runAnalyses = T,
+#'         causePrediction,
 #'         createResultsDoc = T,
 #'         createValidationPackage = T,
 #'         packageResults = F,
@@ -93,6 +94,7 @@ execute <- function(connectionDetails,
                     createProtocol = F,
                     createCohorts = F,
                     runAnalyses = F,
+                    causePrediction = T,
                     createResultsDoc = F,
                     createValidationPackage = F,
                     analysesToValidate = NULL,
@@ -171,6 +173,12 @@ execute <- function(connectionDetails,
                             databaseName = cdmDatabaseName,
                             jsonSettings = jsonSettings,
                             analysisIds = analysesToValidate)
+  }
+  
+  if(causePrediction){
+    
+    causePrediction (outputFolder, TAR = TAR, nTree = nTree, seedNum = seedNum)
+  
   }
   
   

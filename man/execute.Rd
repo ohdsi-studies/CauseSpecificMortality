@@ -9,9 +9,10 @@ execute(connectionDetails, cdmDatabaseSchema,
   cohortDatabaseSchema = cdmDatabaseSchema, cohortTable = "cohort",
   oracleTempSchema = cohortDatabaseSchema, outputFolder,
   createProtocol = F, createCohorts = F, runAnalyses = F,
-  createResultsDoc = F, createValidationPackage = F,
-  analysesToValidate = NULL, packageResults = F, minCellCount = 5,
-  verbosity = "INFO", cdmVersion = 5)
+  causePrediction = T, createResultsDoc = F,
+  createValidationPackage = F, analysesToValidate = NULL,
+  packageResults = F, minCellCount = 5, verbosity = "INFO",
+  cdmVersion = 5)
 }
 \arguments{
 \item{connectionDetails}{An object of type \code{connectionDetails} as created using the
@@ -45,6 +46,8 @@ performance.}
 
 \item{runAnalyses}{Run the model development}
 
+\item{causePrediction}{Run the function to classify causes of death}
+
 \item{createResultsDoc}{Create a document containing the results of each prediction}
 
 \item{createValidationPackage}{Create a package for sharing the models}
@@ -67,8 +70,6 @@ in packaged results.}
 }}
 
 \item{cdmVersion}{The version of the common data model}
-
-\item{CausePrediction}{}
 }
 \description{
 Execute the Study
@@ -93,6 +94,7 @@ execute(connectionDetails,
         createProtocol = T,
         createCohorts = T,
         runAnalyses = T,
+        causePrediction,
         createResultsDoc = T,
         createValidationPackage = T,
         packageResults = F,
