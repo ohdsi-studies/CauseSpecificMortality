@@ -56,4 +56,4 @@ causePrediction(outputFolder, TAR = 30, nTree = 200, seedNum = NULL)
 outputFolder <- outputFolder
 TAR <- c(30,60,90,180,365)
 nTree <- 200 
-lapply(TAR, function(x) causePrediction(outputFolder, TAR = x))
+lapply(TAR, function(x) causePrediction(outputFolder, nTree, TAR = x))

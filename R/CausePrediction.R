@@ -2,7 +2,7 @@
 #' @name causePrediction
 #' @import dplyr 
 #' @import randomForest
-#' @import ROCR
+#' @import ROCRa
 #' @import pROC
 #' @import caret
 #' @importFrom dplyr %>%
@@ -93,6 +93,7 @@ causePrediction <- function (outputFolder, TAR = 30, nTree = 200, seedNum = NULL
     }
   }
   
+  
   labelName <- c("indexes", "subjectId", "DeathLabel", "CancerLabel",
                  "IHDLabel", "CerebroLabel", "PneumoLabel",
                  "DMLabel", "LiverLabel", "CLRDLabel", "HTLabel")
@@ -102,25 +103,32 @@ causePrediction <- function (outputFolder, TAR = 30, nTree = 200, seedNum = NULL
   outDF <- left_join(outDF, outDFvalue2, by = "subjectId")
   outDF <- na.omit(outDF)
   
+  ### 5. Cause of Death
+  labelStart <- 4
+  labelEnd <- 2+length/2
+  labelNum <- labelEnd - labelStart + 1
+  
+  outDF$sum <- apply(outDF[,labelStart:labelEnd], 1, sum)
+  outDF <- outDF %>% filter(sum < 2)
+  
+  max <- apply(outDF[,labelStart:labelEnd], 1, which.max)
+  max <- as.numeric(max)
+  
+  #Cause Labeled in Database
+  CauseLabel <- max
+  CauseLabel <- ifelse(outDF[,3] == 0 , 0, CauseLabel)
+  CauseLabel <- ifelse(outDF[,3] == 1 & outDF$sum == 0, 99, CauseLabel)
+  outDF$CauseLabel <- CauseLabel
+  OtherLabel <- ifelse(CauseLabel == 99, 1, 0)
+  outDF$OtherLabel <- OtherLabel
+  outDF <- outDF %>% select(-sum)
+  
+  
   ### save file in save directory
   ParallelLogger::logInfo("Save preprocessed data file in save folder...")
   savepath <- file.path(saveFolder, "outDF_")
   savepath <- paste(savepath,TAR,".rds")
   saveRDS(outDF, file = savepath)
-  
-  
-  ### 5. Cause of Death
-  labelStart <- 4
-  labelEnd <- 2+length/2
-  max <- apply(outDF[,labelStart:labelEnd], 1, which.max)
-  max <- as.numeric(max)
-  
-  
-  #Cause Labeled in Database
-  CauseLabel <- max
-  sum <- apply(outDF[,labelStart:labelEnd], 1, sum)
-  CauseLabel <- ifelse(outDF[,3] == 0 , 0, CauseLabel)
-  outDF$CauseLabel <- CauseLabel
   
   #####################################################################################################################################              
   
@@ -130,7 +138,7 @@ causePrediction <- function (outputFolder, TAR = 30, nTree = 200, seedNum = NULL
   ### 6. Random Forest
   
   # Set seed number
-  set.seed(seedNum)
+  set.seed(1234)
   
   # Train dataset preparation (indexes = c(1,2,3))
   dataTrain <- outDF %>% filter(indexes != -1)    
@@ -165,8 +173,8 @@ causePrediction <- function (outputFolder, TAR = 30, nTree = 200, seedNum = NULL
   dataTestResult$cause.prediction <- predict(cause.model.rf, dataTest, type = "response")
   dataTestResult$cause.value <- predict(cause.model.rf, dataTest, type = "prob")
   
-  for(j in 0:length){
-    colname <- paste("cause.value", j)
+  for(j in 0:labelNum+1){
+    colname <- paste("cause.value", j, sep = "")
     dataTestResult[colname] <- predict(cause.model.rf, dataTest, type = "prob")[,j+1]
   }
   
@@ -174,7 +182,7 @@ causePrediction <- function (outputFolder, TAR = 30, nTree = 200, seedNum = NULL
   
   # Accuracy 
   dfAccuracy <- dataTestResult
-  levels(dfAccuracy$CauseLabel) <- c("0", "1","2","3", "4", "5", "6", "7", "8")
+  levels(dfAccuracy$CauseLabel) <- c("0", "1","2","3", "4", "5", "6", "7", "8", "99")
   calculate.accuracy <- function(predictions, ref.labels) {
     return(length(which(predictions == ref.labels)) / length(ref.labels))
   }
@@ -261,10 +269,10 @@ causePrediction <- function (outputFolder, TAR = 30, nTree = 200, seedNum = NULL
   
   # Precision Recall curve (PR curve)
   classes <- dataTestResult$CauseLabel
-  levels(classes) <- c("0", "1","2","3", "4", "5", "6", "7", "8")
+  levels(classes) <- c("0", "1","2","3", "4", "5", "6", "7", "8", "99")
   
   plot(x=NA, y=NA, xlim=c(0,1), ylim=c(0,1), ylab="Precision", xlab="Recall", bty="n")
-  colors <- c("#a6cee3", "#1f78b4", "#b2df8a", "#33a02c", "#fb9a99", "#e31a1c", "#fdbf6f", "#cab2d6","#6a3d9a")
+  colors <- c("#a6cee3", "#1f78b4", "#b2df8a", "#33a02c", "#fb9a99", "#e31a1c", "#fdbf6f","#ff7f00", "#cab2d6","#6a3d9a")
   aucs <- rep(NA, length(levels(classes)))
   for (i in seq_along(levels(classes))) {
     cur.classes <- levels(classes)[i]
@@ -289,8 +297,8 @@ causePrediction <- function (outputFolder, TAR = 30, nTree = 200, seedNum = NULL
   }
   legend("bottomleft", bty = "n", 
          legend=c("No Death", "Malignant cancer", "Ischemic heart disease", "Cerebrovascular disease", 
-                  "Pneumonia", "Diabetes", "Liver disease", "Chronic lower respiratory disease", "Hypertensive disease"),
-         col=c("#a6cee3", "#1f78b4", "#b2df8a", "#33a02c", "#fb9a99", "#e31a1c", "#fdbf6f", "#cab2d6","#6a3d9a"), lwd = 2)
+                  "Pneumonia", "Diabetes", "Liver disease", "Chronic lower respiratory disease", "Hypertensive disease", "Others"),
+         col=c("#a6cee3", "#1f78b4", "#b2df8a", "#33a02c", "#fb9a99", "#e31a1c", "#fdbf6f","#ff7f00", "#cab2d6","#6a3d9a"), lwd = 2)
   print(paste0("Mean AUC under the precision-recall curve is :", round(mean(aucs), 4)))
   
   savepath <- paste("randomForest PR curve", TAR, nTree, sep = "_")
@@ -312,13 +320,13 @@ causePrediction <- function (outputFolder, TAR = 30, nTree = 200, seedNum = NULL
   try(plot4 <- lines.roc(dataTestResult$PneumoLabel, dataTestResult$cause.value4, col = "#fb9a99"))
   try(plot5 <- lines.roc(dataTestResult$DMLabel, dataTestResult$cause.value5, col = "#e31a1c"))
   try(plot6 <- lines.roc(dataTestResult$LiverLabel, dataTestResult$cause.value6, col = "#fdbf6f"))
-  try(plot7 <- lines.roc(dataTestResult$CLRDLabel, dataTestResult$cause.value7, col = "#cab2d6"))
-  try(plot8 <- lines.roc(dataTestResult$HTLabel, dataTestResult$cause.value8, col = "#6a3d9a"))
-  
+  try(plot7 <- lines.roc(dataTestResult$CLRDLabel, dataTestResult$cause.value7, col = "#ff7f00"))
+  try(plot8 <- lines.roc(dataTestResult$HTLabel, dataTestResult$cause.value8, col = "#cab2d6"))
+  try(plot99 <- lines.roc(dataTestResult$OtherLabel, dataTestResult$cause.value9, col = "#6a3d9a"))
   legend("bottomright", bty = "n", 
          legend=c("No Death", "Malignant cancer", "Ischemic heart disease", "Cerebrovascular disease", 
-                  "Pneumonia", "Diabetes", "Liver disease", "Chronic lower respiratory disease", "Hypertensive disease"),
-         col=c("#a6cee3", "#1f78b4", "#b2df8a", "#33a02c", "#fb9a99", "#e31a1c", "#fdbf6f", "#cab2d6","#6a3d9a"), lwd = 2)
+                  "Pneumonia", "Diabetes", "Liver disease", "Chronic lower respiratory disease", "Hypertensive disease", "Others"),
+         col=c("#a6cee3", "#1f78b4", "#b2df8a", "#33a02c", "#fb9a99", "#e31a1c", "#fdbf6f","#ff7f00", "#cab2d6","#6a3d9a"), lwd = 2)
   
   
   savepath <- paste("randomForest ROC curve", TAR, nTree, sep = "_")
