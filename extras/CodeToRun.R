@@ -1,6 +1,8 @@
 library(CauseSpecificMortality)
+
 # USER INPUTS
 #=======================
+
 # The folder where the study intermediate and result files will be written:
 outputFolder <- "./CauseSpecificMortalityResults"
 
@@ -21,6 +23,7 @@ connectionDetails <- DatabaseConnector::createConnectionDetails(dbms = dbms,
                                                                 port = port)
 
 # Add the database containing the OMOP CDM data
+
 cdmDatabaseSchema <- 'cdm database schema'
 # Add a database with read/write access as this is where the cohorts will be generated
 cohortDatabaseSchema <- 'work database schema'
@@ -29,7 +32,6 @@ oracleTempSchema <- NULL
 
 # table name where the cohorts will be generated
 cohortTable <- 'CauseSpecificMortalityCohort'
-
 #=======================
 
 execute(connectionDetails = connectionDetails,
@@ -45,7 +47,6 @@ execute(connectionDetails = connectionDetails,
         packageResults = F,
         createValidationPackage = F,
         minCellCount= 5)
-
 
 # Cause of death prediction (If you want to change defalut parameter setting)
 

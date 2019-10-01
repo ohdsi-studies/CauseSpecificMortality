@@ -40,6 +40,8 @@ priviliges for storing temporary tables.}
 (/). Do not use a folder on a network drive since this greatly impacts
 performance.}
 
+\item{DB_END_DATE}{End date of your database}
+
 \item{createProtocol}{Creates a protocol based on the analyses specification}
 
 \item{createCohorts}{Create the cohortTable table with the target population and outcome cohorts?}

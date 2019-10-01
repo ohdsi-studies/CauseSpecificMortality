@@ -17,7 +17,15 @@
   "InclusionRules": [],
   "PrimaryCriteria": {
     "CriteriaList": [{"VisitOccurrence": {
+<<<<<<< HEAD:inst/cohorts/CSKIM_Any_Visit.json
       "OccurrenceEndDate": null,
+=======
+      "OccurrenceEndDate": {
+        "Op": "lte",
+        "Extent": null,
+        "Value": "2013-12-31"
+      },
+>>>>>>> bac472a0e74ea706ae11ebb8bd723c24b7087ec3:inst/cohorts/CSKIM_All_visit_2012.json
       "VisitLength": null,
       "CorrelatedCriteria": null,
       "VisitSourceConcept": null,

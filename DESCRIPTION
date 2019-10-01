@@ -39,7 +39,11 @@ Suggests:
     shinycssloaders,
     shinydashboard,
     Hydra
+<<<<<<< HEAD
 License: 
+=======
+License: Apache License 2.0
+>>>>>>> bac472a0e74ea706ae11ebb8bd723c24b7087ec3
 Encoding: UTF-8
 VignetteBuilder: knitr
 LazyData: TRUE

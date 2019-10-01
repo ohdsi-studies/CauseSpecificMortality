@@ -1,3 +1,8 @@
+
+Cause-specific mortality package
+========================================================
+
+
 Instructions To Build Package
 ===================
 
@@ -74,6 +79,31 @@ execute(connectionDetails = connectionDetails,
 TAR <- c(30,60,90,180,365)
 nTree <- 200 
 lapply(TAR, function(x) causePrediction(outputFolder, TAR = x))
+```
+
+- To predict cause of death after PLP analysis (model 1 = Lasso logistic regression, 2 = Gradient boosting machine)
+
+```r
+CausePrediction(outputFolder, TAR = 30, nTree = 500, seedNum = NULL)
+
+```
+
+- You can then easily transport the trained models into a network validation study package by running :
+
+```r
+  
+  execute(connectionDetails = connectionDetails,
+        cdmDatabaseSchema = cdmDatabaseSchema,
+        cohortDatabaseSchema = cohortDatabaseSchema,
+        cohortTable = cohortTable,
+        outputFolder = outputFolder,
+        createProtocol = F,
+        createCohorts = F,
+        runAnalyses = F,
+        createResultsDoc = F,
+        packageResults = F,
+        createValidationPackage = T,
+        minCellCount= 5)
 
 ```
 
@@ -93,3 +123,4 @@ viewShiny('CauseSpecificMortality')
 
 # Development status
 Under development. Do not use
+
