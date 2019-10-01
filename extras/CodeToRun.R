@@ -42,12 +42,19 @@ execute(connectionDetails = connectionDetails,
         createProtocol = F,
         createCohorts = T,
         runAnalyses = T,
+        causePrediction = T,
         createResultsDoc = F,
         packageResults = F,
         createValidationPackage = F,
         minCellCount= 5)
 
-# Cause of death prediction
-# TAR = (30,90,180,365), nTree = tree numbers of random forest algorithm, seedNum = Seed number
-CausePrediction(outputFolder, TAR = 30, nTree = 200, seedNum = NULL)
+# Cause of death prediction (If you want to change defalut parameter setting)
 
+# TAR = (30,90,180,365), nTree = tree numbers of random forest algorithm, seedNum = Seed number
+causePrediction(outputFolder, TAR = 30, nTree = 200, seedNum = NULL)
+
+# If you want to run the causePrediction function with multiple parameters, you can use lapply like this :
+outputFolder <- outputFolder
+TAR <- c(30,60,90,180,365)
+nTree <- 200 
+lapply(TAR, function(x) causePrediction(outputFolder, nTree, TAR = x))

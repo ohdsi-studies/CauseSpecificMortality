@@ -47,6 +47,13 @@ oracleTempSchema <- NULL
 # table name where the cohorts will be generated
 cohortTable <- 'CauseSpecificMortalityCohort'
 
+# parameter settings for causePrediction 
+# TAR = (30,90,180,365)
+# nTree = tree numbers of random forest algorithm, seedNum = Seed number
+
+TAR <- 30
+nTree <- 200 
+seedNum <- NULL
 
 #=======================
 
@@ -58,15 +65,25 @@ execute(connectionDetails = connectionDetails,
         createProtocol = F,
         createCohorts = T,
         runAnalyses = T,
+        causePrediction = T,
         createResultsDoc = F,
         packageResults = F,
         createValidationPackage = F,
         minCellCount= 5)
 ```
-- To predict cause of death after PLP analysis (model 1 = Lasso logistic regression, 2 = Gradient boosting machine)
-  
+
+- If you want to run the causePrediction function with multiple parameter, you can use this
+
 ```r
 
+TAR <- c(30,60,90,180,365)
+nTree <- 200 
+lapply(TAR, function(x) causePrediction(outputFolder, TAR = x))
+```
+
+- To predict cause of death after PLP analysis (model 1 = Lasso logistic regression, 2 = Gradient boosting machine)
+
+```r
 CausePrediction(outputFolder, TAR = 30, nTree = 500, seedNum = NULL)
 
 ```
