@@ -1,13 +1,24 @@
+Cause-specific mortality prediction
+=============
 
-Cause-specific mortality package
-========================================================
+<img src="https://img.shields.io/badge/Study%20Status-Design%20Finalized-brightgreen.svg" alt="Study Status: Design Finalized">
+
+- Analytics use case(s): **Patient-Level Prediction**
+- Study type: **Clinical Application**
+- Tags: **-**
+- Study lead: **Chungsoo Kim**
+- Study lead forums tag: **[[CSKim]](https://forums.ohdsi.org/u/[Chungsoo_Kim])**
+- Study start date: **June, 2019**
+- Study end date: **-**
+- Protocol: **-**
+- Publications: **-**
+- Results explorer: **-**
 
 
 Instructions To Build Package
 ===================
 
 - Build the package by clicking the R studio 'Install and Restart' button in the built tab 
-
 
 
 Instructions To Run Package
@@ -48,12 +59,6 @@ oracleTempSchema <- NULL
 cohortTable <- 'CauseSpecificMortalityCohort'
 
 # parameter settings for causePrediction 
-# TAR = (30,90,180,365)
-# nTree = tree numbers of random forest algorithm, seedNum = Seed number
-
-TAR <- 30
-nTree <- 200 
-seedNum <- NULL
 
 #=======================
 
@@ -73,19 +78,14 @@ execute(connectionDetails = connectionDetails,
 ```
 
 - If you want to run the causePrediction function with multiple parameter, you can use this
+- TAR: 30, 60, 90, 180, 365 days
+- Algorithm: [values](http://topepo.github.io/caret/available-models.html) in caret package
+
 
 ```r
-
 TAR <- c(30,60,90,180,365)
-nTree <- 200 
-lapply(TAR, function(x) causePrediction(outputFolder, TAR = x))
-```
-
-- To predict cause of death after PLP analysis (model 1 = Lasso logistic regression, 2 = Gradient boosting machine)
-
-```r
-CausePrediction(outputFolder, TAR = 30, nTree = 500, seedNum = NULL)
-
+algorithm <- "rf"
+lapply(TAR, function(x) causePrediction(outputFolder, TAR = x, algorithm))
 ```
 
 - You can then easily transport the trained models into a network validation study package by running :
