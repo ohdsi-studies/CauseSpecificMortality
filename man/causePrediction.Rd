@@ -8,9 +8,7 @@
 
 \item{TAR}{Time At Risk window end}
 
-\item{model}{machine learning model 1- lassologistic regression, 2-Gradient boosting machine}
-
-\item{nTree}{Number of Tree of Random Forest model}
+\item{algorithm}{algorithm in caret package}
 
 \item{seedNum}{Seed number}
 }
