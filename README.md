@@ -7,7 +7,7 @@ Cause-specific mortality prediction
 - Study type: **Clinical Application**
 - Tags: **-**
 - Study lead: **Chungsoo Kim**
-- Study lead forums tag: **[CSKim](https://forums.ohdsi.org/u/[Chungsoo_Kim])**
+- Study lead forums tag: **[Chungsoo_Kim](https://forums.ohdsi.org/u/Chungsoo_Kim)**
 - Study start date: **June 1, 2019**
 - Study end date: **-**
 - Protocol: **-**
