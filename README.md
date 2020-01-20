@@ -7,13 +7,14 @@ Cause-specific mortality prediction
 - Study type: **Clinical Application**
 - Tags: **-**
 - Study lead: **Chungsoo Kim**
-- Study lead forums tag: **[[CSKim]](https://forums.ohdsi.org/u/[Chungsoo_Kim])**
-- Study start date: **June, 2019**
+- Study lead forums tag: **[CSKim](https://forums.ohdsi.org/u/[Chungsoo_Kim])**
+- Study start date: **June 1, 2019**
 - Study end date: **-**
 - Protocol: **-**
 - Publications: **-**
 - Results explorer: **-**
 
+Development of cause of death predictive model using Patient-level prediction.
 
 Instructions To Build Package
 ===================
