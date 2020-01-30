@@ -7,13 +7,14 @@ Cause-specific mortality prediction
 - Study type: **Clinical Application**
 - Tags: **-**
 - Study lead: **Chungsoo Kim**, **Seng Chan You**, **Rae Woong Park***
-- Study lead forums tag: **[[CSKim]](https://forums.ohdsi.org/u/Chungsoo_Kim)**, **[[SCYou]](https://forums.ohdsi.org/u/SCYou)**, **[[RWPark]](https://forums.ohdsi.org/u/rwpark)**
-- Study start date: **June, 2019**
+- Study lead forums tag: **[[Chungsoo_Kim]](https://forums.ohdsi.org/u/Chungsoo_Kim)**, **[[SCYou]](https://forums.ohdsi.org/u/SCYou)**, **[[RWPark]](https://forums.ohdsi.org/u/rwpark)**
+- Study start date: **June 1, 2019**
 - Study end date: **-**
 - Protocol: **-**
 - Publications: **-**
 - Results explorer: **-**
 
+Development of cause of death predictive model using Patient-level prediction.
 
 Instructions To Build Package
 ===================
@@ -77,10 +78,10 @@ execute(connectionDetails = connectionDetails,
         minCellCount= 5)
 ```
 
-- If you want to run the causePrediction function with multiple parameter, you can use this
 - TAR: 30, 60, 90, 180, 365 days
 - algorithm: [values](http://topepo.github.io/caret/available-models.html) in caret package
 
+- If you want to run the causePrediction function with multiple parameter, you can use this
 
 ```r
 TAR <- c(30,60,90,180,365)
