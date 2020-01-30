@@ -50,11 +50,14 @@ execute(connectionDetails = connectionDetails,
 
 # Cause of death prediction (If you want to change defalut parameter setting)
 
-# TAR = (30,90,180,365), nTree = tree numbers of random forest algorithm, seedNum = Seed number
-causePrediction(outputFolder, TAR = 30, nTree = 200, seedNum = NULL)
+# TAR = 30, 60, 90, 180, 365 days
+# algorithm = algorithm you want to use for stacking ensemble model
+# available algorithms in caret packages (http://topepo.github.io/caret/available-models.html)
+# seedNum = Seed number
+
+causePrediction(outputFolder, TAR = 30, algorithm = "rf", seedNum = NULL)
 
 # If you want to run the causePrediction function with multiple parameters, you can use lapply like this :
-outputFolder <- outputFolder
 TAR <- c(30,60,90,180,365)
-nTree <- 200 
-lapply(TAR, function(x) causePrediction(outputFolder, nTree, TAR = x))
+algorithm <- "rf"
+lapply(TAR, function(x) causePrediction(outputFolder, TAR = x, algorithm))
