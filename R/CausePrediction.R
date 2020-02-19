@@ -87,10 +87,12 @@ causePrediction <- function (outputFolder, TAR = 30, algorithm = "rf", seedNum =
   outDFoutcome <- data.frame()
   for (j in model1) {
     df3 <- outList[[j]] %>% select(subjectId, outcomeCount)
-    colnames(df3)[2]<- paste(paste("Label", settings$outcomeName[j], sep = "_"), settings$modelSettingsId[j], sep = "_")
+    colnames(df3)[2]<- paste(paste("Label", settings$outcomeName[j], sep = "_"),
+                             settings$modelSettingsId[j], sep = "_")
     if (length(outDFoutcome) == 0) {
       outDFoutcome <- outList[[j]] %>% select(indexes, subjectId, outcomeCount)
-      colnames(outDFoutcome)[3] <- paste(paste("Label", settings$outcomeName[j], sep = "_"), settings$modelSettingsId[j], sep = "_")
+      colnames(outDFoutcome)[3] <- paste(paste("Label", settings$outcomeName[j], sep = "_"),
+                                         settings$modelSettingsId[j], sep = "_")
     }
     else{
       outDFoutcome <- left_join(outDFoutcome, df3, by = "subjectId")
@@ -183,13 +185,14 @@ causePrediction <- function (outputFolder, TAR = 30, algorithm = "rf", seedNum =
                                       LiverValue1, LiverValue2, CLRDValue1, CLRDValue2, HTValue1, HTValue2) 
   outcomeTest <- as.factor(dataTest$CauseLabel)
   
-  fitModel <- caret::train(CauseLabel ~ DeathValue1 + DeathValue2 + CancerValue1 + CancerValue2 + IHDValue1 + IHDValue2
-                           + CerebroValue1 + CerebroValue2 + PneumoValue1 + PneumoValue2 + DMValue1 + DMValue2 + LiverValue1 + LiverValue2
-                           + CLRDValue1 + CLRDValue2 + HTValue1 + HTValue2
-                           , data = dataTrain, trControl = fitControl,
-                           method = algorithm , metric = "Accuracy"
-                           ,verbose = T
-  )
+
+  fitModel <- caret::train(CauseLabel ~ DeathValue1 + DeathValue2 + CancerValue1 + CancerValue2 +
+                             IHDValue1 + IHDValue2 + CerebroValue1 + CerebroValue2 + PneumoValue1 +
+                             PneumoValue2 + DMValue1 + DMValue2 + LiverValue1 + LiverValue2 +
+                             CLRDValue1 + CLRDValue2 + HTValue1 + HTValue2, 
+                           data = dataTrain, trControl = fitControl,
+                           method = algorithm , metric = "Accuracy", verbose = T)
+
   saveModel <- paste(saveFolder, algorithm, sep = "/")
   saveModel <- paste(saveModel, TAR, sep = "_")
   saveModel <- paste(saveModel, "rds", sep = ".")
@@ -199,9 +202,10 @@ causePrediction <- function (outputFolder, TAR = 30, algorithm = "rf", seedNum =
   
   dataTestResult <- dataTest 
   
+
   dataTestResult$cause.prediction <- predict(fitModel, newdata = featureTest)
   dataTestResult$cause.value <- predict(fitModel, newdata = featureTest, type = "prob")
-  
+
   
   # Accuracy 
   dfPerformance <- dataTestResult
@@ -343,8 +347,6 @@ causePrediction <- function (outputFolder, TAR = 30, algorithm = "rf", seedNum =
   dev.off()
   print(paste0("Mean AUC under the precision-recall curve is :", round(mean(aucs), 4)))
   
-  
-  
   # Receiver Operating Characteristics Plot
   dfPerformance$CauseLabel <- as.character(dfPerformance$CauseLabel)
   
@@ -360,6 +362,7 @@ causePrediction <- function (outputFolder, TAR = 30, algorithm = "rf", seedNum =
   tiff(savepath, 3200, 3200, units = "px", res = 800)
   colorset <- c("#a6cee3","#1f78b4", "#b2df8a", "#33a02c", "#fb9a99", "#e31a1c", "#fdbf6f", "#ff7f00", "#cab2d6", "#6a3d9a")
   par(pty = "s")
+
   
   try(pROC::plot.roc(dfPerformance[,2], dfPerformance$cause.value[,1], legacy.axes = T, percent = F, col = colorset[1], identity = F))
   
@@ -375,7 +378,7 @@ causePrediction <- function (outputFolder, TAR = 30, algorithm = "rf", seedNum =
          col=c("#a6cee3", "#1f78b4", "#b2df8a", "#33a02c", "#fb9a99", "#e31a1c", "#fdbf6f","#ff7f00", "#cab2d6","#6a3d9a"), lwd = 2)
   
   dev.off()
-  
+
   
   
   ### 8. Save files in saveFolder
@@ -391,6 +394,7 @@ causePrediction <- function (outputFolder, TAR = 30, algorithm = "rf", seedNum =
   savepath <- file.path(saveFolder, savepath)
   saveRDS(dataTestValue, file = savepath)
   
+
   # plotfitModel <- plot(fitModel)
   # varImpfitModel <- caret::varImp(fitModel)
   # varPlotfitModel <- plot(caret::varImp(fitModel))
@@ -399,6 +403,7 @@ causePrediction <- function (outputFolder, TAR = 30, algorithm = "rf", seedNum =
   # predictProbRf <- predict(fitModel, newdata = featureTest, type = "prob")
   # CMfitModel <- caret::confusionMatrix(predictClassRf, outcomeTest)
   # accfitModel <- mean(predictClassRf == outcomeTest)
+
   
   ParallelLogger::logInfo("DONE")
   

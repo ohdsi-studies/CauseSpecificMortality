@@ -6,6 +6,7 @@ Cause-specific mortality prediction
 - Analytics use case(s): **Patient-Level Prediction**
 - Study type: **Clinical Application**
 - Tags: **-**
+
 - Study lead: **Chungsoo Kim**, **Seng Chan You**, **Rae Woong Park***
 - Study lead forums tag: **[[Chungsoo_Kim]](https://forums.ohdsi.org/u/Chungsoo_Kim)**, **[[SCYou]](https://forums.ohdsi.org/u/SCYou)**, **[[RWPark]](https://forums.ohdsi.org/u/rwpark)**
 - Study start date: **June 1, 2019**
@@ -27,8 +28,10 @@ Instructions To Run Package
 
 
 ```r
+
 library(CauseSpecificMortality)
 # USER INPUTS
+
 #=======================
 # The folder where the study intermediate and result files will be written:
 outputFolder <- "./CauseSpecificMortalityResults"
@@ -77,6 +80,7 @@ execute(connectionDetails = connectionDetails,
         createValidationPackage = F,
         minCellCount= 5)
 ```
+
 
 - TAR: 30, 60, 90, 180, 365 days
 - algorithm: [values](http://topepo.github.io/caret/available-models.html) in caret package
