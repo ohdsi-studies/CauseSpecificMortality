@@ -3,7 +3,6 @@
 \docType{package}
 \name{CauseSpecificMortality}
 \alias{CauseSpecificMortality}
-\alias{CauseSpecificMortality-package}
 \title{CauseSpecificMortality}
 \description{
 CauseSpecificMortality
