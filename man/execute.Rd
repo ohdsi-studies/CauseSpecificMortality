@@ -4,15 +4,26 @@
 \alias{execute}
 \title{Execute the Study}
 \usage{
-execute(connectionDetails, cdmDatabaseSchema,
+execute(
+  connectionDetails,
+  cdmDatabaseSchema,
   cdmDatabaseName = "friendly database name",
-  cohortDatabaseSchema = cdmDatabaseSchema, cohortTable = "cohort",
-  oracleTempSchema = cohortDatabaseSchema, outputFolder,
-  createProtocol = F, createCohorts = F, runAnalyses = F,
-  causePrediction = T, createResultsDoc = F,
-  createValidationPackage = F, analysesToValidate = NULL,
-  packageResults = F, minCellCount = 5, verbosity = "INFO",
-  cdmVersion = 5)
+  cohortDatabaseSchema = cdmDatabaseSchema,
+  cohortTable = "cohort",
+  oracleTempSchema = cohortDatabaseSchema,
+  outputFolder,
+  createProtocol = F,
+  createCohorts = F,
+  runAnalyses = F,
+  causePrediction = T,
+  createResultsDoc = F,
+  createValidationPackage = F,
+  analysesToValidate = NULL,
+  packageResults = F,
+  minCellCount = 5,
+  verbosity = "INFO",
+  cdmVersion = 5
+)
 }
 \arguments{
 \item{connectionDetails}{An object of type \code{connectionDetails} as created using the
